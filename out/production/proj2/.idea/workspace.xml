@@ -2,17 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5c94c8c8-4e3e-4719-9841-812b80a0c946" name="Default" comment="just finished testing matching columns table method">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/Column.java" afterPath="$PROJECT_DIR$/db/Column.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/Indices.java" afterPath="$PROJECT_DIR$/db/Indices.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/Operation.java" afterPath="$PROJECT_DIR$/db/Operation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/Row.java" afterPath="$PROJECT_DIR$/db/Row.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/RowCollection.java" afterPath="$PROJECT_DIR$/db/RowCollection.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/Table.java" afterPath="$PROJECT_DIR$/db/Table.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/TestColumn.java" afterPath="$PROJECT_DIR$/db/TestColumn.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/TestOperation.java" afterPath="$PROJECT_DIR$/db/TestOperation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/TestRowCollection.java" afterPath="$PROJECT_DIR$/db/TestRowCollection.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/TestTable.java" afterPath="$PROJECT_DIR$/db/TestTable.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitkeep" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/javalib.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Main.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Parse.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/Column.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/Database.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/Indices.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/Operation.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/Row.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/RowCollection.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/Table.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/TestColumn.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/TestOperation.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/TestRowCollection.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/TestTable.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/fans.tbl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/p2/codeSamples/CardSuits.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/p2/codeSamples/DemoCardSuits.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/p2/codeSamples/InDemo.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/p2/codeSamples/NestedTestClasses.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/records.tbl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/t1.tbl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/t2.tbl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/t4.tbl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/teams.tbl" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,18 +45,20 @@
       <file leaf-file-name="TestTable.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db/TestTable.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="22" lean-forward="true" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
-              <folding />
+            <state relative-caret-position="0">
+              <caret line="254" column="0" lean-forward="false" selection-start-line="254" selection-start-column="0" selection-end-line="254" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Column.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Column.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db/Column.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-21">
-              <caret line="276" column="5" lean-forward="true" selection-start-line="276" selection-start-column="5" selection-end-line="276" selection-end-column="5" />
+            <state relative-caret-position="255">
+              <caret line="41" column="60" lean-forward="true" selection-start-line="41" selection-start-column="60" selection-end-line="41" selection-end-column="60" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -61,8 +81,8 @@
       <file leaf-file-name="TestOperation.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db/TestOperation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="7" column="44" lean-forward="true" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
+            <state relative-caret-position="480">
+              <caret line="37" column="8" lean-forward="false" selection-start-line="37" selection-start-column="8" selection-end-line="38" selection-end-column="84" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -70,15 +90,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestColumn.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TestColumn.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/db/TestColumn.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
-              <caret line="237" column="0" lean-forward="false" selection-start-line="237" selection-start-column="0" selection-end-line="237" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#5917#5925#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="45">
+              <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -109,10 +126,10 @@
         <option value="$PROJECT_DIR$/db/TestRowCollection.java" />
         <option value="$PROJECT_DIR$/db/RowCollection.java" />
         <option value="$PROJECT_DIR$/db/Operation.java" />
+        <option value="$PROJECT_DIR$/db/TestColumn.java" />
         <option value="$PROJECT_DIR$/db/TestOperation.java" />
         <option value="$PROJECT_DIR$/db/TestTable.java" />
         <option value="$PROJECT_DIR$/db/Table.java" />
-        <option value="$PROJECT_DIR$/db/TestColumn.java" />
         <option value="$PROJECT_DIR$/db/Column.java" />
       </list>
     </option>
@@ -178,7 +195,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TestColumn.testAddition">
+  <component name="RunManager" selected="JUnit.TestColumn">
     <configuration name="Table" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -223,7 +240,7 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="TestColumn.testAddition" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestColumn.testAdd" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="db.*" />
@@ -235,7 +252,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="db" />
       <option name="MAIN_CLASS_NAME" value="db.TestColumn" />
-      <option name="METHOD_NAME" value="testAddition" />
+      <option name="METHOD_NAME" value="testAdd" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -248,7 +265,7 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="TestOperation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestOperation.testCartesianJoin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="db.*" />
@@ -260,8 +277,8 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="db" />
       <option name="MAIN_CLASS_NAME" value="db.TestOperation" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="METHOD_NAME" value="testCartesianJoin" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -273,7 +290,7 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="TestTable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestTable.testInsertInto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="db.*" />
@@ -285,8 +302,8 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="db" />
       <option name="MAIN_CLASS_NAME" value="db.TestTable" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="METHOD_NAME" value="testInsertInto" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -380,19 +397,19 @@
       <listeners />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Application.Table" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.TestColumn" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.TestOperation" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.TestTable" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.TestColumn.testAddition" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.TestOperation.testCartesianJoin" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.TestColumn.testAdd" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.TestTable.testInsertInto" />
+      <item index="3" class="java.lang.String" itemvalue="Application.Table" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.TestColumn" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.TestColumn.testAddition" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.TestTable" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.TestOperation" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.TestColumn" />
-        <item index="4" class="java.lang.String" itemvalue="Application.Table" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.TestColumn" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Table" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.TestTable.testInsertInto" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.TestColumn.testAdd" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.TestOperation.testCartesianJoin" />
       </list>
     </recent_temporary>
   </component>
@@ -410,55 +427,55 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TestColumn_testAddition - 2019.06.18 at 17h 12m 26s.xml">
-      <configuration name="TestColumn.testAddition" configurationId="JUnit" />
+    <history-entry file="TestTable_testInsertInto - 2019.06.12 at 19h 15m 21s.xml">
+      <configuration name="TestTable.testInsertInto" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestColumn_testAddition - 2019.06.18 at 17h 13m 09s.xml">
-      <configuration name="TestColumn.testAddition" configurationId="JUnit" />
+    <history-entry file="TestTable_testInsertInto - 2019.06.12 at 19h 17m 00s.xml">
+      <configuration name="TestTable.testInsertInto" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestColumn_testAddition - 2019.06.18 at 17h 20m 06s.xml">
-      <configuration name="TestColumn.testAddition" configurationId="JUnit" />
+    <history-entry file="TestTable_testInsertInto - 2019.06.12 at 20h 11m 12s.xml">
+      <configuration name="TestTable.testInsertInto" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestColumn_testAddition - 2019.06.18 at 17h 25m 08s.xml">
-      <configuration name="TestColumn.testAddition" configurationId="JUnit" />
+    <history-entry file="TestTable_testInsertInto - 2019.06.12 at 20h 12m 27s.xml">
+      <configuration name="TestTable.testInsertInto" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestColumn_testAddition - 2019.06.18 at 17h 27m 58s.xml">
-      <configuration name="TestColumn.testAddition" configurationId="JUnit" />
+    <history-entry file="TestTable_testInsertInto - 2019.06.12 at 20h 14m 45s.xml">
+      <configuration name="TestTable.testInsertInto" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestColumn_testAddition - 2019.06.18 at 17h 28m 19s.xml">
-      <configuration name="TestColumn.testAddition" configurationId="JUnit" />
+    <history-entry file="TestTable_testInsertInto - 2019.06.12 at 20h 16m 28s.xml">
+      <configuration name="TestTable.testInsertInto" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestColumn_testAddition - 2019.06.18 at 17h 38m 03s.xml">
-      <configuration name="TestColumn.testAddition" configurationId="JUnit" />
+    <history-entry file="TestTable_testInsertInto - 2019.06.12 at 20h 17m 06s.xml">
+      <configuration name="TestTable.testInsertInto" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestColumn_testAddition - 2019.06.18 at 17h 39m 27s.xml">
-      <configuration name="TestColumn.testAddition" configurationId="JUnit" />
+    <history-entry file="TestTable_testInsertInto - 2019.06.12 at 20h 31m 11s.xml">
+      <configuration name="TestTable.testInsertInto" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestColumn_testAddition - 2019.06.18 at 17h 40m 19s.xml">
-      <configuration name="TestColumn.testAddition" configurationId="JUnit" />
+    <history-entry file="TestTable_testInsertInto - 2019.06.12 at 20h 32m 59s.xml">
+      <configuration name="TestTable.testInsertInto" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestColumn_testAddition - 2019.06.18 at 17h 40m 32s.xml">
-      <configuration name="TestColumn.testAddition" configurationId="JUnit" />
+    <history-entry file="TestTable_testInsertInto - 2019.06.12 at 20h 33m 07s.xml">
+      <configuration name="TestTable.testInsertInto" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="2" y="22" width="1260" height="676" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294702" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36092716" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36092716" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Style Checker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -469,6 +486,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294702" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -482,7 +500,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="13" />
+      <option name="time" value="11" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -491,7 +509,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1365">
           <caret line="92" column="63" lean-forward="true" selection-start-line="92" selection-start-column="63" selection-end-line="92" selection-end-column="63" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -536,7 +556,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="855">
           <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -581,7 +603,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="855">
           <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -852,6 +876,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/db/TestTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="254" column="0" lean-forward="false" selection-start-line="254" selection-start-column="0" selection-end-line="254" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/db/Table.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4965">
@@ -872,43 +906,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/Row.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/TestTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="22" lean-forward="true" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/TestColumn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="237" column="0" lean-forward="false" selection-start-line="237" selection-start-column="0" selection-end-line="237" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5917#5925#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/TestOperation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="7" column="44" lean-forward="true" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/TestRowCollection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="549">
@@ -919,13 +916,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/Column.java">
+    <entry file="file://$PROJECT_DIR$/db/Row.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-21">
-          <caret line="276" column="5" lean-forward="true" selection-start-line="276" selection-start-column="5" selection-end-line="276" selection-end-column="5" />
+        <state relative-caret-position="527">
+          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/TestOperation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="37" column="8" lean-forward="false" selection-start-line="37" selection-start-column="8" selection-end-line="38" selection-end-column="84" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/Column.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="41" column="60" lean-forward="true" selection-start-line="41" selection-start-column="60" selection-end-line="41" selection-end-column="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/TestColumn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
