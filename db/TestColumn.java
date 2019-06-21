@@ -238,6 +238,93 @@ public class TestColumn {
 
     }
 
+    @Test
+    public void testSubtraction(){
+
+        Column<Float> col1 = new Column<>("fourth", "float", new Float[]{(float) 31
+                ,(float) 78,(float) 34,(float) 38,(float) 39});
+
+        Column<Integer> col2 = new Column<>("first", "int", new Integer[]{1, 2, 4, 8, 9});
+
+        Column<Integer> col3 = new Column<>("first", "int", new Integer[]{1, 2, 4, 8, 9});
+
+        Column<String> col5 = new Column<>("fourth", "string", new String[]{"31", "78", "34", "38", "39"});
+
+
+        List<Float> col1minus2 = new ArrayList<>();
+        col1minus2.add((float) 30);col1minus2.add((float) 76);col1minus2.add((float) 30);
+        col1minus2.add((float) 30);col1minus2.add((float) 30);
+
+        Column<Float> result1minus2 = new Column<>("result", "float", col1minus2);
+
+
+        List<Integer> col2minus3 = new ArrayList<>();
+        col2minus3.add(0);col2minus3.add(0);col2minus3.add(0);col2minus3.add(0);
+        col2minus3.add(0);
+
+        Column<Integer> result2minus3 = new Column<>("result", "int", col2minus3);
+
+        assertEquals(Column.subtraction(col1, col2, "result"), result1minus2);
+
+        assertEquals(Column.subtraction(col2, col3, "result"), result2minus3);
+
+
+    }
+
+
+    @Test
+    public void testDivision(){
+
+        Column<Float> col1 = new Column<>("fourth", "float", new Float[]{(float) 31
+                ,(float) 78,(float) 34,(float) 38,(float) 49});
+
+        Column<Integer> col2 = new Column<>("first", "int", new Integer[]{0, 2, 2, 2, 7});
+
+
+        //result
+        List result = new ArrayList();
+        result.add("NaN"); result.add((float) 39); result.add((float) 17);
+        result.add((float) 19); result.add((float) 7);
+
+        Column resultCol = new Column("result", "float", result);
+
+        assertEquals(Column.division(col1, col2, "result"), resultCol);
+
+    }
+
+    @Test
+    public void testMultiplication(){
+
+        Column<Float> col1 = new Column<>("fourth", "float", new Float[]{(float) 31
+                ,(float) 78,(float) 34,(float) 38,(float) 49});
+
+        Column<Integer> col2 = new Column<>("first", "int", new Integer[]{0, 2, 2, 2, 7});
+
+        Column col3 = new Column<>("third", "int", new Object[]{2, 3, "NaN", 5, 8});
+
+        /*
+        create resulting columns
+         */
+
+        List col1Times2 = new ArrayList();
+        col1Times2.add((float) 0); col1Times2.add((float) 156); col1Times2.add((float) 68);
+        col1Times2.add((float) 76); col1Times2.add((float) 343);
+
+        Column result1 = new Column("result", "float", col1Times2);
+
+        List col2Times3 = new ArrayList();
+        col2Times3.add(0); col2Times3.add(6);col2Times3.add("NaN");
+        col2Times3.add(10); col2Times3.add(56);
+
+        Column result2 = new Column("result", "int", col2Times3);
+
+
+        assertEquals(Column.multiplication(col1, col2, "result"), result1);
+
+        assertEquals(Column.multiplication(col2, col3, "result"), result2);
+
+    }
+
 
 
 

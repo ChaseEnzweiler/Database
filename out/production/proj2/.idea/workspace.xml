@@ -2,35 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5c94c8c8-4e3e-4719-9841-812b80a0c946" name="Default" comment="just finished testing matching columns table method">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitkeep" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/javalib.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Main.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Parse.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/Column.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/Database.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/Indices.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/Operation.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/Row.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/RowCollection.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/Table.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/TestColumn.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/TestOperation.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/TestRowCollection.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/TestTable.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/fans.tbl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/p2/codeSamples/CardSuits.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/p2/codeSamples/DemoCardSuits.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/p2/codeSamples/InDemo.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/p2/codeSamples/NestedTestClasses.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/records.tbl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/t1.tbl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/t2.tbl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/t4.tbl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/teams.tbl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/proj2/db/Column.class" afterPath="$PROJECT_DIR$/out/production/proj2/db/Column.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/proj2/db/TestColumn.class" afterPath="$PROJECT_DIR$/out/production/proj2/db/TestColumn.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/Column.java" afterPath="$PROJECT_DIR$/db/Column.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/TestColumn.java" afterPath="$PROJECT_DIR$/db/TestColumn.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/proj2/.idea/workspace.xml" afterPath="$PROJECT_DIR$/out/production/proj2/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -42,47 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TestTable.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db/TestTable.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="254" column="0" lean-forward="false" selection-start-line="254" selection-start-column="0" selection-end-line="254" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Column.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db/Column.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="41" column="60" lean-forward="true" selection-start-line="41" selection-start-column="60" selection-end-line="41" selection-end-column="60" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestRowCollection.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db/TestRowCollection.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="549">
-              <caret line="129" column="0" lean-forward="false" selection-start-line="129" selection-start-column="0" selection-end-line="129" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestOperation.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db/TestOperation.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="37" column="8" lean-forward="false" selection-start-line="37" selection-start-column="8" selection-end-line="38" selection-end-column="84" />
+            <state relative-caret-position="187">
+              <caret line="441" column="41" lean-forward="true" selection-start-line="441" selection-start-column="41" selection-end-line="441" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -93,9 +34,23 @@
       <file leaf-file-name="TestColumn.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/db/TestColumn.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="538">
+              <caret line="310" column="33" lean-forward="false" selection-start-line="310" selection-start-column="33" selection-end-line="310" selection-end-column="33" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Table.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/Table.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4965">
+              <caret line="333" column="73" lean-forward="false" selection-start-line="333" selection-start-column="73" selection-end-line="333" selection-end-column="73" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -126,10 +81,10 @@
         <option value="$PROJECT_DIR$/db/TestRowCollection.java" />
         <option value="$PROJECT_DIR$/db/RowCollection.java" />
         <option value="$PROJECT_DIR$/db/Operation.java" />
-        <option value="$PROJECT_DIR$/db/TestColumn.java" />
         <option value="$PROJECT_DIR$/db/TestOperation.java" />
         <option value="$PROJECT_DIR$/db/TestTable.java" />
         <option value="$PROJECT_DIR$/db/Table.java" />
+        <option value="$PROJECT_DIR$/db/TestColumn.java" />
         <option value="$PROJECT_DIR$/db/Column.java" />
       </list>
     </option>
@@ -155,10 +110,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -175,6 +126,10 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -195,27 +150,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TestColumn">
-    <configuration name="Table" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="db.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="db.Table" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="proj2" />
-      <envs />
-    </configuration>
-    <configuration name="TestColumn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.TestColumn.testDivision">
+    <configuration name="TestColumn.testAddition" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="db.*" />
@@ -227,32 +163,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="db" />
       <option name="MAIN_CLASS_NAME" value="db.TestColumn" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration name="TestColumn.testAdd" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="db.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="proj2" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="db" />
-      <option name="MAIN_CLASS_NAME" value="db.TestColumn" />
-      <option name="METHOD_NAME" value="testAdd" />
+      <option name="METHOD_NAME" value="testAddition" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -265,7 +176,7 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="TestOperation.testCartesianJoin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestColumn.testDivision" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="db.*" />
@@ -276,8 +187,8 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="db" />
-      <option name="MAIN_CLASS_NAME" value="db.TestOperation" />
-      <option name="METHOD_NAME" value="testCartesianJoin" />
+      <option name="MAIN_CLASS_NAME" value="db.TestColumn" />
+      <option name="METHOD_NAME" value="testDivision" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -290,7 +201,57 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="TestTable.testInsertInto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestColumn.testMultiplication" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="db.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="proj2" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="db" />
+      <option name="MAIN_CLASS_NAME" value="db.TestColumn" />
+      <option name="METHOD_NAME" value="testMultiplication" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="TestColumn.testSubtraction" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="db.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="proj2" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="db" />
+      <option name="MAIN_CLASS_NAME" value="db.TestColumn" />
+      <option name="METHOD_NAME" value="testSubtraction" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="TestTable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="db.*" />
@@ -302,8 +263,8 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="db" />
       <option name="MAIN_CLASS_NAME" value="db.TestTable" />
-      <option name="METHOD_NAME" value="testInsertInto" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -397,19 +358,19 @@
       <listeners />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.TestOperation.testCartesianJoin" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.TestColumn.testAdd" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.TestTable.testInsertInto" />
-      <item index="3" class="java.lang.String" itemvalue="Application.Table" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.TestColumn" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.TestTable" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.TestColumn.testAddition" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.TestColumn.testSubtraction" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.TestColumn.testDivision" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.TestColumn.testMultiplication" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.TestColumn" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Table" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.TestTable.testInsertInto" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.TestColumn.testAdd" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.TestOperation.testCartesianJoin" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.TestColumn.testDivision" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.TestColumn.testMultiplication" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.TestColumn.testSubtraction" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.TestColumn.testAddition" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.TestTable" />
       </list>
     </recent_temporary>
   </component>
@@ -427,35 +388,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TestTable_testInsertInto - 2019.06.12 at 19h 15m 21s.xml">
-      <configuration name="TestTable.testInsertInto" configurationId="JUnit" />
+    <history-entry file="TestColumn_testDivision - 2019.06.20 at 07h 09m 21s.xml">
+      <configuration name="TestColumn.testDivision" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestTable_testInsertInto - 2019.06.12 at 19h 17m 00s.xml">
-      <configuration name="TestTable.testInsertInto" configurationId="JUnit" />
+    <history-entry file="TestColumn_testDivision - 2019.06.20 at 07h 11m 47s.xml">
+      <configuration name="TestColumn.testDivision" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestTable_testInsertInto - 2019.06.12 at 20h 11m 12s.xml">
-      <configuration name="TestTable.testInsertInto" configurationId="JUnit" />
+    <history-entry file="TestColumn_testMultiplication - 2019.06.20 at 16h 46m 59s.xml">
+      <configuration name="TestColumn.testMultiplication" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestTable_testInsertInto - 2019.06.12 at 20h 12m 27s.xml">
-      <configuration name="TestTable.testInsertInto" configurationId="JUnit" />
+    <history-entry file="TestColumn_testMultiplication - 2019.06.20 at 16h 48m 38s.xml">
+      <configuration name="TestColumn.testMultiplication" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestTable_testInsertInto - 2019.06.12 at 20h 14m 45s.xml">
-      <configuration name="TestTable.testInsertInto" configurationId="JUnit" />
+    <history-entry file="TestColumn_testSubtraction - 2019.06.19 at 09h 03m 40s.xml">
+      <configuration name="TestColumn.testSubtraction" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestTable_testInsertInto - 2019.06.12 at 20h 16m 28s.xml">
-      <configuration name="TestTable.testInsertInto" configurationId="JUnit" />
+    <history-entry file="TestColumn_testSubtraction - 2019.06.19 at 17h 55m 44s.xml">
+      <configuration name="TestColumn.testSubtraction" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestTable_testInsertInto - 2019.06.12 at 20h 17m 06s.xml">
-      <configuration name="TestTable.testInsertInto" configurationId="JUnit" />
+    <history-entry file="TestColumn_testSubtraction - 2019.06.19 at 17h 57m 49s.xml">
+      <configuration name="TestColumn.testSubtraction" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestTable_testInsertInto - 2019.06.12 at 20h 31m 11s.xml">
-      <configuration name="TestTable.testInsertInto" configurationId="JUnit" />
+    <history-entry file="TestColumn_testSubtraction - 2019.06.19 at 17h 58m 08s.xml">
+      <configuration name="TestColumn.testSubtraction" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestTable_testInsertInto - 2019.06.12 at 20h 32m 59s.xml">
-      <configuration name="TestTable.testInsertInto" configurationId="JUnit" />
+    <history-entry file="TestColumn_testSubtraction - 2019.06.19 at 17h 58m 32s.xml">
+      <configuration name="TestColumn.testSubtraction" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestTable_testInsertInto - 2019.06.12 at 20h 33m 07s.xml">
-      <configuration name="TestTable.testInsertInto" configurationId="JUnit" />
+    <history-entry file="TestColumn_testSubtraction - 2019.06.19 at 17h 58m 52s.xml">
+      <configuration name="TestColumn.testSubtraction" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -469,7 +430,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36092716" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294702" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Style Checker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -500,7 +461,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="11" />
+      <option name="time" value="15" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -876,40 +837,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/TestTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="254" column="0" lean-forward="false" selection-start-line="254" selection-start-column="0" selection-end-line="254" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/Table.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4965">
-          <caret line="333" column="73" lean-forward="false" selection-start-line="333" selection-start-column="73" selection-end-line="333" selection-end-column="73" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/Operation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="795">
           <caret line="58" column="79" lean-forward="false" selection-start-line="58" selection-start-column="79" selection-end-line="58" selection-end-column="79" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/TestRowCollection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="549">
-          <caret line="129" column="0" lean-forward="false" selection-start-line="129" selection-start-column="0" selection-end-line="129" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -926,8 +857,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/db/TestOperation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="37" column="8" lean-forward="false" selection-start-line="37" selection-start-column="8" selection-end-line="38" selection-end-column="84" />
+        <state relative-caret-position="30">
+          <caret line="7" column="44" lean-forward="false" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/TestRowCollection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1875">
+          <caret line="129" column="0" lean-forward="false" selection-start-line="129" selection-start-column="0" selection-end-line="129" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/TestTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3507">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/Table.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4965">
+          <caret line="333" column="73" lean-forward="false" selection-start-line="333" selection-start-column="73" selection-end-line="333" selection-end-column="73" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -936,8 +897,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/db/Column.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="41" column="60" lean-forward="true" selection-start-line="41" selection-start-column="60" selection-end-line="41" selection-end-column="60" />
+        <state relative-caret-position="187">
+          <caret line="441" column="41" lean-forward="true" selection-start-line="441" selection-start-column="41" selection-end-line="441" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -946,9 +907,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/db/TestColumn.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="538">
+          <caret line="310" column="33" lean-forward="false" selection-start-line="310" selection-start-column="33" selection-end-line="310" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

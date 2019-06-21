@@ -201,6 +201,8 @@ public class Column<T> {
         check to make sure the types of the columns are correct or else throw exception
         string types cannot be added to column types of float or int
         if one column has string types the other columns cannot!
+        Can probably make a separate function to check for those exceptions in beginning
+        need to add functionality if column contains "NaN" for addition and subtraction.
          */
         if(col1.getType().equals("string") || col2.getType().equals("string")) {
 
@@ -217,21 +219,8 @@ public class Column<T> {
         /*
         find the appropriate type for the new Column
          */
-        String newType;
+        String newType = calculateType(col1, col2);
 
-        if(col1.getType().equals("float") || col2.getType().equals("float")){
-
-            newType = "float";
-
-        } else if(col1.getType().equals("string")){
-
-            newType = "string";
-
-        } else{
-
-            newType = "int";
-
-        }
         /*
         do arithmetic operation on the values of the two columns
          */
@@ -239,7 +228,11 @@ public class Column<T> {
 
         for(int i = 0; i < col1.getSize(); i++){
 
-            if(newType.equals("string")){
+            if(col2.getValue(i).equals("NaN") || col1.getValue(i).equals("NaN")) {
+
+                newValues.add("NaN");
+
+            } else if(newType.equals("string")){
 
                 newValues.add((String) col1.getValue(i) + (String) col2.getValue(i));
 
@@ -277,11 +270,248 @@ public class Column<T> {
     }
 
 
+    /**
+     * subtracts the values of two columns and returns a new columns with the resulting values
+     * only works for int and float types, string column types will throw exception
+     * It will be col1 - col2
+     * @param col1 Column to be subtracted
+     * @param col2 Column to be subtracted by
+     * @param name String name of the new Column
+     * @return new Column with results of subtraction
+     * @throws IllegalArgumentException throws if given string Column
+     */
+    public static Column subtraction(Column col1, Column col2, String name) throws IllegalArgumentException{
+
+        /*
+        check if either columns have string type and throw an exception
+         */
+
+        if(col1.getType().equals("string") || col2.getType().equals("string")){
+
+            throw new IllegalArgumentException();
+        }
+
+        /*
+        find the type of the column to return
+         */
+        String newType = calculateType(col1, col2);
+
+        List newValues = new ArrayList();
+
+        /*
+        perform subtraction on the two columns, check casts, and update new values with results.
+        only supports subtraction of equal length columns
+         */
+
+        for(int i = 0; i < col1.getSize(); i++){
+
+            if(col2.getValue(i).equals("NaN") || col1.getValue(i).equals("NaN")) {
+
+                newValues.add("NaN");
+
+            }else if(newType.equals("int")){
+
+                newValues.add((int) col1.getValue(i) - (int) col2.getValue(i));
 
 
+            } else if(col1.getType().equals("int")){
+
+                int x = (int) col1.getValue(i);
+                float y = (float) col2.getValue(i);
+
+                newValues.add(x - y);
+
+            } else if(col2.getType().equals("int")){
+
+                float x = (float) col1.getValue(i);
+                int y = (int) col2.getValue(i);
+
+                newValues.add(x - y);
+
+            } else{
+
+                float x = (float) col1.getValue(i);
+                float y = (float) col2.getValue(i);
+
+                newValues.add(x - y);
+
+            }
+
+        }
+
+        return new Column(name, newType, newValues);
+
+    }
+
+    /**
+     * calculates the type of a column resulting in arithmetic operation on two columns
+     * @param col1 Column
+     * @param col2 Column
+     * @return String type("int", "float", "string")
+     * */
+    public static String calculateType(Column col1, Column col2){
+
+        String newType;
+
+        if(col1.getType().equals("float") || col2.getType().equals("float")){
+
+            newType = "float";
+
+        } else if(col1.getType().equals("string")){
+
+            newType = "string";
+
+        } else{
+
+            newType = "int";
+
+        }
+
+        return newType;
+
+    }
 
 
+    /**
+     * value by value division of two columns of same length, returns new column of result,
+     * does not change columns used for division, value set to "NaN" if there is zero division
+     * @param col1  Column to be divided by, values are numerator
+     * @param col2 Column used to divide, values are denominator
+     * @param name String name of new resulting column
+     * @return Column with resulting values of division
+     * @throws IllegalArgumentException if trying to use String Columns
+     */
+    public static Column division(Column col1, Column col2, String name) throws IllegalArgumentException{
 
+        if(col1.getType().equals("string") || col2.getType().equals("string")){
+
+            throw new IllegalArgumentException();
+        }
+
+        /*
+        get type of the resulting column after division and instantiate list to add
+        results of division to
+         */
+
+        String newType = calculateType(col1, col2);
+
+        List newValues = new ArrayList();
+
+        /*
+        divide col1 by col2 value by value, check if division by zero which results in NaN.
+        maybe do case switch for the changes.
+         */
+
+        for(int i = 0; i < col1.getSize(); i++){
+
+            if(col2.getValue(i).equals("NaN") || col1.getValue(i).equals("NaN") || col2.getValue(i).equals(0)) {
+
+                newValues.add("NaN");
+
+            }else if(newType.equals("int")){
+
+                newValues.add((int) col1.getValue(i) / (int) col2.getValue(i));
+
+            } else if(col1.getType().equals("int")){
+
+                int x = (int) col1.getValue(i);
+                float y = (float) col2.getValue(i);
+
+                newValues.add(x / y);
+
+            } else if(col2.getType().equals("int")){
+
+                float x = (float) col1.getValue(i);
+                int y = (int) col2.getValue(i);
+
+                newValues.add(x / y);
+
+            } else{
+
+                float x = (float) col1.getValue(i);
+                float y = (float) col2.getValue(i);
+
+                newValues.add(x / y);
+            }
+        }
+
+        return new Column(name, newType, newValues);
+    }
+
+
+    /**
+     * static method for multiplying columns value-wise. returns new Column with values resulting
+     * in multiplying values of parameter columns
+     * @param col1 Column
+     * @param col2 Column
+     * @param name String name of the new Column to be returned
+     * @return Column new column that contains results
+     * @throws IllegalArgumentException if given Column parameter with type String
+     */
+    public static Column multiplication(Column col1, Column col2, String name) throws IllegalArgumentException{
+
+        /* cannot perform multiplication on string type Columns */
+        if(col1.getType().equals("string") || col2.getType().equals("string")){
+
+            throw new IllegalArgumentException();
+
+        }
+
+        /*
+        get type of column to return and instantiate list to hold new resulting values
+         */
+
+        String newType = calculateType(col1, col2);
+
+        List newValues = new ArrayList();
+
+
+        /*
+        loop through and multiply values of each column together
+        need to be fixed and zero division fix taken out
+         */
+
+        for(int i = 0; i < col1.getSize(); i++){
+
+            if(col2.getValue(i).equals("NaN") || col1.getValue(i).equals("NaN")) {
+
+                newValues.add("NaN");
+
+
+            }else if(newType.equals("int")){
+
+                newValues.add((int) col1.getValue(i) * (int) col2.getValue(i));
+
+
+            } else if(col1.getType().equals("int")){
+
+                int x = (int) col1.getValue(i);
+                float y = (float) col2.getValue(i);
+
+                    newValues.add(x * y);
+
+
+            } else if(col2.getType().equals("int")){
+
+                float x = (float) col1.getValue(i);
+                int y = (int) col2.getValue(i);
+
+                newValues.add(x * y);
+
+            } else{
+
+                float x = (float) col1.getValue(i);
+                float y = (float) col2.getValue(i);
+
+                newValues.add(x * y);
+
+
+            }
+
+        }
+
+        return new Column(name, newType, newValues);
+    }
 
 
 
