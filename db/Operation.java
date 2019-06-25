@@ -134,6 +134,37 @@ public class Operation {
 
 
 
+    /*
+    columnSelect and columnNames need to be the same size list
+     */
+    public static Table select(List<String> columnSelect, List<String> columnNames, Table table){
+
+
+        List<Column> tableToReturnColumns = new ArrayList<>();
+
+
+
+
+
+
+
+        
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

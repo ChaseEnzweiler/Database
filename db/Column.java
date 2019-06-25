@@ -178,6 +178,21 @@ public class Column<T> {
 
     }
 
+    /**
+     * returns a duplicate of the column with a different name than the original
+     * @param name String name of what you want duplicate column to be named
+     * @return new Column
+     */
+    public Column<T> changeName(String name){
+
+        return new Column<>(name, this.getType(), this.getValues());
+
+    }
+
+
+
+
+
     /*
     need static arithmetic operations that also check types and throwing exceptions. For no value and not a number
     there will be no changes to further operations on nan, but for division by zero it will throw an arithmetic
@@ -504,18 +519,13 @@ public class Column<T> {
                 float y = (float) col2.getValue(i);
 
                 newValues.add(x * y);
-
-
+                
             }
 
         }
 
         return new Column(name, newType, newValues);
     }
-
-
-
-
 
 
 

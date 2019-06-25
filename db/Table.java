@@ -6,6 +6,11 @@ import java.util.List;
 
 public class Table {
 
+    /*
+    need to change to make table store columns in a list rather than store them in arrays
+    slows down some methods when having to convert arrays back into lists.
+     */
+
 
     Column[] columns;
 
@@ -216,6 +221,34 @@ public class Table {
 
         return listOfColumns;
     }
+
+
+    /**
+     * returns proper column from table by name, if column with nameToGet does not exists
+     * throws a illegal argument exception
+     * @param nameToGet String of the name of the Column you want returned
+     * @return Column
+     * @throws IllegalArgumentException throws if Column name does not exist
+     */
+    public Column getColumnByName(String nameToGet) throws IllegalArgumentException{
+
+        List<Column> columns = this.getColumnsAsList();
+
+        /*
+        look through columns for matching name, if not found throw Illegal Argument Exception
+         */
+
+        for(Column col : columns){
+
+            if(col.getName().equals(nameToGet)){
+
+                return col;
+            }
+        }
+
+        throw new IllegalArgumentException();
+    }
+
 
     /**
      * inserts a new last row into the table, will print error if literals are not correct
