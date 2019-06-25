@@ -9,10 +9,11 @@ public class Table {
     /*
     need to change to make table store columns in a list rather than store them in arrays
     slows down some methods when having to convert arrays back into lists.
+    this.values = new ArrayList<>(Arrays.asList(values));
      */
 
 
-    Column[] columns;
+    List<Column> columns;
 
     String[] columnNames;
 
@@ -34,7 +35,7 @@ public class Table {
         this.tableName = name;
         this.columnNames = columnNames;
         this.columnTypes = columnTypes;
-        this.columns = columns;
+        this.columns = new ArrayList<>(Arrays.asList(columns));
 
         this.numColumns = columns.length;
 
@@ -62,12 +63,12 @@ public class Table {
 
         this.columnNames = columnNames.toArray(new String[columnNames.size()]);
         this.columnTypes = columnTypes.toArray(new String[columnTypes.size()]);
-        this.columns =  columns.toArray(new Column[columns.size()]);
+        this.columns =  columns;
 
-        this.numColumns = this.columns.length;
+        this.numColumns = this.columns.size();
 
 
-        this.numRows = this.columns[0].getSize();
+        this.numRows = this.columns.get(0).getSize();
 
 
     }
@@ -121,15 +122,15 @@ public class Table {
 
         }
 
-        return Arrays.equals(this.columns, ((Table) other).columns);
+        return this.columns.equals(((Table) other).columns);
 
     }
 
     /**
-     * returns the list of coulumns the table is made up from
+     * returns the list of columns the table is made up from
      * @return Column[] array of columns
      */
-    public Column[] getColumns(){
+    public List<Column> getColumns(){
 
         return columns;
 
@@ -212,14 +213,7 @@ public class Table {
      */
     public List<Column> getColumnsAsList(){
 
-        List<Column> listOfColumns = new ArrayList<>();
-
-        for(Column col: this.columns){
-
-            listOfColumns.add(col);
-        }
-
-        return listOfColumns;
+        return this.columns;
     }
 
 
@@ -259,7 +253,7 @@ public class Table {
     public String insertInto(List<Object> literals){
 
         try {
-            if (literals.size() != this.columns.length) {
+            if (literals.size() != this.columns.size()) {
 
                 throw new IllegalArgumentException();
             }
@@ -268,9 +262,9 @@ public class Table {
             for (int i = 0; i < literals.size(); i++) {
 
 
-                if((this.columns[i].getType() == "string" && literals.get(i) instanceof String)
-                        || (this.columns[i].getType() == "int" && literals.get(i) instanceof Integer)
-                        || (this.columns[i].getType() == "float" && literals.get(i) instanceof Float)){
+                if((this.columns.get(i).getType().equals("string") && literals.get(i) instanceof String)
+                        || (this.columns.get(i).getType().equals("int") && literals.get(i) instanceof Integer)
+                        || (this.columns.get(i).getType().equals("float") && literals.get(i) instanceof Float)){
 
                     continue;
 
@@ -289,7 +283,7 @@ public class Table {
 
         for(int i = 0; i < literals.size(); i++){
 
-            this.columns[i].add(literals.get(i));
+            this.columns.get(i).add(literals.get(i));
         }
 
         this.numRows += 1;
@@ -340,11 +334,11 @@ public class Table {
 
                 if(colIndex == numColumns - 1){
 
-                    System.out.print(columns[colIndex].getValue(rowIndex) + "\n");
+                    System.out.print(columns.get(colIndex).getValue(rowIndex) + "\n");
 
                 }else{
 
-                    System.out.print(columns[colIndex].getValue(rowIndex) + ",");
+                    System.out.print(columns.get(colIndex).getValue(rowIndex) + ", ");
                 }
             }
         }

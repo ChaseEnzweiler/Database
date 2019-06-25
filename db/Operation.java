@@ -142,6 +142,8 @@ public class Operation {
 
         List<Column> tableToReturnColumns = new ArrayList<>();
 
+        return table;
+
 
 
 
