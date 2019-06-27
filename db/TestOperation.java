@@ -14,7 +14,7 @@ public class TestOperation {
      */
 
     Column<Integer> a1 = new Column<>("a", "int", new Integer[]{1,2,3,4,5});
-    Column<String> b1 = new Column<>("b", "String", new String[]{"1", "2", "3", "4", "5"});
+    Column<String> b1 = new Column<>("b", "string", new String[]{"1", "2", "3", "4", "5"});
     Column<Float> c1 = new Column<>("c", "float", new Float[]{(float) 1.1, (float) 2.2,(float) 3.3,
             (float) 4.4,(float) 5.5});
     Column<Integer> d1 = new Column<>("d", "int", new Integer[]{1,2,3,4,5});
@@ -25,7 +25,7 @@ public class TestOperation {
      */
 
     Column<Integer> a2 = new Column<>("a", "int", new Integer[]{3,2,1,4,5,6,1});
-    Column<String> b2 = new Column<>("b", "String", new String[]{"3", "13", "1", "4", "56", "6", "1"});
+    Column<String> b2 = new Column<>("b", "string", new String[]{"3", "13", "1", "4", "56", "6", "1"});
     Column<Float> c2 = new Column<>("c", "float", new Float[]{(float) 3.3, (float) 2.5,(float) 1.1,
             (float) 98.8,(float) 5.5, (float) 7.7, (float) 1.1});
     Column<Integer> d2 = new Column<>("none", "int", new Integer[]{34, 54, 76, 87, 98, 345, 6});
@@ -73,7 +73,7 @@ public class TestOperation {
          */
 
         Column<Integer> finalCol1 = new Column<>("a", "int", new Integer[]{1,1,3});
-        Column<String> finalCol2 = new Column<>("b", "String", new String[]{"1", "1", "3"});
+        Column<String> finalCol2 = new Column<>("b", "string", new String[]{"1", "1", "3"});
         Column<Float> finalCol3 = new Column<>("c", "float", new Float[]{(float) 1.1, (float) 1.1,(float) 3.3});
         Column<Integer> finalCol4 = new Column<>("d", "int", new Integer[]{1,1,3});
         Column<Integer> finalCol5 = new Column<>("none", "int", new Integer[]{ 76, 6, 34});
@@ -90,7 +90,7 @@ public class TestOperation {
          */
 
         Column<Integer> finalCol11 = new Column<>("a", "int", new Integer[]{1,1,3});
-        Column<String> finalCol22 = new Column<>("b", "String", new String[]{"1", "1", "3"});
+        Column<String> finalCol22 = new Column<>("b", "string", new String[]{"1", "1", "3"});
         Column<Float> finalCol33 = new Column<>("c", "float", new Float[]{(float) 1.1, (float) 1.1,(float) 3.3});
         Column<Integer> finalCol44 = new Column<>("d", "int", new Integer[]{1,1,3});
         Column<Integer> finalCol55 = new Column<>("none", "int", new Integer[]{ 76, 6, 34});
@@ -119,7 +119,7 @@ public class TestOperation {
         /*
         columns for table 1
          */
-        Column<String> a1 = new Column<>("String", "String", new String[]{"1", "2", "3"});
+        Column<String> a1 = new Column<>("String", "string", new String[]{"1", "2", "3"});
         Column<Integer> a2 = new Column<>("Integer", "int", new Integer[]{1,2,3});
         Column<Float> a3 = new Column<>("Float", "float", new Float[]{(float) 1.1, (float) 2.2,
                 (float) 3.3});
@@ -128,7 +128,7 @@ public class TestOperation {
         columns for table 2
          */
 
-        Column<String> b1 = new Column<>("String", "String", new String[]{"10", "20", "30"});
+        Column<String> b1 = new Column<>("String", "string", new String[]{"10", "20", "30"});
         Column<Integer> b2 = new Column<>("Integer", "int", new Integer[]{10,20,30});
         Column<Float> b3 = new Column<>("Float", "float", new Float[]{(float) 10.1, (float) 20.2,
                 (float) 30.3});
@@ -136,7 +136,7 @@ public class TestOperation {
         /*
         columns for table 3
          */
-        Column<String> c1 = new Column<>("String1", "String", new String[]{"10", "20", "30"});
+        Column<String> c1 = new Column<>("String1", "string", new String[]{"10", "20", "30"});
         Column<Integer> c2 = new Column<>("Integer2", "int", new Integer[]{10,20,30});
         Column<Float> c3 = new Column<>("Float3", "float", new Float[]{(float) 10.1, (float) 20.2,
                 (float) 30.3});
@@ -145,12 +145,12 @@ public class TestOperation {
         columns for table 4
          */
 
-        Column<String> d1 = new Column<>("String", "String",
+        Column<String> d1 = new Column<>("String", "string",
                 new String[]{"1","1","1","2","2","2","3","3","3"});
         Column<Integer> d2 = new Column<>("Integer", "int", new Integer[]{1,1,1,2,2,2,3,3,3});
         Column<Float> d3 = new Column<>("Float", "float", new Float[]{(float) 1.1, (float) 1.1, (float) 1.1
                 , (float) 2.2,(float) 2.2, (float) 2.2, (float) 3.3, (float) 3.3, (float) 3.3});
-        Column<String> d4 = new Column<>("String1", "String",
+        Column<String> d4 = new Column<>("String1", "string",
                 new String[]{"10", "20", "30", "10", "20", "30", "10", "20", "30"});
         Column<Integer> d5 = new Column<>("Integer2", "int",
                 new Integer[]{10,20,30, 10,20,30, 10,20,30});
@@ -190,7 +190,7 @@ public class TestOperation {
          */
 
         List<Column> empty = new ArrayList<>();
-        Column<String> e1 = new Column<>("String", "String", new String[]{});
+        Column<String> e1 = new Column<>("String", "string", new String[]{});
         Column<Integer> e2 = new Column<>("Integer", "int", new Integer[]{});
         Column<Float> e3 = new Column<>("Float", "float", new Float[]{});
 
@@ -201,6 +201,89 @@ public class TestOperation {
 
         /* test for cartesian join */
         assertEquals(Operation.Join(table1, table3, "table4"), table4);
+
+    }
+
+
+    @Test
+    public void testSelect(){
+
+        Column<Integer> col1 = new Column<>("col1", "int", new Integer[]{1,2,3,4,5});
+        Column<String> col2 = new Column<>("col2", "string", new String[]{"1", "2", "3", "4", "5"});
+        Column<Float> col3 = new Column<>("col3", "float", new Float[]{(float) 1.1, (float) 2.2,(float) 3.3,
+                (float) 4.4,(float) 5.5});
+        Column<Integer> col4 = new Column<>("col4", "int", new Integer[]{1,2,3,4,5});
+        Column<String> col5 = new Column<>("col5", "string", new String[]{"1", "2", "3", "4", "5"});
+
+
+        List<Column> tableColumns = new ArrayList<>();
+        tableColumns.add(col1); tableColumns.add(col2); tableColumns.add(col3);
+        tableColumns.add(col4); tableColumns.add(col5);
+
+        Table selector = new Table("selector", tableColumns);
+
+
+
+        /*
+        first select
+         */
+
+        List<String> firstSelectCol = new ArrayList<>();
+        firstSelectCol.add("col5"); firstSelectCol.add("col2");
+
+        List<String> firstSelectNames = new ArrayList<>();
+        firstSelectNames.add("col5"); firstSelectNames.add("chase");
+
+        List<Column> firstSelectResult = new ArrayList<>();
+        firstSelectResult.add(col5); firstSelectResult.add(col2.changeName("chase"));
+
+        Table firstSelectTable = new Table("firstSelect", firstSelectResult);
+
+        assertEquals(Operation.select(firstSelectCol, firstSelectNames, selector, "firstSelect"), firstSelectTable);
+
+        /*
+        second select
+         */
+
+        List<String> secondSelectCol = new ArrayList<>();
+        secondSelectCol.add("col5 + col2"); secondSelectCol.add("col3 - col4");
+
+        List<String> secondSelectNames = new ArrayList<>();
+        secondSelectNames.add("fivePlusTwo"); secondSelectNames.add("threeMinusFour");
+
+        List<Column> secondSelectResult = new ArrayList<>();
+        secondSelectResult.add(Column.addition(col5, col2, "fivePlusTwo"));
+        secondSelectResult.add(Column.subtraction(col3, col4, "threeMinusFour"));
+
+        Table secondSelectTable = new Table("secondSelect", secondSelectResult);
+
+        assertEquals(Operation.select(secondSelectCol, secondSelectNames, selector, "secondSelect"),
+                secondSelectTable);
+
+        /*
+        third select
+         */
+
+        List<String> thirdSelectCol = new ArrayList<>();
+        thirdSelectCol.add("col3 / col1"); thirdSelectCol.add("col3 * col4");
+        thirdSelectCol.add("col1");
+
+        List<String> thirdSelectNames = new ArrayList<>();
+        thirdSelectNames.add("ratio"); thirdSelectNames.add("combo"); thirdSelectNames.add("col1");
+
+        List<Column> thirdSelectResult = new ArrayList<>();
+        thirdSelectResult.add(Column.division(col3, col1, "ratio"));
+        thirdSelectResult.add(Column.multiplication(col3, col4, "combo"));
+        thirdSelectResult.add(col1);
+
+        Table thirdSelectTable = new Table("thirdSelect", thirdSelectResult);
+
+        assertEquals(Operation.select(thirdSelectCol, thirdSelectNames, selector, "thirdSelect"), thirdSelectTable);
+
+
+
+
+
 
     }
 

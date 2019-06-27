@@ -121,42 +121,114 @@ public class Operation {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /*
-    columnSelect and columnNames need to be the same size list
+    /**
+     * evaluates a select statement and returns a Table of the resulting select.
+     * @param columnSelect List<String> list of column names to select
+     * @param columnNames List<String> list of names to rename selected columns to, needs
+     *                    to be same size as columnSelect List
+     * @param table Table we are selecting columns from
+     * @param name String name of new table if slect is used for create table, if not just enter empty string.
+     * @return Table resulting select
+     * @throws IllegalArgumentException if column name does not exist
      */
-    public static Table select(List<String> columnSelect, List<String> columnNames, Table table){
+    public static Table select(List<String> columnSelect, List<String> columnNames, Table table, String name)
+        throws IllegalArgumentException{
 
 
         List<Column> tableToReturnColumns = new ArrayList<>();
 
-        return table;
+        int columnNameCounter = 0;
 
+        for(String nameMatch : columnSelect){
 
+            /*
+            get the column and put into new list, if name does not exist in table(throws exception) we catch
+            that exception and see if an arithmetic operator is involved, if not throw exception.
+             */
 
+            try{
 
+                Column toAdd = table.getColumnByName(nameMatch);
 
+                toAdd = toAdd.changeName(columnNames.get(columnNameCounter));
 
+                tableToReturnColumns.add(toAdd);
 
-        
+            } catch (IllegalArgumentException e){
+
+                /* parse string to see if arithmetic, split by an expression, do not include spaces */
+
+                tableToReturnColumns.add(applyArithmetic(nameMatch, columnNames.get(columnNameCounter), table));
+
+            }
+
+            columnNameCounter += 1;
+
+        }
+
+        /* create table and return it */
+        return new Table(name, tableToReturnColumns);
     }
 
 
+    /**
+     * method that takes in column names with an arithmetic operator all as one expression, then applies
+     * arithmetic to column and returns new resulting column
+     * @param expression String of two column names and one operator
+     * @param name String name of resulting column after arithmetic
+     * @param table Table table the columns exist in
+     * @return Column resulting Column of arithmetic
+     * @throws IllegalArgumentException if column does not exist in table or expression does not
+     * have operator
+     */
+    public static Column applyArithmetic(String expression, String name, Table table)
+            throws IllegalArgumentException{
+
+        /*
+        remove the white space so cn split by arithmetic operator
+         */
+
+        String cleanedExpression = expression.replaceAll("\\s+", "");
+
+        /*
+        search for arithmetic operator and split the string by that operator,
+        perform column arithmetic and return new column
+         */
+
+        if(cleanedExpression.contains("+")){
+
+            String[] parts = cleanedExpression.split("[+]", 2);
+
+            return Column.addition(table.getColumnByName(parts[0]), table.getColumnByName(parts[1]), name);
 
 
+        } else if(cleanedExpression.contains("-")){
 
+            String[] parts = cleanedExpression.split("-", 2);
+
+            return Column.subtraction(table.getColumnByName(parts[0]), table.getColumnByName(parts[1]), name);
+
+
+        } else if(cleanedExpression.contains("/")){
+
+            String[] parts = cleanedExpression.split("/", 2);
+
+            return Column.division(table.getColumnByName(parts[0]), table.getColumnByName(parts[1]), name);
+
+
+        }else if(cleanedExpression.contains("*")){
+
+            String[] parts = cleanedExpression.split("[*]", 2);
+
+            return Column.multiplication(table.getColumnByName(parts[0]), table.getColumnByName(parts[1]), name);
+
+
+        } else{
+
+            throw new IllegalArgumentException("Column name does not exist.");
+        }
+
+    }
 
 
 

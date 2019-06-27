@@ -191,8 +191,6 @@ public class Column<T> {
 
 
 
-
-
     /*
     need static arithmetic operations that also check types and throwing exceptions. For no value and not a number
     there will be no changes to further operations on nan, but for division by zero it will throw an arithmetic
@@ -526,8 +524,6 @@ public class Column<T> {
 
         return new Column(name, newType, newValues);
     }
-
-
 
 
 
