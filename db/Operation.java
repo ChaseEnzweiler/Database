@@ -127,12 +127,19 @@ public class Operation {
      * @param columnNames List<String> list of names to rename selected columns to, needs
      *                    to be same size as columnSelect List
      * @param table Table we are selecting columns from
-     * @param name String name of new table if slect is used for create table, if not just enter empty string.
+     * @param name String name of new table if select is used for create table, if not just enter empty string.
      * @return Table resulting select
      * @throws IllegalArgumentException if column name does not exist
      */
     public static Table select(List<String> columnSelect, List<String> columnNames, Table table, String name)
         throws IllegalArgumentException{
+
+        /* if an '*' is passed in return all the columns in a new table */
+        if(columnSelect.size() == 1 && columnSelect.get(0).equals("*")){
+
+
+            return new Table(name, table.getColumns());
+        }
 
 
         List<Column> tableToReturnColumns = new ArrayList<>();
@@ -227,6 +234,104 @@ public class Operation {
 
             throw new IllegalArgumentException("Column name does not exist.");
         }
+
+    }
+
+
+
+    /*
+    use regex to delete whitespace like before and split conditional by "and". then store each
+    conditional statement in String parts[]. loop through parts executing each conditional and may
+    need to convert literal into float or string. Get rows to keep for each conditional. If the row
+    appears as many times as there are conditionals in parts, it will make it to the final cut
+
+    return table will have same name and columns as parameter
+
+    need at least one piece of whitespace to separate 'and', so split up before removing whitespace
+
+    get column by name then use a method that compares literal to values in column to see what rows to keep
+    then either return list or array, and then union lists or array.
+
+     */
+
+
+    public static Table condition(Table select, String condition){
+
+        /* split up conditions by 'and' */
+        String[] parts = condition.split(" and ");
+
+        /* how many conditions a row must match to be returned in final table */
+        int rowCountToKeep = parts.length;
+
+
+        for(String part : parts){
+
+            /* find what comparison is used ==, !=, <=, >=, >, <*/
+
+            String cleanPart = part.replaceAll("\\s+", "");
+
+            if(cleanPart.contains("==")){
+
+                String[] colAndLiteral = cleanPart.split("==", 2);
+
+
+
+
+
+            } else if(cleanPart.contains("!=")){
+
+                String[] colAndLiteral = cleanPart.split("!=", 2);
+
+
+
+
+
+
+            }else if(cleanPart.contains("<=")){
+
+                String[] colAndLiteral = cleanPart.split("<=", 2);
+
+
+
+
+
+            }else if(cleanPart.contains(">=")){
+
+                String[] colAndLiteral = cleanPart.split(">=", 2);
+
+
+
+            }else if(cleanPart.contains(">")){
+
+                String[] colAndLiteral = cleanPart.split(">", 2);
+
+
+
+
+            }else if(cleanPart.contains("<")){
+
+                String[] colAndLiteral = cleanPart.split("<", 2);
+
+
+            } else{
+
+
+                throw new IllegalArgumentException("no comparison operator");
+            }
+            
+
+        }
+
+
+
+
+
+
+
+
+
+        return select;
+
 
     }
 

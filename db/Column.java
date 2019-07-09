@@ -3,9 +3,7 @@ package db;
 import com.sun.tools.javac.comp.Todo;
 import com.sun.xml.internal.bind.v2.TODO;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Column<T> {
 
@@ -524,6 +522,232 @@ public class Column<T> {
 
         return new Column(name, newType, newValues);
     }
+
+
+    /**
+     * method that takes a literal and gets all row indices of that column that has value equal
+     * to that literal. Literal cannot be NOVALUE or "NAN"
+     * @param literal String int, float, string
+     * @return Set with integer indices
+     * @throws NumberFormatException thrown if literal not correct type
+     */
+    public Set<Integer> rowsEqualTo(String literal) throws NumberFormatException{
+
+        /*
+        need to fix so that it doesn't throw exceptions for "NaN"
+        catch it and reassign new literal to a really large number, like integer or float max.
+         */
+
+        Object newLiteral;
+        Set<Integer> rowsToKeep = new HashSet<>();
+
+        switch (this.type){
+
+            case "int":
+
+                newLiteral = Integer.parseInt(literal);
+                break;
+
+            case "float":
+
+                newLiteral = Float.parseFloat(literal);
+                break;
+
+            default:
+
+                newLiteral = literal;
+        }
+
+        /*
+        compare values of the column to find which are equal
+        set a check for "nan", needs to check types and max values
+        and probably have to set individually. can set an object
+        with each max value or string.
+         */
+        for(int i = 0; i < this.getSize(); i++){
+
+
+
+            if(this.getValue(i).equals(newLiteral)){
+
+                rowsToKeep.add(i);
+
+            } else if(this.getValue(i).equals("NaN") && !this.type.equals("string")){
+                // checks if float or integer literal is equal to max number assigned to
+                // "NaN" values
+
+                if(newLiteral.equals(Float.MAX_VALUE)){
+
+                    rowsToKeep.add(i);
+                }
+
+            }
+        }
+
+        return rowsToKeep;
+    }
+
+
+    /**
+     * similar to method above which returns a set of indices of rows that match a criteria. This method
+     * returns a set of integer indices of values in the column that do no equal the given String literal
+     * @param literal String value
+     * @return Set</Integer> of indices of rows to keep
+     * @throws NumberFormatException thrown in literal not correct type
+     */
+    public Set<Integer> rowsNotEqualTo(String literal) throws NumberFormatException{
+
+
+
+        Object newLiteral;
+        Set<Integer> rowsToKeep = new HashSet<>();
+
+        switch (this.type){
+
+            case "int":
+
+                newLiteral = Integer.parseInt(literal);
+                break;
+
+            case "float":
+
+                newLiteral = Float.parseFloat(literal);
+                break;
+
+            default:
+
+                newLiteral = literal;
+        }
+
+        /*
+        checks values in the column to find row indices that contain values that
+        don't equal parameter newLiteral
+         */
+        for(int i = 0; i < this.getSize(); i++){
+
+
+
+            if(!this.getValue(i).equals(newLiteral)){
+
+                rowsToKeep.add(i);
+
+            } else if(this.getValue(i).equals("NaN") && !this.type.equals("string")){
+                // checks if float or integer literal is equal to max number assigned to
+                // "NaN" values
+
+                if(!newLiteral.equals(Float.MAX_VALUE)){
+
+                    rowsToKeep.add(i);
+                }
+
+            }
+        }
+
+        return rowsToKeep;
+    }
+
+    /*
+    need to test this before expanding to the rest of comparison methods.
+     */
+
+    /**
+     * method takes in a literal and resturns a set of all the indices of where a column value is
+     * less than the parameter literal. indices refer to the row the value is in.
+     * @param literal String value
+     * @return Integer Set of indices
+     * @throws NumberFormatException thrown if literal is different type than column
+     */
+    public Set<Integer> rowsLessThan(String literal) throws NumberFormatException{
+
+
+
+        Object newLiteral;
+        Set<Integer> rowsToKeep = new HashSet<>();
+
+        switch (this.type){
+
+            case "int":
+
+                newLiteral = Integer.parseInt(literal);
+                break;
+
+            case "float":
+
+                newLiteral = Float.parseFloat(literal);
+                break;
+
+            default:
+
+                newLiteral = literal;
+        }
+
+        /*
+        checks values in the column to find row indices that contain values that
+        are less than parameter newLiteral
+         */
+        for(int i = 0; i < this.getSize(); i++){
+
+            // use compare to with strings checking for NaN
+
+            if(this.getType().equals("string")){
+
+                if(this.getValue(i).equals("NaN")){
+
+                    continue;
+
+                } else if(this.getValue(i).toString().compareTo(newLiteral.toString()) < 0){
+
+                    rowsToKeep.add(i);
+                }
+
+
+            } else if(this.getValue(i).equals("NaN")){
+
+                continue;
+
+            } else{
+                //cannot convert to floats need to find different way to compare
+                // may need to put new literal in column so it has type T
+                // or make a values class and read in each then compare
+                // may need to check object equals also cus it only checks if they point to same object.
+                // value object that converts everything to floats
+
+                T columnValue =  this.getValue(i); // fix
+
+                try{
+
+                    if((Float) columnValue < ((Float) newLiteral)){ //fix me
+
+                        rowsToKeep.add(i);
+
+                    }
+
+                } catch (Exception e){
+
+                    if((Integer) columnValue < ((Integer) newLiteral)){ //fix me
+
+                        rowsToKeep.add(i);
+
+                    }
+                }
+            }
+        }
+
+        return rowsToKeep;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

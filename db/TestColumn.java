@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.*;
 
 import static org.junit.Assert.assertEquals;
 
@@ -326,6 +327,63 @@ public class TestColumn {
     }
 
 
+
+    @Test
+    public void testRowEqualsTo(){
+
+        Column<Float> col1 = new Column<>("fourth", "float", new Float[]{(float) 31
+                ,(float) 78,(float) 34,(float) 31,(float) 39});
+
+        Column col3 = new Column<>("third", "int", new Object[]{5, 3, "NaN", 5, 8});
+
+        Column<String> col4 = new Column<>("fourth", "string", new String[]{"31", "78", "31", "38", "31"});
+
+
+        Set<Integer> set1 = new HashSet<>();
+        set1.add(0); set1.add(3);
+
+        Set<Integer> set2 = new HashSet<>();
+        set2.add(0); set2.add(3);
+
+        Set<Integer> set4 = new HashSet<>();
+        set4.add(0); set4.add(2);set4.add(4);
+
+
+        assertEquals(col1.rowsEqualTo("31"), set1);
+        assertEquals(col3.rowsEqualTo("5"), set2);
+        assertEquals(col4.rowsEqualTo("31"), set4);
+
+
+    }
+
+    @Test
+    public void testRowLessThan(){
+
+        /*
+        finish this
+         */
+        Column<Float> col1 = new Column<>("first", "float", new Float[]{(float) 31
+                ,(float) 78,(float) 34,(float) 31,(float) 39});
+
+        Column col2 = new Column<>("second", "int", new Object[]{5, 3, "NaN", 5, 8});
+
+        Column<String> col3 = new Column<>("third", "string", new String[]{"31", "78", "31", "38", "31"});
+
+        Set<Integer> set1 = new HashSet<>(); //34
+        set1.add(0); set1.add(3);
+
+        Set<Integer> set2 = new HashSet<>(); //8
+        set2.add(0); set2.add(1); set2.add(3);
+
+        Set<Integer> set3 = new HashSet<>(); //78
+        set3.add(0); set3.add(2); set3.add(3); set3.add(4);
+
+        assertEquals(col1.rowsLessThan("34"), set1);
+        assertEquals(col2.rowsLessThan("8"), set2);
+        assertEquals(col3.rowsLessThan("78"), set3);
+
+
+    }
 
 
 
