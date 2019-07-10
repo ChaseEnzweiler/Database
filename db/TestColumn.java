@@ -387,4 +387,47 @@ public class TestColumn {
 
 
 
+
+
+    @Test
+    public void testComparisonMethods(){
+
+        /*
+        quickly testing the rest of the comparison column methods
+         */
+
+        Column<Float> col1 = new Column<>("first", "float", new Float[]{(float) 31
+                ,(float) 78,(float) 34,(float) 31,(float) 39});
+
+        Column col2 = new Column<>("second", "int", new Object[]{5, 3, "NaN", 5, 8});
+
+        Column<String> col3 = new Column<>("third", "string", new String[]{"abc", "smith", "dog", "a", "pop"});
+
+        Set<Integer> set1 = new HashSet<>(); //not equal 31
+        set1.add(1); set1.add(2); set1.add(4);
+
+        Set<Integer> set2 = new HashSet<>(); // greater than 4
+        set2.add(0); set2.add(3); set2.add(4);
+
+        Set<Integer> set3 = new HashSet<>(); // less than or equal smit
+        set3.add(0); set3.add(2); set3.add(3); set3.add(4);
+
+        Set<Integer> set4 = new HashSet<>(); //redo 2, greater than equal 5
+        set4.add(0); set4.add(3); set4.add(4);
+
+
+
+        assertEquals(col1.rowsNotEqualTo("31"), set1);
+
+        assertEquals(col2.rowsGreaterThan("4"), set2);
+
+        assertEquals(col3.rowsLessThanOrEqual("smit"), set3);
+
+        assertEquals(col2.rowsGreaterThanOrEqual("5"), set4);
+
+
+    }
+
+
+
 }

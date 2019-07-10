@@ -646,9 +646,6 @@ public class Column<T> {
         return rowsToKeep;
     }
 
-    /*
-    need to test this before expanding to the rest of comparison methods.
-     */
 
     /**
      * method takes in a literal and resturns a set of all the indices of where a column value is
@@ -706,17 +703,15 @@ public class Column<T> {
                 continue;
 
             } else{
-                //cannot convert to floats need to find different way to compare
-                // may need to put new literal in column so it has type T
-                // or make a values class and read in each then compare
-                // may need to check object equals also cus it only checks if they point to same object.
-                // value object that converts everything to floats
+                /*
+                compare values that are Floats or Integers
+                 */
 
-                T columnValue =  this.getValue(i); // fix
+                T columnValue =  this.getValue(i);
 
                 try{
 
-                    if((Float) columnValue < ((Float) newLiteral)){ //fix me
+                    if((Float) columnValue < ((Float) newLiteral)){
 
                         rowsToKeep.add(i);
 
@@ -724,7 +719,264 @@ public class Column<T> {
 
                 } catch (Exception e){
 
-                    if((Integer) columnValue < ((Integer) newLiteral)){ //fix me
+                    if((Integer) columnValue < ((Integer) newLiteral)){
+
+                        rowsToKeep.add(i);
+
+                    }
+                }
+            }
+        }
+
+        return rowsToKeep;
+    }
+
+
+    /**
+     * method takes in a literal and returns a set of all the indices of where a column value is
+     * less than or equal to the parameter literal. indices refer to the row the value is in.
+     * @param literal String value
+     * @return Integer Set of indices
+     * @throws NumberFormatException thrown if literal is different type than column
+     */
+    public Set<Integer> rowsLessThanOrEqual(String literal) throws NumberFormatException{
+
+
+
+        Object newLiteral;
+        Set<Integer> rowsToKeep = new HashSet<>();
+
+        switch (this.type){
+
+            case "int":
+
+                newLiteral = Integer.parseInt(literal);
+                break;
+
+            case "float":
+
+                newLiteral = Float.parseFloat(literal);
+                break;
+
+            default:
+
+                newLiteral = literal;
+        }
+
+        /*
+        checks values in the column to find row indices that contain values that
+        are less than parameter newLiteral
+         */
+        for(int i = 0; i < this.getSize(); i++){
+
+            // use compare to with strings checking for NaN
+
+            if(this.getType().equals("string")){
+
+                if(this.getValue(i).equals("NaN")){
+
+                    continue;
+
+                } else if(this.getValue(i).toString().compareTo(newLiteral.toString()) <= 0){
+
+                    rowsToKeep.add(i);
+                }
+
+
+            } else if(this.getValue(i).equals("NaN")){
+
+                continue;
+
+            } else{
+                /*
+                compare values that are Floats or Integers
+                 */
+
+                T columnValue =  this.getValue(i);
+
+                try{
+
+                    if((Float) columnValue <= ((Float) newLiteral)){
+
+                        rowsToKeep.add(i);
+
+                    }
+
+                } catch (Exception e){
+
+                    if((Integer) columnValue <= ((Integer) newLiteral)){
+
+                        rowsToKeep.add(i);
+
+                    }
+                }
+            }
+        }
+
+        return rowsToKeep;
+    }
+
+
+
+    /**
+     * method takes in a literal and returns a set of all the indices of where a column value is
+     * greater than or equal to the parameter literal. indices refer to the row the value is in.
+     * @param literal String value
+     * @return Integer Set of indices
+     * @throws NumberFormatException thrown if literal is different type than column
+     */
+    public Set<Integer> rowsGreaterThanOrEqual(String literal) throws NumberFormatException{
+
+
+
+        Object newLiteral;
+        Set<Integer> rowsToKeep = new HashSet<>();
+
+        switch (this.type){
+
+            case "int":
+
+                newLiteral = Integer.parseInt(literal);
+                break;
+
+            case "float":
+
+                newLiteral = Float.parseFloat(literal);
+                break;
+
+            default:
+
+                newLiteral = literal;
+        }
+
+        /*
+        checks values in the column to find row indices that contain values that
+        are less than parameter newLiteral
+         */
+        for(int i = 0; i < this.getSize(); i++){
+
+            // use compare to with strings checking for NaN
+
+            if(this.getType().equals("string")){
+
+                if(this.getValue(i).equals("NaN")){
+
+                    continue;
+
+                } else if(this.getValue(i).toString().compareTo(newLiteral.toString()) >= 0){
+
+                    rowsToKeep.add(i);
+                }
+
+
+            } else if(this.getValue(i).equals("NaN")){
+
+                continue;
+
+            } else{
+                /*
+                compare values that are Floats or Integers
+                 */
+
+                T columnValue =  this.getValue(i);
+
+                try{
+
+                    if((Float) columnValue >= ((Float) newLiteral)){
+
+                        rowsToKeep.add(i);
+
+                    }
+
+                } catch (Exception e){
+
+                    if((Integer) columnValue >= ((Integer) newLiteral)){
+
+                        rowsToKeep.add(i);
+
+                    }
+                }
+            }
+        }
+
+        return rowsToKeep;
+    }
+
+
+
+    /**
+     * method takes in a literal and returns a set of all the indices of where a column value is
+     * greater than the parameter literal. indices refer to the row the value is in.
+     * @param literal String value
+     * @return Integer Set of indices
+     * @throws NumberFormatException thrown if literal is different type than column
+     */
+    public Set<Integer> rowsGreaterThan(String literal) throws NumberFormatException{
+
+
+
+        Object newLiteral;
+        Set<Integer> rowsToKeep = new HashSet<>();
+
+        switch (this.type){
+
+            case "int":
+
+                newLiteral = Integer.parseInt(literal);
+                break;
+
+            case "float":
+
+                newLiteral = Float.parseFloat(literal);
+                break;
+
+            default:
+
+                newLiteral = literal;
+        }
+
+        /*
+        checks values in the column to find row indices that contain values that
+        are less than parameter newLiteral
+         */
+        for(int i = 0; i < this.getSize(); i++){
+
+            // use compare to with strings checking for NaN
+
+            if(this.getType().equals("string")){
+
+                if(this.getValue(i).equals("NaN")){
+
+                    continue;
+
+                } else if(this.getValue(i).toString().compareTo(newLiteral.toString()) > 0){
+
+                    rowsToKeep.add(i);
+                }
+
+
+            } else if(this.getValue(i).equals("NaN")){
+
+                continue;
+
+            } else{
+                /*
+                compare values that are Floats or Integers
+                 */
+
+                T columnValue =  this.getValue(i);
+
+                try{
+
+                    if((Float) columnValue > ((Float) newLiteral)){
+
+                        rowsToKeep.add(i);
+
+                    }
+
+                } catch (Exception e){
+
+                    if((Integer) columnValue > ((Integer) newLiteral)){
 
                         rowsToKeep.add(i);
 
