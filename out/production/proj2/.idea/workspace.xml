@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5c94c8c8-4e3e-4719-9841-812b80a0c946" name="Default" comment="just finished testing matching columns table method">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/Column.java" afterPath="$PROJECT_DIR$/db/Column.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/TestColumn.java" afterPath="$PROJECT_DIR$/db/TestColumn.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/Operation.java" afterPath="$PROJECT_DIR$/db/Operation.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,7 +18,7 @@
       <file leaf-file-name="Column.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db/Column.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3499">
+            <state relative-caret-position="13620">
               <caret line="908" column="19" lean-forward="false" selection-start-line="908" selection-start-column="19" selection-end-line="908" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -28,11 +27,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Operation.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Operation.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/db/Operation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4185">
-              <caret line="284" column="0" lean-forward="false" selection-start-line="284" selection-start-column="0" selection-end-line="284" selection-end-column="0" />
+            <state relative-caret-position="-831">
+              <caret line="290" column="94" lean-forward="false" selection-start-line="290" selection-start-column="94" selection-end-line="290" selection-end-column="94" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -43,7 +42,7 @@
       <file leaf-file-name="TestOperation.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db/TestOperation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
+            <state relative-caret-position="4125">
               <caret line="280" column="0" lean-forward="false" selection-start-line="280" selection-start-column="0" selection-end-line="280" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -52,14 +51,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestColumn.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TestColumn.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db/TestColumn.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="516">
-              <caret line="421" column="61" lean-forward="true" selection-start-line="421" selection-start-column="61" selection-end-line="421" selection-end-column="61" />
+            <state relative-caret-position="6315">
+              <caret line="427" column="0" lean-forward="false" selection-start-line="427" selection-start-column="0" selection-end-line="427" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#5937#5945#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -68,7 +66,7 @@
       <file leaf-file-name="Table.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db/Table.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
+            <state relative-caret-position="-3120">
               <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -105,10 +103,10 @@
         <option value="$PROJECT_DIR$/db/TestTable.java" />
         <option value="$PROJECT_DIR$/db/Table.java" />
         <option value="$PROJECT_DIR$/db/TestOperation.java" />
-        <option value="$PROJECT_DIR$/db/Operation.java" />
         <option value="$PROJECT_DIR$/db/Value.java" />
         <option value="$PROJECT_DIR$/db/Column.java" />
         <option value="$PROJECT_DIR$/db/TestColumn.java" />
+        <option value="$PROJECT_DIR$/db/Operation.java" />
       </list>
     </option>
   </component>
@@ -132,8 +130,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -151,7 +149,7 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -404,11 +402,11 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TestColumn_testRowLessThan - 2019.07.09 at 07h 01m 01s.xml">
-      <configuration name="TestColumn.testRowLessThan" configurationId="JUnit" />
+    <history-entry file="TestColumn_testComparisonMethods - 2019.07.09 at 17h 16m 49s.xml">
+      <configuration name="TestColumn.testComparisonMethods" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestColumn_testRowLessThan - 2019.07.09 at 07h 03m 01s.xml">
-      <configuration name="TestColumn.testRowLessThan" configurationId="JUnit" />
+    <history-entry file="TestColumn_testComparisonMethods - 2019.07.09 at 17h 19m 30s.xml">
+      <configuration name="TestColumn.testComparisonMethods" configurationId="JUnit" />
     </history-entry>
     <history-entry file="TestColumn_testRowLessThan - 2019.07.09 at 07h 09m 01s.xml">
       <configuration name="TestColumn.testRowLessThan" configurationId="JUnit" />
@@ -552,9 +550,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="855">
           <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -599,9 +594,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="855">
           <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -833,7 +825,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
           <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -876,9 +867,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3507">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -886,9 +874,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -899,31 +884,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/Operation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4185">
-          <caret line="284" column="0" lean-forward="false" selection-start-line="284" selection-start-column="0" selection-end-line="284" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/Value.java" />
-    <entry file="file://$PROJECT_DIR$/db/Table.java">
+    <entry file="file://$PROJECT_DIR$/db/TestColumn.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/Column.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3499">
-          <caret line="908" column="19" lean-forward="false" selection-start-line="908" selection-start-column="19" selection-end-line="908" selection-end-column="19" />
+        <state relative-caret-position="6315">
+          <caret line="427" column="0" lean-forward="false" selection-start-line="427" selection-start-column="0" selection-end-line="427" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -932,7 +897,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/db/TestOperation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
+        <state relative-caret-position="4125">
           <caret line="280" column="0" lean-forward="false" selection-start-line="280" selection-start-column="0" selection-end-line="280" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -940,13 +905,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/TestColumn.java">
+    <entry file="file://$PROJECT_DIR$/db/Column.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="516">
-          <caret line="421" column="61" lean-forward="true" selection-start-line="421" selection-start-column="61" selection-end-line="421" selection-end-column="61" />
+        <state relative-caret-position="13620">
+          <caret line="908" column="19" lean-forward="false" selection-start-line="908" selection-start-column="19" selection-end-line="908" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5937#5945#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/Table.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3120">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/Operation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-831">
+          <caret line="290" column="94" lean-forward="false" selection-start-line="290" selection-start-column="94" selection-end-line="290" selection-end-column="94" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

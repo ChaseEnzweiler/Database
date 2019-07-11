@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.*;
 
 /**
  * class holds static methods for table operations such as join.
@@ -260,9 +261,18 @@ public class Operation {
         /* split up conditions by 'and' */
         String[] parts = condition.split(" and ");
 
-        /* how many conditions a row must match to be returned in final table */
-        int rowCountToKeep = parts.length;
+        /*
+        used for when to assign a set and when to take the intersection of a set
+         */
+        int count = 0;
 
+        /*
+        set is used to store all indices of each column that should be kept, at then end of each loop
+        the it will be set to the previous set intersected by the current set. whatever indices are left
+        in the final set are the ones of the rows that should be kept. since we need an initial set
+        of indices we set a count to determine when we should take the intersection
+         */
+        Set<Integer> indexIntersection = new HashSet<>(); //edit originally Set<Intersection> and now assigned to empty set
 
         for(String part : parts){
 
@@ -270,11 +280,15 @@ public class Operation {
 
             String cleanPart = part.replaceAll("\\s+", "");
 
+            Set<Integer> currentSet; // edit originally had this Set<Integer> with warning
+
             if(cleanPart.contains("==")){
 
                 String[] colAndLiteral = cleanPart.split("==", 2);
 
+                Column col = select.getColumnByName(colAndLiteral[0]);
 
+                currentSet = col.rowsEqualTo(colAndLiteral[1]); //cus col in table is raw type
 
 
 
@@ -282,8 +296,9 @@ public class Operation {
 
                 String[] colAndLiteral = cleanPart.split("!=", 2);
 
+                Column col = select.getColumnByName(colAndLiteral[0]);
 
-
+                currentSet = col.rowsNotEqualTo(colAndLiteral[1]);
 
 
 
@@ -291,7 +306,9 @@ public class Operation {
 
                 String[] colAndLiteral = cleanPart.split("<=", 2);
 
+                Column col = select.getColumnByName(colAndLiteral[0]);
 
+                currentSet = col.rowsLessThanOrEqual(colAndLiteral[1]);
 
 
 
@@ -299,12 +316,19 @@ public class Operation {
 
                 String[] colAndLiteral = cleanPart.split(">=", 2);
 
+                Column col = select.getColumnByName(colAndLiteral[0]);
+
+                currentSet = col.rowsGreaterThanOrEqual(colAndLiteral[1]);
+
 
 
             }else if(cleanPart.contains(">")){
 
                 String[] colAndLiteral = cleanPart.split(">", 2);
 
+                Column col = select.getColumnByName(colAndLiteral[0]);
+
+                currentSet = col.rowsGreaterThan(colAndLiteral[1]);
 
 
 
@@ -312,20 +336,43 @@ public class Operation {
 
                 String[] colAndLiteral = cleanPart.split("<", 2);
 
+                Column col = select.getColumnByName(colAndLiteral[0]);
+
+                currentSet = col.rowsLessThan(colAndLiteral[1]);
+
 
             } else{
 
 
                 throw new IllegalArgumentException("no comparison operator");
             }
-            
+
+            /*
+            check count of how many loops and either assign current set to indexIntersection,
+            or calculate the intersection of two sets
+             */
+
+            if(count == 0){
+
+                indexIntersection = currentSet;
+
+            } else{
+
+                 indexIntersection.retainAll(currentSet);
+
+            }
+
+            count += 1;
 
         }
+        /*
+        function has been tested successfully up to here!
 
+        here we now have the proper set of indices to keep
+        now we have to remove rows that don't exist after comparison
+        the set will contain all the rows we need to keep
 
-
-
-
+         */
 
 
 
