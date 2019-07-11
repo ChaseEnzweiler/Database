@@ -255,7 +255,14 @@ public class Operation {
 
      */
 
-
+    /**
+     * this method provides conditional filtering passed through by the where clause. Takes in a table
+     * and a conditional string statement and returns a new table that has been filtered according to the
+     * where clause condition.
+     * @param select Table to be filtered
+     * @param condition String of where clause
+     * @return new Table with rows not meeting where clause filtered out.
+     */
     public static Table condition(Table select, String condition){
 
         /* split up conditions by 'and' */
@@ -366,39 +373,37 @@ public class Operation {
 
         }
         /*
-        function has been tested successfully up to here!
-
-        here we now have the proper set of indices to keep
-        now we have to remove rows that don't exist after comparison
-        the set will contain all the rows we need to keep
-
+        now that we have a set of all the indices we need, we filter out the rows in the columns
+        we don't want then can return a new table with the specified columns.
          */
 
+        List<Column> columns = select.getColumns();
+
+        List<Integer> rowsToKeep = new ArrayList<>(indexIntersection);
+
+        //sort the arrayList so we can pass into Column.filterByRow
+
+        Collections.sort(rowsToKeep);
+
+        /*
+        loop through all the columns and take out values that should not belong
+        Needs to be an ordered list.
+         */
+
+        // final columns to go in table, doing this just to avoid immutability problems
+        List<Column> columnsToReturn = new ArrayList<>();
+
+        for(Column clmn : columns){
+
+            columnsToReturn.add(clmn.filterByRow(rowsToKeep));
+
+        }
 
 
-
-        return select;
+        return new Table(select.getTableName(), columnsToReturn);
 
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

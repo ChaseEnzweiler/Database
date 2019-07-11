@@ -127,6 +127,15 @@ public class Table {
     }
 
     /**
+     * returns the name of the Table
+     * @return String tableName
+     */
+    public String getTableName(){
+
+        return tableName;
+    }
+
+    /**
      * returns the list of columns the table is made up from
      * @return Column[] array of columns
      */

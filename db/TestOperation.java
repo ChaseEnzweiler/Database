@@ -283,6 +283,111 @@ public class TestOperation {
 
         assertEquals(Operation.select(thirdSelectCol, thirdSelectNames, selector, "thirdSelect"), thirdSelectTable);
 
+    }
+
+
+    @Test
+    public void testCondition(){
+
+
+        Column<Integer> col1 = new Column<>("col1", "int", new Integer[]{1,4,3,2,5});
+        Column<String> col2 = new Column<>("col2", "string", new String[]{"1", "2", "3", "4", "5"});
+        Column<Float> col3 = new Column<>("col3", "float", new Float[]{(float) 1.1, (float) 2.2,(float) 3.3,
+                (float) 4.4,(float) 5.5});
+        Column<Object> col4 = new Column<>("col4", "int", new Object[]{1,2,"NaN",4,5});
+        Column<String> col5 = new Column<>("col5", "string", new String[]{"1", "2", "3", "4", "5"});
+
+
+        List<Column> tableColumns = new ArrayList<>();
+        tableColumns.add(col1); tableColumns.add(col2); tableColumns.add(col3);
+        tableColumns.add(col4); tableColumns.add(col5);
+
+        Table original = new Table("selector", tableColumns);
+
+
+        /*
+        col1 <= 2
+         */
+
+        Column<Integer> col1A = new Column<>("col1", "int", new Integer[]{1,2});
+        Column<String> col2A = new Column<>("col2", "string", new String[]{"1", "4"});
+        Column<Float> col3A = new Column<>("col3", "float", new Float[]{(float) 1.1,
+                (float) 4.4});
+        Column<Object> col4A = new Column<>("col4", "int", new Object[]{1,4});
+        Column<String> col5A = new Column<>("col5", "string", new String[]{"1", "4"});
+
+
+        List<Column> tableColumnsA = new ArrayList<>();
+        tableColumnsA.add(col1A); tableColumnsA.add(col2A); tableColumnsA.add(col3A);
+        tableColumnsA.add(col4A); tableColumnsA.add(col5A);
+
+        Table selectorA = new Table("selector", tableColumnsA);
+
+        assertEquals(selectorA, Operation.condition(original, "col1 <= 2"));
+
+
+        /*
+        col4 > 2
+         */
+        Column<Integer> col1B = new Column<>("col1", "int", new Integer[]{2,5});
+        Column<String> col2B = new Column<>("col2", "string", new String[]{"4", "5"});
+        Column<Float> col3B = new Column<>("col3", "float", new Float[]{(float) 4.4,(float) 5.5});
+        Column<Object> col4B = new Column<>("col4", "int", new Object[]{4,5});
+        Column<String> col5B = new Column<>("col5", "string", new String[]{ "4", "5"});
+
+
+        List<Column> tableColumnsB = new ArrayList<>();
+        tableColumnsB.add(col1B); tableColumnsB.add(col2B); tableColumnsB.add(col3B);
+        tableColumnsB.add(col4B); tableColumnsB.add(col5B);
+
+        Table selectorB = new Table("selector", tableColumnsB);
+
+        assertEquals(selectorB, Operation.condition(original, "col4 > 2"));
+
+
+        /*
+        col5 == "2" and col3 != 1.1
+         */
+
+        Column<Integer> col1C = new Column<>("col1", "int", new Integer[]{4});
+        Column<String> col2C = new Column<>("col2", "string", new String[]{"2"});
+        Column<Float> col3C = new Column<>("col3", "float", new Float[]{(float) 2.2});
+        Column<Object> col4C = new Column<>("col4", "int", new Object[]{2});
+        Column<String> col5C = new Column<>("col5", "string", new String[]{ "2"});
+
+
+        List<Column> tableColumnsC = new ArrayList<>();
+        tableColumnsC.add(col1C); tableColumnsC.add(col2C); tableColumnsC.add(col3C);
+        tableColumnsC.add(col4C); tableColumnsC.add(col5C);
+
+        Table selectorC = new Table("selector", tableColumnsC);
+
+        assertEquals(selectorC, Operation.condition(original, "col5 == 2 and col3 != 1.1"));
+
+
+
+        /*
+        col1 < 3 and col3 > 0 and col5 == "1" and col4 > 52
+         */
+        Column<Integer> col1D = new Column<>("col1", "int", new Integer[]{});
+        Column<String> col2D = new Column<>("col2", "string", new String[]{});
+        Column<Float> col3D = new Column<>("col3", "float", new Float[]{});
+        Column<Object> col4D = new Column<>("col4", "int", new Object[]{});
+        Column<String> col5D = new Column<>("col5", "string", new String[]{});
+
+
+        List<Column> tableColumnsD = new ArrayList<>();
+        tableColumnsD.add(col1D); tableColumnsD.add(col2D); tableColumnsD.add(col3D);
+        tableColumnsD.add(col4D); tableColumnsD.add(col5D);
+
+        Table selectorD = new Table("selector", tableColumnsD);
+
+        assertEquals(selectorD, Operation.condition(original,
+                "col1 > 3 and col3 > 0 and col5 == 1 and col4 > 52"));
+
+
+
+
 
 
 

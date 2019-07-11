@@ -149,7 +149,7 @@ public class Column<T> {
      * takes in a list of values by row that you want to keep and returns a new column
      * with the same name and type with only the values to keep and other values filtered out
      * The rows should be zero indexed
-     * @param rowsToKeep List of integers of which rows of the values to keep
+     * @param rowsToKeep List of integers of which rows of the values to keep. Needs to be ordered List
      * @return new Column with an updated values list.
      */
     public Column<T> filterByRow(List<Integer> rowsToKeep){
