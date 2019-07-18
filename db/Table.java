@@ -347,7 +347,7 @@ public class Table {
 
                 }else{
 
-                    System.out.print(columns.get(colIndex).getValue(rowIndex) + ", ");
+                    System.out.print(columns.get(colIndex).getValue(rowIndex) + ",");
                 }
             }
         }

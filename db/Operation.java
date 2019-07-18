@@ -253,6 +253,8 @@ public class Operation {
     get column by name then use a method that compares literal to values in column to see what rows to keep
     then either return list or array, and then union lists or array.
 
+    TODO: ensure that '' around strings doesn't interfere with comparison or other operations.
+
      */
 
     /**
