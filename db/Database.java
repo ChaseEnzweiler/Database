@@ -21,6 +21,8 @@ public class Database {
     TODO: check on exception throwing, may need to be caught sooner for helpful messages
     TODO: if table with same name then it should be replaced
     TODO: List<Column<Object>> refactor over many classes.
+    TODO: Store method
+
      */
 
 
@@ -44,6 +46,16 @@ public class Database {
     public Table getTable(String name){
 
         return this.database.get(name);
+
+    }
+
+    /**
+     * adds parameter table into the database
+     * @param table Table you want added to the database
+     */
+    public void add(Table table){
+
+        database.put(table.getTableName(), table);
 
     }
 
@@ -151,6 +163,67 @@ public class Database {
         database.put(tableName, tableToLoad);
 
     }
+
+
+    /*
+    bufferedWriter.write(text);
+    bufferedWriter.newline();
+
+    looks like we need to use a buffered writer where we need to write a string each time.
+    So we need to get our table into lines of strings. then write each one.
+
+    Probably need a toString method in Table that loops through table and adds a specialized string to a
+    list for each row of the column, loop through columns and get name, type, then on subsequent loops get,
+    values from each column.
+
+    TODO: need to make a method in table to convert table into list of strings that can be written to file.
+
+    TODO: need to make an add method for the database
+
+    overwrite is verified now check new file write
+
+     */
+
+
+    /** // verified
+     * method takes a table in the database and writes it to a tbl file stored in examples folder,
+     * if table already exists in tbl folder this method should overwrite the file.
+     * @param name String
+     * @throws IOException thrown if file problems lke file dne or something
+     */
+    public void storeTable(String name) throws IOException{
+
+        Table toStore;
+
+        File file = new File("/Users/Cenzwe/Desktop/proj2/examples/" + name + ".tbl");
+
+        BufferedWriter writer = new BufferedWriter(new FileWriter(file, false)); // throws io here
+
+        if(!database.containsKey(name)){
+
+            System.out.println("Error: Table named " + name + " does not exist in database");
+            return;
+        }
+
+        toStore = database.get(name);
+
+        List<String> linesToWrite = toStore.tableToStringSegments();
+
+        for(String line : linesToWrite){
+
+            writer.write(line);
+            writer.newLine();
+
+        }
+
+        writer.close();
+
+    }
+
+
+
+
+
 
 
 

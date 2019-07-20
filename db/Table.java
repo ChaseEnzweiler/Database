@@ -354,6 +354,99 @@ public class Table {
     }
 
 
+    /**
+     * Method that returns a list of each line of the table as strings. first element will be the name and types,
+     * then the rest each row of values, formatted like print table. (verified) w/ prints
+     * @return List of Strings of each line of table
+     */
+    public List<String> tableToStringSegments(){
+
+        String firstLine = "";
+
+        StringBuffer sb = new StringBuffer(firstLine);
+
+        List<String> stringSegments = new ArrayList<>();
+
+        int count = 0;
+
+        /*
+        loop to add first line of names and types
+         */
+
+        while(count < columnNames.length){
+
+
+            if(count == columnNames.length - 1){
+
+                String toAppend = columnNames[count] + " " + columnTypes[count];
+
+                sb.append(toAppend);
+
+            }else{
+
+                String toAppend = columnNames[count] + " " + columnTypes[count] + ",";
+
+                sb.append(toAppend);
+            }
+
+            count += 1;
+        }
+
+        stringSegments.add(sb.toString());
+
+        /*
+        now need to turn each row of values into a string line by line and add each line into the list<String>
+        TODO: currently is a loop inside a loop  need to make this faster
+        TODO: possibly make row objects upon initialization and already have the row to string ready
+
+
+        get a counter for the values, loop until counter is through, need to worry about end comma
+        do a for each on each column and get each value that way
+         */
+
+        int valueCount = 0;
+
+        while(valueCount < numRows){
+
+            String valueSegments = "";
+
+            StringBuffer valueBuffer = new StringBuffer(valueSegments);
+
+            int colCounter = 0; // used to check which column is last to stop using commas
+
+            for(Column col : columns){
+
+                if(colCounter == numColumns - 1){
+
+                    /*
+                    TODO: this is not working, the comma is not being put in for integer/floats
+                     */
+
+                    String toAppend = "" + col.getValue(valueCount) + "";
+
+                    valueBuffer.append(toAppend);
+
+                }else{
+
+                    String toAppend = "" + col.getValue(valueCount) + ",";
+
+                    valueBuffer.append(toAppend);
+                }
+
+                colCounter += 1;
+            }
+
+            stringSegments.add(valueBuffer.toString());
+
+            valueCount += 1;
+
+        }
+
+        return stringSegments;
+
+    }
+
+
 
 
     public static void main(String[] args){
@@ -380,6 +473,8 @@ public class Table {
         Table1.insertInto(insertList);
 
         Table1.printTable();
+
+        System.out.println(Table1.tableToStringSegments());
 
         
 
