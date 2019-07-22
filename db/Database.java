@@ -21,7 +21,7 @@ public class Database {
     TODO: check on exception throwing, may need to be caught sooner for helpful messages
     TODO: if table with same name then it should be replaced
     TODO: List<Column<Object>> refactor over many classes.
-    TODO: Store method
+
 
      */
 
@@ -85,14 +85,22 @@ public class Database {
      * loads a Table into the database map from a tbl file stored in project examples folder. If loading a
      * table into database that already exists in database it will overwrite.
      * @param tableName String name of the table you want to load
-     * @throws FileNotFoundException if no tbl file exists
-     * @throws IOException if improper line is read by buffered reader
      */
-    public void load(String tableName) throws FileNotFoundException, IOException{
+    public void load(String tableName){
 
         File file = new File("/Users/Cenzwe/Desktop/proj2/examples/" + tableName + ".tbl");
 
-        BufferedReader reader = new BufferedReader(new FileReader(file));
+        BufferedReader reader;
+
+        try{
+
+            reader = new BufferedReader(new FileReader(file));
+
+        } catch (Exception e){
+
+            System.out.println("Error: File" + tableName + ".tbl not found");
+            return;
+        }
 
         String line;
 
@@ -102,57 +110,65 @@ public class Database {
         parse the first line of the tbl file that contains names and types
          */
 
-        line = reader.readLine();
+        try {
 
-        String[] nameAndType = line.split(",");
+            line = reader.readLine();
 
-        for(String info : nameAndType){
+            String[] nameAndType = line.split(",");
 
-            String[] nameTypeSplit = info.split(" ");
+            for (String info : nameAndType) {
 
-            Column col = new Column<>(nameTypeSplit[0], nameTypeSplit[1], new ArrayList<>());
+                String[] nameTypeSplit = info.split(" ");
 
-            columnsToStore.add(col);
+                Column col = new Column<>(nameTypeSplit[0], nameTypeSplit[1], new ArrayList<>());
 
-        }
+                columnsToStore.add(col);
+
+            }
 
         /*
         now parse by commas for each line and add to a list of columns making sure that columns are objects
         and parsing to int, string, or float. adding values to columns
          */
 
-        while((line = reader.readLine()) != null) {
+            while ((line = reader.readLine()) != null) {
 
-            String[] values = line.split(",");
+                String[] values = line.split(",");
 
-            int count = 0;
+                int count = 0;
 
-            for (String value : values) {
+                for (String value : values) {
 
                 /*
                 check type of each column and add values to each column
                  */
 
-                if (value.equals("NaN")) {
+                    if (value.equals("NaN")) {
 
-                    columnsToStore.get(count).add("NaN");
+                        columnsToStore.get(count).add("NaN");
 
-                } else if (columnsToStore.get(count).getType().equals("int")) {
+                    } else if (columnsToStore.get(count).getType().equals("int")) {
 
-                    columnsToStore.get(count).add(Integer.parseInt(value));
+                        columnsToStore.get(count).add(Integer.parseInt(value));
 
-                } else if (columnsToStore.get(count).getType().equals("float")) {
+                    } else if (columnsToStore.get(count).getType().equals("float")) {
 
-                    columnsToStore.get(count).add(Float.parseFloat(value));
+                        columnsToStore.get(count).add(Float.parseFloat(value));
 
-                } else {
+                    } else {
 
-                    columnsToStore.get(count).add(value);
+                        columnsToStore.get(count).add(value);
+                    }
+
+                    count += 1;
+
                 }
-
-                count += 1;
-
             }
+
+        } catch(Exception e){
+
+            System.out.println("Error: Could not read line from file" + tableName +".tbl");
+            return;
         }
         /*
         create the table and put it into the database.
@@ -164,40 +180,19 @@ public class Database {
 
     }
 
-
-    /*
-    bufferedWriter.write(text);
-    bufferedWriter.newline();
-
-    looks like we need to use a buffered writer where we need to write a string each time.
-    So we need to get our table into lines of strings. then write each one.
-
-    Probably need a toString method in Table that loops through table and adds a specialized string to a
-    list for each row of the column, loop through columns and get name, type, then on subsequent loops get,
-    values from each column.
-
-    TODO: need to make a method in table to convert table into list of strings that can be written to file.
-
-    TODO: need to make an add method for the database
-
-    overwrite is verified now check new file write
-
-     */
-
-
+    
     /** // verified
      * method takes a table in the database and writes it to a tbl file stored in examples folder,
      * if table already exists in tbl folder this method should overwrite the file.
      * @param name String
-     * @throws IOException thrown if file problems lke file dne or something
      */
-    public void storeTable(String name) throws IOException{
+    public void storeTable(String name){
 
         Table toStore;
 
         File file = new File("/Users/Cenzwe/Desktop/proj2/examples/" + name + ".tbl");
 
-        BufferedWriter writer = new BufferedWriter(new FileWriter(file, false)); // throws io here
+        BufferedWriter writer;
 
         if(!database.containsKey(name)){
 
@@ -205,23 +200,38 @@ public class Database {
             return;
         }
 
+        try {
+
+            writer = new BufferedWriter(new FileWriter(file, false)); //
+
+        } catch(Exception e){
+
+            System.out.println("Error: Could not write contents of file");
+            return;
+        }
+
         toStore = database.get(name);
 
         List<String> linesToWrite = toStore.tableToStringSegments();
 
-        for(String line : linesToWrite){
+        try {
 
-            writer.write(line);
-            writer.newLine();
+            for (String line : linesToWrite) {
 
+                writer.write(line);
+                writer.newLine();
+
+            }
+
+            writer.close();
+
+        } catch (Exception e){
+
+            System.out.println("Error: Could not write table rows to file");
+            return;
         }
 
-        writer.close();
-
     }
-
-
-
 
 
 
