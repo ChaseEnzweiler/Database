@@ -133,7 +133,7 @@ public class Operation {
      * @throws IllegalArgumentException if column name does not exist
      */
     public static Table select(List<String> columnSelect, List<String> columnNames, Table table, String name)
-        throws IllegalArgumentException{
+            throws IllegalArgumentException{
 
         /* if an '*' is passed in return all the columns in a new table */
         if(columnSelect.size() == 1 && columnSelect.get(0).equals("*")){
@@ -265,7 +265,7 @@ public class Operation {
      * @param condition String of where clause
      * @return new Table with rows not meeting where clause filtered out.
      */
-    public static Table condition(Table select, String condition){
+    public static Table condition(Table select, String condition) throws IllegalArgumentException{
 
         /* split up conditions by 'and' */
         String[] parts = condition.split(" and ");

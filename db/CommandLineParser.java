@@ -7,7 +7,7 @@ import java.util.regex.Matcher;
 
 import java.util.StringJoiner;
 
-
+/* TODO: adding strings has too many apostrophe*/
 public class CommandLineParser {
 
     // Various common constructs, simplifies parsing.
@@ -205,10 +205,102 @@ public class CommandLineParser {
 
     }
 
+    /* can prob edit to make work with create selected table */
     private static void select(String exprs, String tables, String conds, Database db) {
-        System.out.printf("You are trying to select these expressions:" +
-                " '%s' from the join of these tables: '%s', filtered by these conditions: '%s'\n", exprs, tables, conds);
 
+        Table afterJoin;
+
+        String[] tablesToJoin = tables.replaceAll("\\s+", "").split(",");
+
+        /*
+        check to make sure all tables exist in the database before executing join
+         */
+        for(String table : tablesToJoin){
+
+            if(!db.containsTable(table)){
+
+                System.err.println("Error: Table " + table + " does not exist in the database.");
+                return;
+            }
+        }
+
+        /*
+        join tables
+         */
+        if(tablesToJoin.length > 1){
+            // do join
+
+            afterJoin = db.getTable(tablesToJoin[0]);
+
+            int counter = 1;
+
+            while(counter < tablesToJoin.length){
+
+                afterJoin = Operation.Join(afterJoin, db.getTable(tablesToJoin[counter]), "");
+
+                counter += 1;
+
+            }
+
+        } else{
+
+            afterJoin = db.getTable(tablesToJoin[0]);
+        }
+
+        /*
+        now evaluate column expressions on the joined table, check if the column should be named as something
+        else using the "as" keyword. then select those columns from afterJoin Table. need columns and column names
+        in String lists to pass into select
+         */
+
+        String[] columns = exprs.split(",");
+
+        List<String> columnSelect = new ArrayList<>();
+
+        List<String> columnNames = new ArrayList<>();
+
+        for(String col : columns){
+
+            if(col.contains(" as ")){
+
+                String[] nameAs = col.split(" as ");
+
+                columnSelect.add(nameAs[0]);
+                columnNames.add(nameAs[1]);
+
+            } else{
+
+                columnSelect.add(col);
+                columnNames.add(col);
+            }
+        }
+
+        try {
+
+            afterJoin = Operation.select(columnSelect, columnNames, afterJoin, "");
+        } catch (Exception e){
+
+            System.err.println("Error: Illegal Column Expression.");
+            return;
+        }
+
+        /*
+        lastly evaluate  conditional statement if a conditional statement exists
+         */
+        if(conds != null){
+
+            try {
+                afterJoin = Operation.condition(afterJoin, conds);
+
+            } catch(IllegalArgumentException i){
+
+                System.err.println("Error: There is no operator in the conditional statement");
+                return;
+            }
+
+        }
+
+        afterJoin.printTable();
     }
 }
 
