@@ -59,6 +59,16 @@ public class Database {
 
     }
 
+    /**
+     * method to see if a table is in the database
+     * @param name String name of table
+     * @return True if table exists
+     */
+    public boolean containsTable(String name){
+
+        return database.containsKey(name);
+    }
+
 
     /**
      * removes table from the database specified by string name and prints empty string on success,
@@ -70,8 +80,6 @@ public class Database {
         if (database.containsKey(name)){
 
             database.remove(name);
-
-            System.out.println("");
 
         } else {
 
@@ -90,6 +98,7 @@ public class Database {
 
         File file = new File("/Users/Cenzwe/Desktop/proj2/examples/" + tableName + ".tbl");
 
+
         BufferedReader reader;
 
         try{
@@ -98,7 +107,7 @@ public class Database {
 
         } catch (Exception e){
 
-            System.out.println("Error: File" + tableName + ".tbl not found");
+            System.out.println("Error: File " + tableName + " .tbl not found");
             return;
         }
 
@@ -167,7 +176,7 @@ public class Database {
 
         } catch(Exception e){
 
-            System.out.println("Error: Could not read line from file" + tableName +".tbl");
+            System.out.println("Error: Could not read line from file " + tableName + " .tbl");
             return;
         }
         /*
@@ -180,7 +189,7 @@ public class Database {
 
     }
 
-    
+
     /** // verified
      * method takes a table in the database and writes it to a tbl file stored in examples folder,
      * if table already exists in tbl folder this method should overwrite the file.
@@ -202,7 +211,7 @@ public class Database {
 
         try {
 
-            writer = new BufferedWriter(new FileWriter(file, false)); //
+            writer = new BufferedWriter(new FileWriter(file, false));
 
         } catch(Exception e){
 
@@ -238,8 +247,12 @@ public class Database {
 
 
 
-
+    // eval(query, this)
     public String transact(String query) {
-        return "YOUR CODE HERE";
+
+         CommandLineParser.eval(query, this);
+         return "";
+
+
     }
 }

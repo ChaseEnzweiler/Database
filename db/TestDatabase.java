@@ -15,18 +15,11 @@ public class TestDatabase {
 
         Database example = new Database();
 
-        try{
-            example.load("records");
+
+        example.load("records");
 
 
-        }catch(FileNotFoundException e){
 
-            System.out.println("wrong file");
-
-        }catch (IOException d){
-
-            System.out.println("bad values");
-        }
 
         Table result = example.getTable("records");
 

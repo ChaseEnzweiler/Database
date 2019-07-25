@@ -27,6 +27,7 @@ public class Table {
 
     /* table constructor without data, may need to add row and column number later
     * rows are annoying so may need a columnCollector class.
+    * TODO: need to make 1 additional create table constructor
     * */
 
 
