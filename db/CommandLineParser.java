@@ -7,7 +7,9 @@ import java.util.regex.Matcher;
 
 import java.util.StringJoiner;
 
-/* TODO: adding strings has too many apostrophe*/
+/* TODO: adding strings has too many apostrophe
+*
+* */
 public class CommandLineParser {
 
     // Various common constructs, simplifies parsing.
@@ -63,45 +65,91 @@ public class CommandLineParser {
     private static void createTable(String expr, Database db) {
         Matcher m;
         if ((m = CREATE_NEW.matcher(expr)).matches()) {
-            createNewTable(m.group(1), m.group(2).split(COMMA));
+            createNewTable(m.group(1), m.group(2).split(COMMA), db);
         } else if ((m = CREATE_SEL.matcher(expr)).matches()) {
-            createSelectedTable(m.group(1), m.group(2), m.group(3), m.group(4));
+            createSelectedTable(m.group(1), m.group(2), m.group(3), m.group(4), db);
         } else {
             System.err.printf("Malformed create: %s\n", expr);
         }
 
     }
 
-    private static void createNewTable(String name, String[] cols) {
-        StringJoiner joiner = new StringJoiner(", ");
-        for (int i = 0; i < cols.length-1; i++) {
-            joiner.add(cols[i]);
+    private static void createNewTable(String name, String[] cols, Database db) {
+
+        List<String> columnNames = new ArrayList<>();
+        List<String> columnType = new ArrayList<>();
+
+        for(String col : cols){
+
+            String[] colAndType = col.trim().split("\\s+");
+
+            String colName = colAndType[0].trim();
+
+            if(columnNames.contains(colName)){
+
+                System.err.println("Error: cannot create table with duplicate columns " + colName);
+                return;
+            }
+
+            columnNames.add(colName);
+
+            String type = colAndType[1].trim();
+
+            if(!(type.equals("string") || type.equals("int") || type.equals("float"))){
+
+                System.err.println("Error: incorrect type given " + type);
+                return;
+            }
+            columnType.add(colAndType[1]);
+
         }
 
-        String colSentence = joiner.toString() + " and " + cols[cols.length-1];
-        System.out.printf("You are trying to create a table named %s with the columns %s\n", name, colSentence);
+        Table table = new Table(name, columnNames, columnType);
 
+        db.add(table);
 
     }
 
-    private static void createSelectedTable(String name, String exprs, String tables, String conds) {
-        System.out.printf("You are trying to create a table named %s by selecting these expressions:" +
-                " '%s' from the join of these tables: '%s', filtered by these conditions: '%s'\n", name, exprs, tables, conds);
+    private static void createSelectedTable(String name, String exprs, String tables, String conds, Database db) {
 
+        Table table = selectHelper(exprs, tables, conds, db, name);
+
+        if(table == null){
+            return;
+        }
+
+        if(table.numColumns == 0){
+            System.err.println("Error: cannot create a table with 0 columns");
+            return;
+        }
+
+        if(db.containsTable(table.getTableName())){
+
+            System.err.println("Error: Table " + table.getTableName() + " already exists");
+            return;
+        }
+
+        db.add(table);
 
     }
 
     private static void loadTable(String name, Database db) {
+
+        name = name.trim();
 
         db.load(name);
     }
 
     private static void storeTable(String name, Database db) {
 
+        name = name.trim();
+
         db.storeTable(name);
     }
 
     private static void dropTable(String name, Database db) {
+
+        name = name.trim();
 
         db.dropTable(name);
 
@@ -201,12 +249,24 @@ public class CommandLineParser {
 
         }
 
-        select(m.group(1), m.group(2), m.group(3), db);
+        select(m.group(1), m.group(2), m.group(3), db, "");
+
+    }
+
+    private static void select(String exprs, String tables, String conds, Database db, String tableName){
+
+        Table tableToPrint = selectHelper(exprs, tables, conds, db, tableName);
+
+        if(tableToPrint == null){
+            return;
+        }
+
+        tableToPrint.printTable();
 
     }
 
     /* can prob edit to make work with create selected table */
-    private static void select(String exprs, String tables, String conds, Database db) {
+    private static Table selectHelper(String exprs, String tables, String conds, Database db, String tableName) {
 
         Table afterJoin;
 
@@ -220,7 +280,7 @@ public class CommandLineParser {
             if(!db.containsTable(table)){
 
                 System.err.println("Error: Table " + table + " does not exist in the database.");
-                return;
+                return null;
             }
         }
 
@@ -236,7 +296,7 @@ public class CommandLineParser {
 
             while(counter < tablesToJoin.length){
 
-                afterJoin = Operation.Join(afterJoin, db.getTable(tablesToJoin[counter]), "");
+                afterJoin = Operation.Join(afterJoin, db.getTable(tablesToJoin[counter]), tableName);
 
                 counter += 1;
 
@@ -265,23 +325,23 @@ public class CommandLineParser {
 
                 String[] nameAs = col.split(" as ");
 
-                columnSelect.add(nameAs[0]);
-                columnNames.add(nameAs[1]);
+                columnSelect.add(nameAs[0].trim());
+                columnNames.add(nameAs[1].trim());
 
             } else{
 
-                columnSelect.add(col);
-                columnNames.add(col);
+                columnSelect.add(col.trim());
+                columnNames.add(col.trim());
             }
         }
 
         try {
 
-            afterJoin = Operation.select(columnSelect, columnNames, afterJoin, "");
+            afterJoin = Operation.select(columnSelect, columnNames, afterJoin, tableName);
         } catch (Exception e){
 
             System.err.println("Error: Illegal Column Expression.");
-            return;
+            return null;
         }
 
         /*
@@ -295,12 +355,12 @@ public class CommandLineParser {
             } catch(IllegalArgumentException i){
 
                 System.err.println("Error: There is no operator in the conditional statement");
-                return;
+                return null;
             }
 
         }
-
-        afterJoin.printTable();
+        return afterJoin;
+        //afterJoin.printTable();
     }
 }
 

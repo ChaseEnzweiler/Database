@@ -107,7 +107,7 @@ public class Database {
 
         } catch (Exception e){
 
-            System.out.println("Error: File " + tableName + " .tbl not found");
+            System.out.println("Error: File " + tableName + ".tbl not found");
             return;
         }
 
@@ -176,7 +176,7 @@ public class Database {
 
         } catch(Exception e){
 
-            System.out.println("Error: Could not read line from file " + tableName + " .tbl");
+            System.out.println("Error: Could not read line from file " + tableName + ".tbl");
             return;
         }
         /*

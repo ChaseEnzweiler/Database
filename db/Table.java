@@ -74,6 +74,33 @@ public class Table {
 
     }
 
+    /*
+    constructor that only takes in column names and types. input parameters are a String[] name, String[] type
+    used in create table parse
+     */
+
+    public Table(String tableName, List<String> columnNames, List<String> columnTypes){
+
+        this.tableName = tableName;
+        this.columnNames = columnNames.toArray(new String[columnNames.size()]);
+        this.columnTypes = columnTypes.toArray(new String[columnTypes.size()]);;
+        this.numRows = 0;
+        this.numColumns = columnNames.size();
+
+        List<Column> columns = new ArrayList<>();
+
+        for(int i = 0; i < columnNames.size(); i++){
+
+            Column<Object> toAdd = new Column<>(columnNames.get(i), columnTypes.get(i), new Object[]{});
+
+            columns.add(toAdd);
+        }
+
+        this.columns = columns;
+    }
+
+
+
 
 
     /* constructor that takes in a 2D array of table information and creates a table using columns.

@@ -151,8 +151,11 @@ public class Operation {
 
             /*
             get the column and put into new list, if name does not exist in table(throws exception) we catch
-            that exception and see if an arithmetic operator is involved, if not throw exception.
+            that exception and see if an arithmetic operator is involved, if not throw exception. trim used to
+            remove white spaces that may cause names to be interpreted as different.
              */
+
+            nameMatch = nameMatch.trim();
 
             try{
 
@@ -166,7 +169,9 @@ public class Operation {
 
                 /* parse string to see if arithmetic, split by an expression, do not include spaces */
 
-                tableToReturnColumns.add(applyArithmetic(nameMatch, columnNames.get(columnNameCounter), table));
+
+                tableToReturnColumns.add(applyArithmetic(nameMatch,
+                        columnNames.get(columnNameCounter).replaceAll("\\s+", ""), table));
 
             }
 
@@ -287,7 +292,11 @@ public class Operation {
 
             /* find what comparison is used ==, !=, <=, >=, >, <*/
 
-            String cleanPart = part.replaceAll("\\s+", "");
+            //String cleanPart = part.replaceAll("\\s+", "");
+
+            String cleanPart = part.trim();
+            /* TODO: check this with whitespace. replaced above with trim but also need to trim all
+            * TODO: cont. all split operator parts so string parse correctly*/
 
             Set<Integer> currentSet; // edit originally had this Set<Integer> with warning
 
@@ -295,9 +304,9 @@ public class Operation {
 
                 String[] colAndLiteral = cleanPart.split("==", 2);
 
-                Column col = select.getColumnByName(colAndLiteral[0]);
+                Column col = select.getColumnByName(colAndLiteral[0].trim()); //TODO: starting here
 
-                currentSet = col.rowsEqualTo(colAndLiteral[1]); //cus col in table is raw type
+                currentSet = col.rowsEqualTo(colAndLiteral[1].trim()); //cus col in table is raw type
 
 
 
@@ -305,9 +314,9 @@ public class Operation {
 
                 String[] colAndLiteral = cleanPart.split("!=", 2);
 
-                Column col = select.getColumnByName(colAndLiteral[0]);
+                Column col = select.getColumnByName(colAndLiteral[0].trim());
 
-                currentSet = col.rowsNotEqualTo(colAndLiteral[1]);
+                currentSet = col.rowsNotEqualTo(colAndLiteral[1].trim());
 
 
 
@@ -315,9 +324,9 @@ public class Operation {
 
                 String[] colAndLiteral = cleanPart.split("<=", 2);
 
-                Column col = select.getColumnByName(colAndLiteral[0]);
+                Column col = select.getColumnByName(colAndLiteral[0].trim());
 
-                currentSet = col.rowsLessThanOrEqual(colAndLiteral[1]);
+                currentSet = col.rowsLessThanOrEqual(colAndLiteral[1].trim());
 
 
 
@@ -325,9 +334,9 @@ public class Operation {
 
                 String[] colAndLiteral = cleanPart.split(">=", 2);
 
-                Column col = select.getColumnByName(colAndLiteral[0]);
+                Column col = select.getColumnByName(colAndLiteral[0].trim());
 
-                currentSet = col.rowsGreaterThanOrEqual(colAndLiteral[1]);
+                currentSet = col.rowsGreaterThanOrEqual(colAndLiteral[1].trim());
 
 
 
@@ -335,9 +344,9 @@ public class Operation {
 
                 String[] colAndLiteral = cleanPart.split(">", 2);
 
-                Column col = select.getColumnByName(colAndLiteral[0]);
+                Column col = select.getColumnByName(colAndLiteral[0].trim());
 
-                currentSet = col.rowsGreaterThan(colAndLiteral[1]);
+                currentSet = col.rowsGreaterThan(colAndLiteral[1].trim());
 
 
 
@@ -345,9 +354,9 @@ public class Operation {
 
                 String[] colAndLiteral = cleanPart.split("<", 2);
 
-                Column col = select.getColumnByName(colAndLiteral[0]);
+                Column col = select.getColumnByName(colAndLiteral[0].trim());
 
-                currentSet = col.rowsLessThan(colAndLiteral[1]);
+                currentSet = col.rowsLessThan(colAndLiteral[1].trim());
 
 
             } else{
