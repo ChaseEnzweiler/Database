@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5c94c8c8-4e3e-4719-9841-812b80a0c946" name="Default" comment="just finished testing matching columns table method">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/Column.java" afterPath="$PROJECT_DIR$/db/Column.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/Database.java" afterPath="$PROJECT_DIR$/db/Database.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/Operation.java" afterPath="$PROJECT_DIR$/db/Operation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/RowCollection.java" afterPath="$PROJECT_DIR$/db/RowCollection.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/Table.java" afterPath="$PROJECT_DIR$/db/Table.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/TestColumn.java" afterPath="$PROJECT_DIR$/db/TestColumn.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/TestDatabase.java" afterPath="$PROJECT_DIR$/db/TestDatabase.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/TestOperation.java" afterPath="$PROJECT_DIR$/db/TestOperation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/TestRowCollection.java" afterPath="$PROJECT_DIR$/db/TestRowCollection.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/TestTable.java" afterPath="$PROJECT_DIR$/db/TestTable.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,11 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Database.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Database.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/db/Database.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1785">
-              <caret line="119" column="0" lean-forward="true" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
+            <state relative-caret-position="120">
+              <caret line="8" column="40" lean-forward="true" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -96,11 +87,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="32" column="1" lean-forward="true" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
+            <state relative-caret-position="225">
+              <caret line="15" column="25" lean-forward="true" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -138,7 +129,6 @@
         <option value="$PROJECT_DIR$/db/Main.java" />
         <option value="$PROJECT_DIR$/Main.java" />
         <option value="$PROJECT_DIR$/db/Column.java" />
-        <option value="$PROJECT_DIR$/db/Database.java" />
         <option value="$PROJECT_DIR$/db/Operation.java" />
         <option value="$PROJECT_DIR$/db/Row.java" />
         <option value="$PROJECT_DIR$/db/RowCollection.java" />
@@ -148,6 +138,7 @@
         <option value="$PROJECT_DIR$/db/TestRowCollection.java" />
         <option value="$PROJECT_DIR$/db/TestTable.java" />
         <option value="$PROJECT_DIR$/db/TestOperation.java" />
+        <option value="$PROJECT_DIR$/db/Database.java" />
       </list>
     </option>
   </component>
@@ -886,16 +877,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/Database.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1785">
-          <caret line="119" column="0" lean-forward="true" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/Indices.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -924,8 +905,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="1" lean-forward="true" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
+        <state relative-caret-position="225">
+          <caret line="15" column="25" lean-forward="true" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/Database.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="40" lean-forward="true" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

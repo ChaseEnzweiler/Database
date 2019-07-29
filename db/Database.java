@@ -4,18 +4,9 @@ import java.util.*;
 import java.io.*;
 
 
-
 public class Database {
 
-    /*
-    TODO: refactor to fix generics <Object> issue with columns, add '' to outside of strings to match tbl files
-    TODO: List<Column<Object>> refactor over many classes.
-     */
-
-
     private Map<String, Table> database;
-
-
 
     public Database() {
 
