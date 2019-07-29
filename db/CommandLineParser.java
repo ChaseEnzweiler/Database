@@ -147,27 +147,23 @@ class CommandLineParser {
         }
 
         db.add(table);
-
     }
 
     private static void loadTable(String name, Database db) {
 
         name = name.trim();
-
         db.load(name);
     }
 
     private static void storeTable(String name, Database db) {
 
         name = name.trim();
-
         db.storeTable(name);
     }
 
     private static void dropTable(String name, Database db) {
 
         name = name.trim();
-
         db.dropTable(name);
 
     }
@@ -246,9 +242,7 @@ class CommandLineParser {
         } catch(Exception e){
 
             System.err.println("Error: wrong type literal " + values[counter] + " given.");
-
         }
-
     }
 
 
@@ -277,7 +271,6 @@ class CommandLineParser {
         }
 
         select(m.group(1), m.group(2), m.group(3), db, "");
-
     }
 
     /**
@@ -296,9 +289,7 @@ class CommandLineParser {
         if(tableToPrint == null){
             return;
         }
-
         tableToPrint.printTable();
-
     }
 
     /**
@@ -344,7 +335,6 @@ class CommandLineParser {
                 afterJoin = Operation.Join(afterJoin, db.getTable(tablesToJoin[counter]), tableName);
 
                 counter += 1;
-
             }
 
         } else{

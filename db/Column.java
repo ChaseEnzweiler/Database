@@ -31,8 +31,6 @@ class Column{
         this.type = type;
 
         this.values = new ArrayList<>(Arrays.asList(values));
-
-
     }
 
     /**
@@ -47,11 +45,7 @@ class Column{
         this.type = type;
 
         this.values = values;
-
-
     }
-
-
 
     /**
      * Overriding equals method of object superclass
@@ -62,7 +56,6 @@ class Column{
     public boolean equals(Object other){
 
         if(this == other){
-
             return true;
         }
 
@@ -90,9 +83,7 @@ class Column{
         }
 
         return this.values.equals(otherColumn.getValues());
-
     }
-
 
     /**
      * returns the size of the column i.e how many values the column has
@@ -100,9 +91,7 @@ class Column{
      */
 
     int getSize(){
-
         return values.size();
-
     }
 
     /**
@@ -110,7 +99,6 @@ class Column{
      * @return String type
      */
     String getType(){
-
         return type;
     }
 
@@ -121,9 +109,7 @@ class Column{
      */
 
     Object getValue(int index){
-
         return values.get(index);
-
     }
 
     /**
@@ -131,21 +117,16 @@ class Column{
      * @return List</String> of values of column
      */
     List<Object> getValues(){
-
         return values;
     }
-
 
     /**
      * returns the name of the column
      * @return String name
      */
     String getName(){
-
         return name;
-
     }
-
 
     /**
      * takes in a list of values by row that you want to keep and returns a new column
@@ -155,7 +136,6 @@ class Column{
      * @return new Column with an updated values list.
      */
     Column filterByRow(List<Integer> rowsToKeep){
-
 
         ArrayList<Object> filteredValues = new ArrayList<>();
 
@@ -173,9 +153,7 @@ class Column{
      * @param literal T value
      */
     public void add(Object literal){
-
         this.values.add(literal);
-
     }
 
     /**
@@ -184,11 +162,8 @@ class Column{
      * @return new Column
      */
     Column changeName(String name){
-
         return new Column(name, this.getType(), this.getValues());
-
     }
-
 
     /**
      * value by value addition of two columns, returns a new columns with added together values.
@@ -284,7 +259,6 @@ class Column{
          */
 
         if(col1.getType().equals("string") || col2.getType().equals("string")){
-
             throw new IllegalArgumentException();
         }
 
@@ -337,7 +311,6 @@ class Column{
         }
 
         return new Column(name, newType, newValues);
-
     }
 
     /**
@@ -365,9 +338,7 @@ class Column{
         }
 
         return newType;
-
     }
-
 
     /**
      * value by value division of two columns of same length, returns new column of result,
@@ -434,7 +405,6 @@ class Column{
         return new Column(name, newType, newValues);
     }
 
-
     /**
      * static method for multiplying columns value-wise. returns new Column with values resulting
      * in multiplying values of parameter columns
@@ -456,11 +426,9 @@ class Column{
         /*
         get type of column to return and instantiate list to hold new resulting values
          */
-
         String newType = calculateType(col1, col2);
 
         List<Object> newValues = new ArrayList<>();
-
 
         /*
         loop through and multiply values of each column together
@@ -473,11 +441,9 @@ class Column{
 
                 newValues.add("NaN");
 
-
             }else if(newType.equals("int")){
 
                 newValues.add((int) col1.getValue(i) * (int) col2.getValue(i));
-
 
             } else if(col1.getType().equals("int")){
 
@@ -485,7 +451,6 @@ class Column{
                 float y = (float) col2.getValue(i);
 
                     newValues.add(x * y);
-
 
             } else if(col2.getType().equals("int")){
 
@@ -553,13 +518,10 @@ class Column{
 
                     rowsToKeep.add(i);
                 }
-
             }
         }
-
         return rowsToKeep;
     }
-
 
     /**
      * similar to method above which returns a set of indices of rows that match a criteria. This method
@@ -569,8 +531,6 @@ class Column{
      * @throws NumberFormatException thrown in literal not correct type
      */
     Set<Integer> rowsNotEqualTo(String literal) throws NumberFormatException{
-
-
 
         Object newLiteral;
         Set<Integer> rowsToKeep = new HashSet<>();
@@ -598,8 +558,6 @@ class Column{
          */
         for(int i = 0; i < this.getSize(); i++){
 
-
-
             if(!this.getValue(i).equals(newLiteral)){
 
                 rowsToKeep.add(i);
@@ -610,7 +568,6 @@ class Column{
 
                     rowsToKeep.add(i);
                 }
-
             }
         }
 
@@ -666,7 +623,6 @@ class Column{
                     rowsToKeep.add(i);
                 }
 
-
             } else if(this.getValue(i).equals("NaN")){
 
                 continue;
@@ -675,7 +631,6 @@ class Column{
                 /*
                 compare values that are Floats or Integers
                  */
-
                 Object columnValue =  this.getValue(i);
 
                 try{
@@ -683,7 +638,6 @@ class Column{
                     if((Float) columnValue < ((Float) newLiteral)){
 
                         rowsToKeep.add(i);
-
                     }
 
                 } catch (Exception e){
@@ -691,15 +645,12 @@ class Column{
                     if((Integer) columnValue < ((Integer) newLiteral)){
 
                         rowsToKeep.add(i);
-
                     }
                 }
             }
         }
-
         return rowsToKeep;
     }
-
 
     /**
      * method takes in a literal and returns a set of all the indices of where a column value is
@@ -709,8 +660,6 @@ class Column{
      * @throws NumberFormatException thrown if literal is different type than column
      */
     Set<Integer> rowsLessThanOrEqual(String literal) throws NumberFormatException{
-
-
 
         Object newLiteral;
         Set<Integer> rowsToKeep = new HashSet<>();
@@ -766,7 +715,6 @@ class Column{
                     if((Float) columnValue <= ((Float) newLiteral)){
 
                         rowsToKeep.add(i);
-
                     }
 
                 } catch (Exception e){
@@ -774,12 +722,10 @@ class Column{
                     if((Integer) columnValue <= ((Integer) newLiteral)){
 
                         rowsToKeep.add(i);
-
                     }
                 }
             }
         }
-
         return rowsToKeep;
     }
 
@@ -793,8 +739,6 @@ class Column{
      * @throws NumberFormatException thrown if literal is different type than column
      */
     Set<Integer> rowsGreaterThanOrEqual(String literal) throws NumberFormatException{
-
-
 
         Object newLiteral;
         Set<Integer> rowsToKeep = new HashSet<>();
@@ -834,7 +778,6 @@ class Column{
                     rowsToKeep.add(i);
                 }
 
-
             } else if(this.getValue(i).equals("NaN")){
 
                 continue;
@@ -864,7 +807,6 @@ class Column{
                 }
             }
         }
-
         return rowsToKeep;
     }
 
@@ -947,7 +889,6 @@ class Column{
                 }
             }
         }
-
         return rowsToKeep;
     }
 

@@ -13,9 +13,7 @@ class Row {
     Row(){
 
         values = new ArrayList<>();
-
     }
-
 
     /**
      * method adds an object to the back of the row
@@ -24,7 +22,6 @@ class Row {
     public void add(Object item){
 
         values.add(item);
-
     }
 
     /**
@@ -35,7 +32,6 @@ class Row {
     public Object getValue(int index){
 
         return values.get(index);
-
     }
 
     @Override

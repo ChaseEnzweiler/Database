@@ -10,7 +10,6 @@ public class Database {
 
     private Map<String, Table> database;
 
-
     /**
      * empty constructor for the Database class initializes a Hashmap used to store tables.
      */
@@ -18,7 +17,6 @@ public class Database {
 
         database = new HashMap<>();
     }
-
 
     /**
      * returns table from database specified by String name
@@ -28,7 +26,6 @@ public class Database {
     Table getTable(String name) {
 
         return this.database.get(name);
-
     }
 
     /**
@@ -38,7 +35,6 @@ public class Database {
     public void add(Table table) {
 
         database.put(table.getTableName(), table);
-
     }
 
     /**
@@ -113,7 +109,6 @@ public class Database {
                 Column col = new Column(nameTypeSplit[0], nameTypeSplit[1], new ArrayList<>());
 
                 columnsToStore.add(col);
-
             }
 
         /*
@@ -151,7 +146,6 @@ public class Database {
                     }
 
                     count += 1;
-
                 }
             }
 
@@ -214,9 +208,7 @@ public class Database {
         } catch (Exception e) {
 
             System.out.println("Error: Could not write table rows to file");
-
         }
-
     }
 
     /**
@@ -228,7 +220,5 @@ public class Database {
 
         CommandLineParser.eval(query, this);
         return "";
-
-
     }
 }

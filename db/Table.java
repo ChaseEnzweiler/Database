@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 class Table {
-    
+
     List<Column> columns;
 
     String[] columnNames;
@@ -32,7 +32,6 @@ class Table {
         assign variable to first column with cast to access getSize method to assign number of rows.
          */
 
-
         this.numRows = columns[0].getSize();
 
     }
@@ -58,8 +57,6 @@ class Table {
 
 
         this.numRows = this.columns.get(0).getSize();
-
-
     }
 
     /*
@@ -111,11 +108,9 @@ class Table {
             /* checks the names of the columns for equality */
 
             return false;
-
         }
 
         return this.columns.equals(((Table) other).columns);
-
     }
 
     /**
@@ -123,7 +118,6 @@ class Table {
      * @return String tableName
      */
     String getTableName(){
-
         return tableName;
     }
 
@@ -132,9 +126,7 @@ class Table {
      * @return Column[] array of columns
      */
     List<Column> getColumns(){
-
         return columns;
-
     }
 
     /**
@@ -142,9 +134,7 @@ class Table {
      * @return String[] of column names
      */
     String[] getColumnNames(){
-
         return columnNames;
-
     }
 
 
@@ -162,7 +152,6 @@ class Table {
                 return true;
             }
         }
-
         return false;
     }
 
@@ -182,7 +171,6 @@ class Table {
                 return true;
             }
         }
-
         return false;
     }
 
@@ -204,7 +192,6 @@ class Table {
                 matchingColumns.add(col);
             }
         }
-
         return matchingColumns;
     }
 
@@ -240,7 +227,6 @@ class Table {
                 return col;
             }
         }
-
         throw new IllegalArgumentException();
     }
 
@@ -258,7 +244,6 @@ class Table {
 
                 throw new IllegalArgumentException();
             }
-
 
             for (int i = 0; i < literals.size(); i++) {
 
@@ -289,7 +274,6 @@ class Table {
 
         this.numRows += 1;
 
-
         System.out.println(" ");
         return "";
     }
@@ -319,7 +303,6 @@ class Table {
             }
 
             index += 1;
-
         }
 
         /*
@@ -366,7 +349,6 @@ class Table {
          */
 
         while(count < columnNames.length){
-
 
             if(count == columnNames.length - 1){
 
@@ -421,7 +403,6 @@ class Table {
         }
 
         return stringSegments;
-
     }
 
 
