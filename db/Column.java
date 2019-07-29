@@ -2,14 +2,14 @@ package db;
 
 import java.util.*;
 
-class Column<T> {
+class Column{
 
 
     private String name;
 
     private String type;
 
-    private List<T> values;
+    private List<Object> values;
 
     /**
      * Constructor for the column class. takes in a name, type, and array of values.
@@ -17,7 +17,7 @@ class Column<T> {
      * @param type String type of column
      * @param values T[] of values the column contains
      */
-    public Column(String name, String type, T[] values){
+    public Column(String name, String type, Object[] values){
 
         this.name = name;
         this.type = type;
@@ -33,7 +33,7 @@ class Column<T> {
      * @param type String type of the column
      * @param values ArrayList<T> the values of the column
      */
-    public Column(String name, String type, List<T> values){
+    public Column(String name, String type, List<Object> values){
 
         this.name = name;
         this.type = type;
@@ -112,7 +112,7 @@ class Column<T> {
      * @return String value store in the column
      */
 
-    T getValue(int index){
+    Object getValue(int index){
 
         return values.get(index);
 
@@ -122,7 +122,7 @@ class Column<T> {
      * returns a list of all the values making up the column
      * @return List</String> of values of column
      */
-    List<T> getValues(){
+    List<Object> getValues(){
 
         return values;
     }
@@ -146,17 +146,17 @@ class Column<T> {
      * @param rowsToKeep List of integers of which rows of the values to keep. Needs to be ordered List
      * @return new Column with an updated values list.
      */
-    Column<T> filterByRow(List<Integer> rowsToKeep){
+    Column filterByRow(List<Integer> rowsToKeep){
 
 
-        ArrayList<T> filteredValues = new ArrayList<>();
+        ArrayList<Object> filteredValues = new ArrayList<>();
 
         for(int index : rowsToKeep){
 
             filteredValues.add(this.values.get(index));
         }
 
-        return new Column<>(this.name, this.type, filteredValues);
+        return new Column(this.name, this.type, filteredValues);
 
     }
 
@@ -164,7 +164,7 @@ class Column<T> {
      * adds value to the end of the column
      * @param literal T value
      */
-    public void add(T literal){
+    public void add(Object literal){
 
         this.values.add(literal);
 
@@ -175,9 +175,9 @@ class Column<T> {
      * @param name String name of what you want duplicate column to be named
      * @return new Column
      */
-    Column<T> changeName(String name){
+    Column changeName(String name){
 
-        return new Column<>(name, this.getType(), this.getValues());
+        return new Column(name, this.getType(), this.getValues());
 
     }
 
@@ -213,7 +213,7 @@ class Column<T> {
         /*
         do arithmetic operation on the values of the two columns
          */
-        List newValues = new ArrayList();
+        List<Object> newValues = new ArrayList<>();
 
         for(int i = 0; i < col1.getSize(); i++){
 
@@ -285,7 +285,7 @@ class Column<T> {
          */
         String newType = calculateType(col1, col2);
 
-        List newValues = new ArrayList();
+        List<Object> newValues = new ArrayList<>();
 
         /*
         perform subtraction on the two columns, check casts, and update new values with results.
@@ -384,7 +384,7 @@ class Column<T> {
 
         String newType = calculateType(col1, col2);
 
-        List newValues = new ArrayList();
+        List<Object> newValues = new ArrayList<>();
 
         /*
         divide col1 by col2 value by value, check if division by zero which results in NaN.
@@ -451,7 +451,7 @@ class Column<T> {
 
         String newType = calculateType(col1, col2);
 
-        List newValues = new ArrayList();
+        List<Object> newValues = new ArrayList<>();
 
 
         /*
@@ -557,7 +557,7 @@ class Column<T> {
      * similar to method above which returns a set of indices of rows that match a criteria. This method
      * returns a set of integer indices of values in the column that do no equal the given String literal
      * @param literal String value
-     * @return Set</Integer> of indices of rows to keep
+     * @return Set<Integer> of indices of rows to keep
      * @throws NumberFormatException thrown in literal not correct type
      */
     Set<Integer> rowsNotEqualTo(String literal) throws NumberFormatException{
@@ -668,7 +668,7 @@ class Column<T> {
                 compare values that are Floats or Integers
                  */
 
-                T columnValue =  this.getValue(i);
+                Object columnValue =  this.getValue(i);
 
                 try{
 
@@ -751,7 +751,7 @@ class Column<T> {
                 compare values that are Floats or Integers
                  */
 
-                T columnValue =  this.getValue(i);
+                Object columnValue =  this.getValue(i);
 
                 try{
 
@@ -836,7 +836,7 @@ class Column<T> {
                 compare values that are Floats or Integers
                  */
 
-                T columnValue =  this.getValue(i);
+                Object columnValue =  this.getValue(i);
 
                 try{
 
@@ -897,7 +897,6 @@ class Column<T> {
          */
         for(int i = 0; i < this.getSize(); i++){
 
-            // use compare to with strings checking for NaN
 
             if(this.getType().equals("string")){
 
@@ -920,7 +919,7 @@ class Column<T> {
                 compare values that are Floats or Integers
                  */
 
-                T columnValue =  this.getValue(i);
+                Object columnValue =  this.getValue(i);
 
                 try{
 

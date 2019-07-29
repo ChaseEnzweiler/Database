@@ -1,12 +1,10 @@
 package db;
 
-import edu.princeton.cs.introcs.In;
-import org.junit.Test;
 
+import org.junit.Test;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
+
 
 import static org.junit.Assert.assertEquals;
 
@@ -16,23 +14,23 @@ public class TestOperation {
     columns for left table 1
      */
 
-    Column<Integer> a1 = new Column<>("a", "int", new Integer[]{1,2,3,4,5});
-    Column<String> b1 = new Column<>("b", "string", new String[]{"1", "2", "3", "4", "5"});
-    Column<Float> c1 = new Column<>("c", "float", new Float[]{(float) 1.1, (float) 2.2,(float) 3.3,
+    Column a1 = new Column("a", "int", new Integer[]{1,2,3,4,5});
+    Column b1 = new Column("b", "string", new String[]{"1", "2", "3", "4", "5"});
+    Column c1 = new Column("c", "float", new Float[]{(float) 1.1, (float) 2.2,(float) 3.3,
             (float) 4.4,(float) 5.5});
-    Column<Integer> d1 = new Column<>("d", "int", new Integer[]{1,2,3,4,5});
+    Column d1 = new Column("d", "int", new Integer[]{1,2,3,4,5});
 
 
     /*
     columns for right table
      */
 
-    Column<Integer> a2 = new Column<>("a", "int", new Integer[]{3,2,1,4,5,6,1});
-    Column<String> b2 = new Column<>("b", "string", new String[]{"3", "13", "1", "4", "56", "6", "1"});
-    Column<Float> c2 = new Column<>("c", "float", new Float[]{(float) 3.3, (float) 2.5,(float) 1.1,
+    Column a2 = new Column("a", "int", new Integer[]{3,2,1,4,5,6,1});
+    Column b2 = new Column("b", "string", new String[]{"3", "13", "1", "4", "56", "6", "1"});
+    Column c2 = new Column("c", "float", new Float[]{(float) 3.3, (float) 2.5,(float) 1.1,
             (float) 98.8,(float) 5.5, (float) 7.7, (float) 1.1});
-    Column<Integer> d2 = new Column<>("none", "int", new Integer[]{34, 54, 76, 87, 98, 345, 6});
-    Column<Integer> e2 = new Column<>("nomatch", "int", new Integer[]{123, 123, 543, 5456, 654, 765, 678});
+    Column d2 = new Column("none", "int", new Integer[]{34, 54, 76, 87, 98, 345, 6});
+    Column e2 = new Column("nomatch", "int", new Integer[]{123, 123, 543, 5456, 654, 765, 678});
 
 
     @Test
@@ -75,12 +73,12 @@ public class TestOperation {
         create what table 3 should equal
          */
 
-        Column<Integer> finalCol1 = new Column<>("a", "int", new Integer[]{1,1,3});
-        Column<String> finalCol2 = new Column<>("b", "string", new String[]{"1", "1", "3"});
-        Column<Float> finalCol3 = new Column<>("c", "float", new Float[]{(float) 1.1, (float) 1.1,(float) 3.3});
-        Column<Integer> finalCol4 = new Column<>("d", "int", new Integer[]{1,1,3});
-        Column<Integer> finalCol5 = new Column<>("none", "int", new Integer[]{ 76, 6, 34});
-        Column<Integer> finalCol6 = new Column<>("nomatch", "int", new Integer[]{543, 678, 123});
+        Column finalCol1 = new Column("a", "int", new Integer[]{1,1,3});
+        Column finalCol2 = new Column("b", "string", new String[]{"1", "1", "3"});
+        Column finalCol3 = new Column("c", "float", new Float[]{(float) 1.1, (float) 1.1,(float) 3.3});
+        Column finalCol4 = new Column("d", "int", new Integer[]{1,1,3});
+        Column finalCol5 = new Column("none", "int", new Integer[]{ 76, 6, 34});
+        Column finalCol6 = new Column("nomatch", "int", new Integer[]{543, 678, 123});
 
         List<Column> finalColumns = new ArrayList<>();
         finalColumns.add(finalCol1);finalColumns.add(finalCol2);finalColumns.add(finalCol3);
@@ -92,12 +90,12 @@ public class TestOperation {
         edit so that we get a negative test
          */
 
-        Column<Integer> finalCol11 = new Column<>("a", "int", new Integer[]{1,1,3});
-        Column<String> finalCol22 = new Column<>("b", "string", new String[]{"1", "1", "3"});
-        Column<Float> finalCol33 = new Column<>("c", "float", new Float[]{(float) 1.1, (float) 1.1,(float) 3.3});
-        Column<Integer> finalCol44 = new Column<>("d", "int", new Integer[]{1,1,3});
-        Column<Integer> finalCol55 = new Column<>("none", "int", new Integer[]{ 76, 6, 34});
-        Column<Integer> finalCol66 = new Column<>("nmatch", "int", new Integer[]{53, 678, 123});
+        Column finalCol11 = new Column("a", "int", new Integer[]{1,1,3});
+        Column finalCol22 = new Column("b", "string", new String[]{"1", "1", "3"});
+        Column finalCol33 = new Column("c", "float", new Float[]{(float) 1.1, (float) 1.1,(float) 3.3});
+        Column finalCol44 = new Column("d", "int", new Integer[]{1,1,3});
+        Column finalCol55 = new Column("none", "int", new Integer[]{ 76, 6, 34});
+        Column finalCol66 = new Column("nmatch", "int", new Integer[]{53, 678, 123});
 
         List<Column> finalColumns1 = new ArrayList<>();
         finalColumns1.add(finalCol11);finalColumns1.add(finalCol22);finalColumns1.add(finalCol33);
@@ -122,42 +120,42 @@ public class TestOperation {
         /*
         columns for table 1
          */
-        Column<String> a1 = new Column<>("String", "string", new String[]{"1", "2", "3"});
-        Column<Integer> a2 = new Column<>("Integer", "int", new Integer[]{1,2,3});
-        Column<Float> a3 = new Column<>("Float", "float", new Float[]{(float) 1.1, (float) 2.2,
+        Column a1 = new Column("String", "string", new String[]{"1", "2", "3"});
+        Column a2 = new Column("Integer", "int", new Integer[]{1,2,3});
+        Column a3 = new Column("Float", "float", new Float[]{(float) 1.1, (float) 2.2,
                 (float) 3.3});
 
         /*
         columns for table 2
          */
 
-        Column<String> b1 = new Column<>("String", "string", new String[]{"10", "20", "30"});
-        Column<Integer> b2 = new Column<>("Integer", "int", new Integer[]{10,20,30});
-        Column<Float> b3 = new Column<>("Float", "float", new Float[]{(float) 10.1, (float) 20.2,
+        Column b1 = new Column("String", "string", new String[]{"10", "20", "30"});
+        Column b2 = new Column("Integer", "int", new Integer[]{10,20,30});
+        Column b3 = new Column("Float", "float", new Float[]{(float) 10.1, (float) 20.2,
                 (float) 30.3});
 
         /*
         columns for table 3
          */
-        Column<String> c1 = new Column<>("String1", "string", new String[]{"10", "20", "30"});
-        Column<Integer> c2 = new Column<>("Integer2", "int", new Integer[]{10,20,30});
-        Column<Float> c3 = new Column<>("Float3", "float", new Float[]{(float) 10.1, (float) 20.2,
+        Column c1 = new Column("String1", "string", new String[]{"10", "20", "30"});
+        Column c2 = new Column("Integer2", "int", new Integer[]{10,20,30});
+        Column c3 = new Column("Float3", "float", new Float[]{(float) 10.1, (float) 20.2,
                 (float) 30.3});
 
         /*
         columns for table 4
          */
 
-        Column<String> d1 = new Column<>("String", "string",
+        Column d1 = new Column("String", "string",
                 new String[]{"1","1","1","2","2","2","3","3","3"});
-        Column<Integer> d2 = new Column<>("Integer", "int", new Integer[]{1,1,1,2,2,2,3,3,3});
-        Column<Float> d3 = new Column<>("Float", "float", new Float[]{(float) 1.1, (float) 1.1, (float) 1.1
+        Column d2 = new Column("Integer", "int", new Integer[]{1,1,1,2,2,2,3,3,3});
+        Column d3 = new Column("Float", "float", new Float[]{(float) 1.1, (float) 1.1, (float) 1.1
                 , (float) 2.2,(float) 2.2, (float) 2.2, (float) 3.3, (float) 3.3, (float) 3.3});
-        Column<String> d4 = new Column<>("String1", "string",
+        Column d4 = new Column("String1", "string",
                 new String[]{"10", "20", "30", "10", "20", "30", "10", "20", "30"});
-        Column<Integer> d5 = new Column<>("Integer2", "int",
+        Column d5 = new Column("Integer2", "int",
                 new Integer[]{10,20,30, 10,20,30, 10,20,30});
-        Column<Float> d6 = new Column<>("Float3", "float",
+        Column d6 = new Column("Float3", "float",
                 new Float[]{(float) 10.1, (float) 20.2, (float) 30.3, (float) 10.1, (float) 20.2, (float) 30.3,
                         (float) 10.1, (float) 20.2, (float) 30.3});
 
@@ -193,9 +191,9 @@ public class TestOperation {
          */
 
         List<Column> empty = new ArrayList<>();
-        Column<String> e1 = new Column<>("String", "string", new String[]{});
-        Column<Integer> e2 = new Column<>("Integer", "int", new Integer[]{});
-        Column<Float> e3 = new Column<>("Float", "float", new Float[]{});
+        Column e1 = new Column("String", "string", new String[]{});
+        Column e2 = new Column("Integer", "int", new Integer[]{});
+        Column e3 = new Column("Float", "float", new Float[]{});
 
         empty.add(e1);empty.add(e2);empty.add(e3);
 
@@ -211,12 +209,12 @@ public class TestOperation {
     @Test
     public void testSelect(){
 
-        Column<Integer> col1 = new Column<>("col1", "int", new Integer[]{1,2,3,4,5});
-        Column<String> col2 = new Column<>("col2", "string", new String[]{"1", "2", "3", "4", "5"});
-        Column<Float> col3 = new Column<>("col3", "float", new Float[]{(float) 1.1, (float) 2.2,(float) 3.3,
+        Column col1 = new Column("col1", "int", new Integer[]{1,2,3,4,5});
+        Column col2 = new Column("col2", "string", new String[]{"1", "2", "3", "4", "5"});
+        Column col3 = new Column("col3", "float", new Float[]{(float) 1.1, (float) 2.2,(float) 3.3,
                 (float) 4.4,(float) 5.5});
-        Column<Integer> col4 = new Column<>("col4", "int", new Integer[]{1,2,3,4,5});
-        Column<String> col5 = new Column<>("col5", "string", new String[]{"1", "2", "3", "4", "5"});
+        Column col4 = new Column("col4", "int", new Integer[]{1,2,3,4,5});
+        Column col5 = new Column("col5", "string", new String[]{"1", "2", "3", "4", "5"});
 
 
         List<Column> tableColumns = new ArrayList<>();
@@ -290,12 +288,12 @@ public class TestOperation {
     public void testCondition(){
 
 
-        Column<Integer> col1 = new Column<>("col1", "int", new Integer[]{1,4,3,2,5});
-        Column<String> col2 = new Column<>("col2", "string", new String[]{"1", "2", "3", "4", "5"});
-        Column<Float> col3 = new Column<>("col3", "float", new Float[]{(float) 1.1, (float) 2.2,(float) 3.3,
+        Column col1 = new Column("col1", "int", new Integer[]{1,4,3,2,5});
+        Column col2 = new Column("col2", "string", new String[]{"1", "2", "3", "4", "5"});
+        Column col3 = new Column("col3", "float", new Float[]{(float) 1.1, (float) 2.2,(float) 3.3,
                 (float) 4.4,(float) 5.5});
-        Column<Object> col4 = new Column<>("col4", "int", new Object[]{1,2,"NaN",4,5});
-        Column<String> col5 = new Column<>("col5", "string", new String[]{"1", "2", "3", "4", "5"});
+        Column col4 = new Column("col4", "int", new Object[]{1,2,"NaN",4,5});
+        Column col5 = new Column("col5", "string", new String[]{"1", "2", "3", "4", "5"});
 
 
         List<Column> tableColumns = new ArrayList<>();
@@ -309,12 +307,12 @@ public class TestOperation {
         col1 <= 2
          */
 
-        Column<Integer> col1A = new Column<>("col1", "int", new Integer[]{1,2});
-        Column<String> col2A = new Column<>("col2", "string", new String[]{"1", "4"});
-        Column<Float> col3A = new Column<>("col3", "float", new Float[]{(float) 1.1,
+        Column col1A = new Column("col1", "int", new Integer[]{1,2});
+        Column col2A = new Column("col2", "string", new String[]{"1", "4"});
+        Column col3A = new Column("col3", "float", new Float[]{(float) 1.1,
                 (float) 4.4});
-        Column<Object> col4A = new Column<>("col4", "int", new Object[]{1,4});
-        Column<String> col5A = new Column<>("col5", "string", new String[]{"1", "4"});
+        Column col4A = new Column("col4", "int", new Object[]{1,4});
+        Column col5A = new Column("col5", "string", new String[]{"1", "4"});
 
 
         List<Column> tableColumnsA = new ArrayList<>();
@@ -329,11 +327,11 @@ public class TestOperation {
         /*
         col4 > 2
          */
-        Column<Integer> col1B = new Column<>("col1", "int", new Integer[]{2,5});
-        Column<String> col2B = new Column<>("col2", "string", new String[]{"4", "5"});
-        Column<Float> col3B = new Column<>("col3", "float", new Float[]{(float) 4.4,(float) 5.5});
-        Column<Object> col4B = new Column<>("col4", "int", new Object[]{4,5});
-        Column<String> col5B = new Column<>("col5", "string", new String[]{ "4", "5"});
+        Column col1B = new Column("col1", "int", new Integer[]{2,5});
+        Column col2B = new Column("col2", "string", new String[]{"4", "5"});
+        Column col3B = new Column("col3", "float", new Float[]{(float) 4.4,(float) 5.5});
+        Column col4B = new Column("col4", "int", new Object[]{4,5});
+        Column col5B = new Column("col5", "string", new String[]{ "4", "5"});
 
 
         List<Column> tableColumnsB = new ArrayList<>();
@@ -349,11 +347,11 @@ public class TestOperation {
         col5 == "2" and col3 != 1.1
          */
 
-        Column<Integer> col1C = new Column<>("col1", "int", new Integer[]{4});
-        Column<String> col2C = new Column<>("col2", "string", new String[]{"2"});
-        Column<Float> col3C = new Column<>("col3", "float", new Float[]{(float) 2.2});
-        Column<Object> col4C = new Column<>("col4", "int", new Object[]{2});
-        Column<String> col5C = new Column<>("col5", "string", new String[]{ "2"});
+        Column col1C = new Column("col1", "int", new Integer[]{4});
+        Column col2C = new Column("col2", "string", new String[]{"2"});
+        Column col3C = new Column("col3", "float", new Float[]{(float) 2.2});
+        Column col4C = new Column("col4", "int", new Object[]{2});
+        Column col5C = new Column("col5", "string", new String[]{ "2"});
 
 
         List<Column> tableColumnsC = new ArrayList<>();
@@ -369,11 +367,11 @@ public class TestOperation {
         /*
         col1 < 3 and col3 > 0 and col5 == "1" and col4 > 52
          */
-        Column<Integer> col1D = new Column<>("col1", "int", new Integer[]{});
-        Column<String> col2D = new Column<>("col2", "string", new String[]{});
-        Column<Float> col3D = new Column<>("col3", "float", new Float[]{});
-        Column<Object> col4D = new Column<>("col4", "int", new Object[]{});
-        Column<String> col5D = new Column<>("col5", "string", new String[]{});
+        Column col1D = new Column("col1", "int", new Integer[]{});
+        Column col2D = new Column("col2", "string", new String[]{});
+        Column col3D = new Column("col3", "float", new Float[]{});
+        Column col4D = new Column("col4", "int", new Object[]{});
+        Column col5D = new Column("col5", "string", new String[]{});
 
 
         List<Column> tableColumnsD = new ArrayList<>();

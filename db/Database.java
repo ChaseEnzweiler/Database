@@ -114,7 +114,7 @@ public class Database {
 
                 String[] nameTypeSplit = info.split(" ");
 
-                Column col = new Column<>(nameTypeSplit[0], nameTypeSplit[1], new ArrayList<>());
+                Column col = new Column(nameTypeSplit[0], nameTypeSplit[1], new ArrayList<>());
 
                 columnsToStore.add(col);
 

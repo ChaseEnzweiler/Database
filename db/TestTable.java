@@ -10,21 +10,21 @@ import static org.junit.Assert.assertEquals;
 public class TestTable {
 
 
-    Column<String> first = new Column<>("first", "string", new String[]{"1", "2", "4", "8", "9"});
-    Column<String> second = new Column<>("second", "string", new String[]{"11", "12", "14", "18", "19"});
-    Column<String> third = new Column<>("third", "string", new String[]{"21", "22", "24", "28", "29"});
-    Column<String> fourth = new Column<>("fourth", "string", new String[]{"31", "32", "34", "38", "39"});
-    Column<String> fifth = new Column<>("fifth", "string", new String[]{"41", "42", "44", "48", "49"});
+    Column first = new Column("first", "string", new String[]{"1", "2", "4", "8", "9"});
+    Column second = new Column("second", "string", new String[]{"11", "12", "14", "18", "19"});
+    Column third = new Column("third", "string", new String[]{"21", "22", "24", "28", "29"});
+    Column fourth = new Column("fourth", "string", new String[]{"31", "32", "34", "38", "39"});
+    Column fifth = new Column("fifth", "string", new String[]{"41", "42", "44", "48", "49"});
 
 
     @Test
     public void testEquals(){
 
-        Column<String> first = new Column<>("first", "string", new String[]{"1", "2", "4", "8", "9"});
-        Column<String> second = new Column<>("second", "string", new String[]{"11", "12", "14", "18", "19"});
-        Column<String> third = new Column<>("third", "string", new String[]{"21", "22", "24", "28", "29"});
-        Column<String> fourth = new Column<>("fourth", "string", new String[]{"31", "32", "34", "38", "39"});
-        Column<String> fifth = new Column<>("fifth", "string", new String[]{"41", "42", "44", "48", "49"});
+        Column first = new Column("first", "string", new String[]{"1", "2", "4", "8", "9"});
+        Column second = new Column("second", "string", new String[]{"11", "12", "14", "18", "19"});
+        Column third = new Column("third", "string", new String[]{"21", "22", "24", "28", "29"});
+        Column fourth = new Column("fourth", "string", new String[]{"31", "32", "34", "38", "39"});
+        Column fifth = new Column("fifth", "string", new String[]{"41", "42", "44", "48", "49"});
 
 
         Column[] colArray = new Column[]{first, second, third, fourth, fifth};
@@ -45,7 +45,7 @@ public class TestTable {
 
         /* same as table1 but a value in the table is off */
 
-        Column<String> fifthWrong = new Column<>("fifth", "string", new String[]{"1", "42", "44", "48", "49"});
+        Column fifthWrong = new Column("fifth", "string", new String[]{"1", "42", "44", "48", "49"});
 
         Column[] colArrayWrong = new Column[]{first, second, third, fourth, fifthWrong};
 
@@ -93,11 +93,11 @@ public class TestTable {
     @Test
     public void testContainsColumn(){
 
-        Column<String> first = new Column<>("first", "string", new String[]{"1", "2", "4", "8", "9"});
-        Column<String> second = new Column<>("second", "string", new String[]{"11", "12", "14", "18", "19"});
-        Column<String> third = new Column<>("third", "string", new String[]{"21", "22", "24", "28", "29"});
-        Column<String> fourth = new Column<>("fourth", "string", new String[]{"31", "32", "34", "38", "39"});
-        Column<String> fifth = new Column<>("fifth", "string", new String[]{"41", "42", "44", "48", "49"});
+        Column first = new Column("first", "string", new String[]{"1", "2", "4", "8", "9"});
+        Column second = new Column("second", "string", new String[]{"11", "12", "14", "18", "19"});
+        Column third = new Column("third", "string", new String[]{"21", "22", "24", "28", "29"});
+        Column fourth = new Column("fourth", "string", new String[]{"31", "32", "34", "38", "39"});
+        Column fifth = new Column("fifth", "string", new String[]{"41", "42", "44", "48", "49"});
 
 
         Column[] colArray = new Column[]{first, second, third, fourth, fifth};
@@ -108,9 +108,9 @@ public class TestTable {
 
         Table table1 = new Table("table1", colNames, colTypes, colArray);
 
-        Column<String> checkTrue = new Column<>("fourth", "string", new String[]{"31", "32", "34", "38", "39"});
+        Column checkTrue = new Column("fourth", "string", new String[]{"31", "32", "34", "38", "39"});
 
-        Column<String> checkFalse = new Column<>("fourth", "string", new String[]{"31", "78", "34", "38", "39"});
+        Column checkFalse = new Column("fourth", "string", new String[]{"31", "78", "34", "38", "39"});
 
         assertEquals(table1.containsColumn(checkTrue), true);
         assertEquals(table1.containsColumn(checkFalse), false);
@@ -130,8 +130,8 @@ public class TestTable {
         String[] colTypes2 = new String[]{"String", "String", "String", "String", "String"};
         Table table2 = new Table("table2", colNames2, colTypes2, colArray2);
 
-        Column<String> noMatch1 = new Column<>("stupid", "String", new String[]{"1", "2", "4", "8", "9"});
-        Column<String> noMatch2 = new Column<>("second", "incorrect", new String[]{"11", "12", "14", "18", "19"});
+        Column noMatch1 = new Column("stupid", "String", new String[]{"1", "2", "4", "8", "9"});
+        Column noMatch2 = new Column("second", "incorrect", new String[]{"11", "12", "14", "18", "19"});
         Column[] colArray3 = new Column[]{noMatch1, noMatch2, first};
         String[] colNames3 = new String[]{"noMatch1", "noMatch2", "first"};
         String[] colTypes3 = new String[]{"String", "incorrect", "String"};
@@ -146,7 +146,7 @@ public class TestTable {
 
 
 
-        Column<String> DiffValues = new Column<>("third", "string", new String[]{"21", "29"});
+        Column DiffValues = new Column("third", "string", new String[]{"21", "29"});
 
         Column[] colArray5 = new Column[]{DiffValues};
         String[] colNames5 = new String[]{"third"};
@@ -208,11 +208,11 @@ public class TestTable {
     @Test
     public void testInsertInto(){
 
-        Column<Integer> a1 = new Column<>("a", "int", new Integer[]{1,2,3,4,5});
-        Column<String> b1 = new Column<>("b", "string", new String[]{"1", "2", "3", "4", "5"});
-        Column<Float> c1 = new Column<>("c", "float", new Float[]{(float) 1.1, (float) 2.2,(float) 3.3,
+        Column a1 = new Column("a", "int", new Integer[]{1,2,3,4,5});
+        Column b1 = new Column("b", "string", new String[]{"1", "2", "3", "4", "5"});
+        Column c1 = new Column("c", "float", new Float[]{(float) 1.1, (float) 2.2,(float) 3.3,
                 (float) 4.4,(float) 5.5});
-        Column<Integer> d1 = new Column<>("d", "int", new Integer[]{1,2,3,4,5});
+        Column d1 = new Column("d", "int", new Integer[]{1,2,3,4,5});
 
         List<Column> table1List = new ArrayList<>();
         table1List.add(a1);table1List.add(b1);table1List.add(c1);table1List.add(d1);
@@ -222,11 +222,11 @@ public class TestTable {
         /*
         verification table
          */
-        Column<Integer> v1 = new Column<>("a", "int", new Integer[]{1,2,3,4,5, 1});
-        Column<String> v2 = new Column<>("b", "string", new String[]{"1", "2", "3", "4", "5", "1"});
-        Column<Float> v3 = new Column<>("c", "float", new Float[]{(float) 1.1, (float) 2.2,(float) 3.3,
+        Column v1 = new Column("a", "int", new Integer[]{1,2,3,4,5, 1});
+        Column v2 = new Column("b", "string", new String[]{"1", "2", "3", "4", "5", "1"});
+        Column v3 = new Column("c", "float", new Float[]{(float) 1.1, (float) 2.2,(float) 3.3,
                 (float) 4.4,(float) 5.5, (float) 1.1});
-        Column<Integer> v4 = new Column<>("d", "int", new Integer[]{1,2,3,4,5, 1});
+        Column v4 = new Column("d", "int", new Integer[]{1,2,3,4,5, 1});
 
         List<Column> tablevList = new ArrayList<>();
         tablevList.add(v1);tablevList.add(v2);tablevList.add(v3);tablevList.add(v4);

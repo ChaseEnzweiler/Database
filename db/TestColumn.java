@@ -15,25 +15,25 @@ public class TestColumn {
     @Test
     public void testEquals(){
 
-        Column<String> col1 = new Column<>("fourth", "string", new String[]{"31", "78", "34", "38", "39"});
+        Column col1 = new Column("fourth", "string", new String[]{"31", "78", "34", "38", "39"});
 
         // different than col1
-        Column<String> col2 = new Column<>("first", "string", new String[]{"1", "2", "4", "8", "9"});
+        Column col2 = new Column("first", "string", new String[]{"1", "2", "4", "8", "9"});
 
 
-        Column<String> col3 = new Column<>("second", "string", new String[]{"11", "12", "14", "18", "19"});
+        Column col3 = new Column("second", "string", new String[]{"11", "12", "14", "18", "19"});
 
         // different name than col2
-        Column<String> col4 = new Column<>("stupid", "string", new String[]{"1", "2", "4", "8", "9"});
+        Column col4 = new Column("stupid", "string", new String[]{"1", "2", "4", "8", "9"});
 
         // different type than col3
-        Column<String> col5 = new Column<>("second", "dumb", new String[]{"11", "12", "14", "18", "19"});
+        Column col5 = new Column("second", "dumb", new String[]{"11", "12", "14", "18", "19"});
 
         // different value than col2
-        Column<String> col6 = new Column<>("first", "string", new String[]{"100", "2", "4", "8", "9"});
+        Column col6 = new Column("first", "string", new String[]{"100", "2", "4", "8", "9"});
 
         //same as col1
-        Column<String> col7 = new Column<>("fourth", "string", new String[]{"31", "78", "34", "38", "39"});
+        Column col7 = new Column("fourth", "string", new String[]{"31", "78", "34", "38", "39"});
 
 
         assertEquals(col1.equals(col2), false);
@@ -49,7 +49,7 @@ public class TestColumn {
     @Test
     public void testFilterByRow(){
 
-        Column<String> col1 = new Column<>("first", "string", new String[]{"1", "2", "4", "8", "9"});
+        Column col1 = new Column("first", "string", new String[]{"1", "2", "4", "8", "9"});
 
         List<Integer> list1 = new ArrayList<>();
         list1.add(0);
@@ -58,7 +58,7 @@ public class TestColumn {
         list1.add(3);
         list1.add(4);
 
-        Column<String> colList1 = new Column<>("first", "string", new String[]{"1", "2", "4", "8", "9"});
+        Column colList1 = new Column("first", "string", new String[]{"1", "2", "4", "8", "9"});
 
 
         List<Integer> list2 = new ArrayList<>();
@@ -66,27 +66,27 @@ public class TestColumn {
         list2.add(2);
         list2.add(4);
 
-        Column<String> colList2 = new Column<>("first", "string", new String[]{"1", "4", "9"});
+        Column colList2 = new Column("first", "string", new String[]{"1", "4", "9"});
 
         List<Integer> list3 = new ArrayList<>();
         list3.add(3);
 
-        Column<String> colList3 = new Column<>("first", "string", new String[]{"8"});
+        Column colList3 = new Column("first", "string", new String[]{"8"});
 
         List<Integer> emptyList = new ArrayList<>();
 
-        Column<String> colEmptyList = new Column<>("first", "string", new String[]{});
+        Column colEmptyList = new Column("first", "string", new String[]{});
 
 
 
         /* calls */
-        Column<String> filterCol1 = col1.filterByRow(list1);
+        Column filterCol1 = col1.filterByRow(list1);
 
-        Column<String> filterCol2 = col1.filterByRow(list2);
+        Column filterCol2 = col1.filterByRow(list2);
 
-        Column<String> filterCol3 = col1.filterByRow(list3);
+        Column filterCol3 = col1.filterByRow(list3);
 
-        Column<String> filterColEmpty = col1.filterByRow(emptyList);
+        Column filterColEmpty = col1.filterByRow(emptyList);
 
         /* assert statements */
 
@@ -107,8 +107,8 @@ public class TestColumn {
         duplicateList.add(0);
         duplicateList.add(4);
 
-        Column<String> col1Duplicate =
-                new Column<>("first", "string", new String[]{"1", "1", "9", "4", "1", "9"});
+        Column col1Duplicate =
+                new Column("first", "string", new String[]{"1", "1", "9", "4", "1", "9"});
 
         assertEquals(col1.filterByRow(duplicateList), col1Duplicate);
 
@@ -166,9 +166,9 @@ public class TestColumn {
     @Test
     public void testAdd(){
 
-        Column<String> col1 = new Column<>("fourth", "string", new String[]{"31", "78", "34", "38", "39"});
+        Column col1 = new Column("fourth", "string", new String[]{"31", "78", "34", "38", "39"});
 
-        Column<String> col2 = new Column<>("fourth", "string",
+        Column col2 = new Column("fourth", "string",
                 new String[]{"31", "78", "34", "38", "39", "4"});
 
 
@@ -187,20 +187,20 @@ public class TestColumn {
         float plus integer
          */
 
-        Column<Float> col1 = new Column<>("fourth", "float", new Float[]{(float) 31
+        Column col1 = new Column("fourth", "float", new Float[]{(float) 31
                 ,(float) 78,(float) 34,(float) 38,(float) 39});
 
 
-        Column<Integer> col2 = new Column<>("first", "int", new Integer[]{1, 2, 4, 8, 9});
+        Column col2 = new Column("first", "int", new Integer[]{1, 2, 4, 8, 9});
 
-        List<Float> result = new ArrayList<>();
+        List<Object> result = new ArrayList<>();
         result.add((float) 32);
         result.add((float) 80);
         result.add((float) 38);
         result.add((float) 46);
         result.add((float) 48);
 
-        Column<Float> resultCol = new Column<>("result", "float", result);
+        Column resultCol = new Column("result", "float", result);
 
         assertEquals(Column.addition(col1, col2, "result"), resultCol);
 
@@ -209,19 +209,19 @@ public class TestColumn {
         String plus String
          */
 
-        Column<String> col3 = new Column<>("fourth", "string", new String[]{"31", "78", "34", "38", "39"});
+        Column col3 = new Column("fourth", "string", new String[]{"31", "78", "34", "38", "39"});
 
 
-        Column<String> col4 = new Column<>("first", "string", new String[]{"1", "2", "4", "8", "9"});
+        Column col4 = new Column("first", "string", new String[]{"1", "2", "4", "8", "9"});
 
-        List<String> result2 = new ArrayList<>();
+        List<Object> result2 = new ArrayList<>();
         result2.add("311");
         result2.add("782");
         result2.add("344");
         result2.add("388");
         result2.add("399");
 
-        Column<String> result2Col = new Column<String>("result2", "string", result2);
+        Column result2Col = new Column("result2", "string", result2);
 
         assertEquals(Column.addition(col3, col4, "result2"), result2Col);
 
@@ -229,11 +229,11 @@ public class TestColumn {
         Integer addition
          */
 
-        Column<Integer> col5 = new Column<>("first", "int", new Integer[]{1, 2, 4, 8, 9});
+        Column col5 = new Column("first", "int", new Integer[]{1, 2, 4, 8, 9});
 
-        Column<Integer> col6 = new Column<>("first", "int", new Integer[]{1, 2, 4, 8, 9});
+        Column col6 = new Column("first", "int", new Integer[]{1, 2, 4, 8, 9});
 
-        Column<Integer> resultCol3 = new Column<>("result3", "int", new Integer[]{2, 4, 8, 16, 18});
+        Column resultCol3 = new Column("result3", "int", new Integer[]{2, 4, 8, 16, 18});
 
         assertEquals(Column.addition(col5, col6, "result3"), resultCol3);
 
@@ -242,28 +242,28 @@ public class TestColumn {
     @Test
     public void testSubtraction(){
 
-        Column<Float> col1 = new Column<>("fourth", "float", new Float[]{(float) 31
+        Column col1 = new Column("fourth", "float", new Float[]{(float) 31
                 ,(float) 78,(float) 34,(float) 38,(float) 39});
 
-        Column<Integer> col2 = new Column<>("first", "int", new Integer[]{1, 2, 4, 8, 9});
+        Column col2 = new Column("first", "int", new Integer[]{1, 2, 4, 8, 9});
 
-        Column<Integer> col3 = new Column<>("first", "int", new Integer[]{1, 2, 4, 8, 9});
+        Column col3 = new Column("first", "int", new Integer[]{1, 2, 4, 8, 9});
 
-        Column<String> col5 = new Column<>("fourth", "string", new String[]{"31", "78", "34", "38", "39"});
+        Column col5 = new Column("fourth", "string", new String[]{"31", "78", "34", "38", "39"});
 
 
-        List<Float> col1minus2 = new ArrayList<>();
+        List<Object> col1minus2 = new ArrayList<>();
         col1minus2.add((float) 30);col1minus2.add((float) 76);col1minus2.add((float) 30);
         col1minus2.add((float) 30);col1minus2.add((float) 30);
 
-        Column<Float> result1minus2 = new Column<>("result", "float", col1minus2);
+        Column result1minus2 = new Column("result", "float", col1minus2);
 
 
-        List<Integer> col2minus3 = new ArrayList<>();
+        List<Object> col2minus3 = new ArrayList<>();
         col2minus3.add(0);col2minus3.add(0);col2minus3.add(0);col2minus3.add(0);
         col2minus3.add(0);
 
-        Column<Integer> result2minus3 = new Column<>("result", "int", col2minus3);
+        Column result2minus3 = new Column("result", "int", col2minus3);
 
         assertEquals(Column.subtraction(col1, col2, "result"), result1minus2);
 
@@ -276,14 +276,14 @@ public class TestColumn {
     @Test
     public void testDivision(){
 
-        Column<Float> col1 = new Column<>("fourth", "float", new Float[]{(float) 31
+        Column col1 = new Column("fourth", "float", new Float[]{(float) 31
                 ,(float) 78,(float) 34,(float) 38,(float) 49});
 
-        Column<Integer> col2 = new Column<>("first", "int", new Integer[]{0, 2, 2, 2, 7});
+        Column col2 = new Column("first", "int", new Integer[]{0, 2, 2, 2, 7});
 
 
         //result
-        List result = new ArrayList();
+        List<Object> result = new ArrayList<>();
         result.add("NaN"); result.add((float) 39); result.add((float) 17);
         result.add((float) 19); result.add((float) 7);
 
@@ -296,24 +296,24 @@ public class TestColumn {
     @Test
     public void testMultiplication(){
 
-        Column<Float> col1 = new Column<>("fourth", "float", new Float[]{(float) 31
+        Column col1 = new Column("fourth", "float", new Float[]{(float) 31
                 ,(float) 78,(float) 34,(float) 38,(float) 49});
 
-        Column<Integer> col2 = new Column<>("first", "int", new Integer[]{0, 2, 2, 2, 7});
+        Column col2 = new Column("first", "int", new Integer[]{0, 2, 2, 2, 7});
 
-        Column col3 = new Column<>("third", "int", new Object[]{2, 3, "NaN", 5, 8});
+        Column col3 = new Column("third", "int", new Object[]{2, 3, "NaN", 5, 8});
 
         /*
         create resulting columns
          */
 
-        List col1Times2 = new ArrayList();
+        List<Object> col1Times2 = new ArrayList<>();
         col1Times2.add((float) 0); col1Times2.add((float) 156); col1Times2.add((float) 68);
         col1Times2.add((float) 76); col1Times2.add((float) 343);
 
         Column result1 = new Column("result", "float", col1Times2);
 
-        List col2Times3 = new ArrayList();
+        List<Object> col2Times3 = new ArrayList<>();
         col2Times3.add(0); col2Times3.add(6);col2Times3.add("NaN");
         col2Times3.add(10); col2Times3.add(56);
 
@@ -331,12 +331,12 @@ public class TestColumn {
     @Test
     public void testRowEqualsTo(){
 
-        Column<Float> col1 = new Column<>("fourth", "float", new Float[]{(float) 31
+        Column col1 = new Column("fourth", "float", new Float[]{(float) 31
                 ,(float) 78,(float) 34,(float) 31,(float) 39});
 
-        Column col3 = new Column<>("third", "int", new Object[]{5, 3, "NaN", 5, 8});
+        Column col3 = new Column("third", "int", new Object[]{5, 3, "NaN", 5, 8});
 
-        Column<String> col4 = new Column<>("fourth", "string", new String[]{"31", "78", "31", "38", "31"});
+        Column col4 = new Column("fourth", "string", new String[]{"31", "78", "31", "38", "31"});
 
 
         Set<Integer> set1 = new HashSet<>();
@@ -362,12 +362,12 @@ public class TestColumn {
         /*
         finish this
          */
-        Column<Float> col1 = new Column<>("first", "float", new Float[]{(float) 31
+        Column col1 = new Column("first", "float", new Float[]{(float) 31
                 ,(float) 78,(float) 34,(float) 31,(float) 39});
 
-        Column col2 = new Column<>("second", "int", new Object[]{5, 3, "NaN", 5, 8});
+        Column col2 = new Column("second", "int", new Object[]{5, 3, "NaN", 5, 8});
 
-        Column<String> col3 = new Column<>("third", "string", new String[]{"31", "78", "31", "38", "31"});
+        Column col3 = new Column("third", "string", new String[]{"31", "78", "31", "38", "31"});
 
         Set<Integer> set1 = new HashSet<>(); //34
         set1.add(0); set1.add(3);
@@ -396,12 +396,12 @@ public class TestColumn {
         quickly testing the rest of the comparison column methods
          */
 
-        Column<Float> col1 = new Column<>("first", "float", new Float[]{(float) 31
+        Column col1 = new Column("first", "float", new Float[]{(float) 31
                 ,(float) 78,(float) 34,(float) 31,(float) 39});
 
-        Column col2 = new Column<>("second", "int", new Object[]{5, 3, "NaN", 5, 8});
+        Column col2 = new Column("second", "int", new Object[]{5, 3, "NaN", 5, 8});
 
-        Column<String> col3 = new Column<>("third", "string", new String[]{"abc", "smith", "dog", "a", "pop"});
+        Column col3 = new Column("third", "string", new String[]{"abc", "smith", "dog", "a", "pop"});
 
         Set<Integer> set1 = new HashSet<>(); //not equal 31
         set1.add(1); set1.add(2); set1.add(4);

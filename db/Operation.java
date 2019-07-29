@@ -59,7 +59,7 @@ class Operation {
 
             Indices indicesToReturn = leftRowCollection.cartesianRowIndex(rightRowCollection);
 
-            return filterAndConcatenate(leftTable, rightTable, indicesToReturn , name);
+            return filterAndConcatenate(leftTable, rightTable, indicesToReturn, name);
 
         }
 

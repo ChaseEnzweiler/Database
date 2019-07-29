@@ -18,7 +18,7 @@ public class TestRowCollection {
 
         String colName1 = "col1";
         String colType1 = "int";
-        ArrayList<Integer> colValues1 = new ArrayList<>();
+        ArrayList<Object> colValues1 = new ArrayList<>();
 
         colValues1.add(1);
         colValues1.add(2);
@@ -28,7 +28,7 @@ public class TestRowCollection {
 
         String colName2 = "col2";
         String colType2 = "String";
-        ArrayList<String> colValues2 = new ArrayList<>();
+        ArrayList<Object> colValues2 = new ArrayList<>();
 
         colValues2.add("a");
         colValues2.add("b");
@@ -38,7 +38,7 @@ public class TestRowCollection {
 
         String colName3 = "col3";
         String colType3 = "float";
-        ArrayList<Float> colValues3 = new ArrayList<>();
+        ArrayList<Object> colValues3 = new ArrayList<>();
 
         colValues3.add((float) 1.1);
         colValues3.add((float) 2.2);
@@ -47,9 +47,9 @@ public class TestRowCollection {
         colValues3.add((float) 5.5);
 
 
-        Column<Integer> col1 = new Column<>(colName1, colType1, colValues1);
-        Column<String> col2 = new Column<>(colName2, colType2, colValues2);
-        Column<Float> col3 = new Column<>(colName3, colType3, colValues3);
+        Column col1 = new Column(colName1, colType1, colValues1);
+        Column col2 = new Column(colName2, colType2, colValues2);
+        Column col3 = new Column(colName3, colType3, colValues3);
 
         List<Column> colList1 = new ArrayList<>();
         colList1.add(col1);
@@ -64,7 +64,7 @@ public class TestRowCollection {
 
         String colNameA = "colA";
         String colTypeA = "int";
-        ArrayList<Integer> colValuesA = new ArrayList<>();
+        ArrayList<Object> colValuesA = new ArrayList<>();
 
         colValuesA.add(1);
         colValuesA.add(67);
@@ -75,7 +75,7 @@ public class TestRowCollection {
 
         String colNameB = "colB";
         String colTypeB = "String";
-        ArrayList<String> colValuesB = new ArrayList<>();
+        ArrayList<Object> colValuesB = new ArrayList<>();
 
         colValuesB.add("a");
         colValuesB.add("chase");
@@ -86,7 +86,7 @@ public class TestRowCollection {
 
         String colNameC = "colC";
         String colTypeC = "float";
-        ArrayList<Float> colValuesC = new ArrayList<>();
+        ArrayList<Object> colValuesC = new ArrayList<>();
 
         colValuesC.add((float) 1.1);
         colValuesC.add((float) 11.1);
@@ -96,9 +96,9 @@ public class TestRowCollection {
         colValuesC.add((float) 1.1);
 
 
-        Column<Integer> colA = new Column<>(colNameA, colTypeA, colValuesA);
-        Column<String> colB = new Column<>(colNameB, colTypeB, colValuesB);
-        Column<Float> colC = new Column<>(colNameC, colTypeC, colValuesC);
+        Column colA = new Column(colNameA, colTypeA, colValuesA);
+        Column colB = new Column(colNameB, colTypeB, colValuesB);
+        Column colC = new Column(colNameC, colTypeC, colValuesC);
 
         List<Column> colListA = new ArrayList<>();
         colListA.add(colA);

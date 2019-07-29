@@ -19,7 +19,7 @@ class Table {
     int numColumns;
 
 
-    public Table(String name, String[] columnNames, String[] columnTypes, Column[] columns) {
+    Table(String name, String[] columnNames, String[] columnTypes, Column[] columns) {
 
         this.tableName = name;
         this.columnNames = columnNames;
@@ -37,7 +37,7 @@ class Table {
 
     }
 
-    public Table(String name, List<Column> columns){
+    Table(String name, List<Column> columns){
 
         this.tableName = name;
 
@@ -67,7 +67,7 @@ class Table {
     used in create table parse
      */
 
-    public Table(String tableName, List<String> columnNames, List<String> columnTypes){
+    Table(String tableName, List<String> columnNames, List<String> columnTypes){
 
         this.tableName = tableName;
         this.columnNames = columnNames.toArray(new String[columnNames.size()]);
@@ -79,7 +79,7 @@ class Table {
 
         for(int i = 0; i < columnNames.size(); i++){
 
-            Column<Object> toAdd = new Column<>(columnNames.get(i), columnTypes.get(i), new Object[]{});
+            Column toAdd = new Column(columnNames.get(i), columnTypes.get(i), new Object[]{});
 
             columns.add(toAdd);
         }
@@ -90,7 +90,6 @@ class Table {
 
     @Override
     public boolean equals(Object other){
-
 
         if(this == other){
 
@@ -123,7 +122,7 @@ class Table {
      * returns the name of the Table
      * @return String tableName
      */
-    public String getTableName(){
+    String getTableName(){
 
         return tableName;
     }
@@ -132,7 +131,7 @@ class Table {
      * returns the list of columns the table is made up from
      * @return Column[] array of columns
      */
-    public List<Column> getColumns(){
+    List<Column> getColumns(){
 
         return columns;
 
@@ -142,7 +141,7 @@ class Table {
      * getter for the names of the columns
      * @return String[] of column names
      */
-    public String[] getColumnNames(){
+    String[] getColumnNames(){
 
         return columnNames;
 
@@ -155,7 +154,7 @@ class Table {
      * @param checkColumn Column column you want to check is in table
      * @return Boolean
      */
-    public boolean containsColumn(Column checkColumn){
+    boolean containsColumn(Column checkColumn){
 
         for(Column col : columns){
 
@@ -174,7 +173,7 @@ class Table {
      * @param checkColumn Column
      * @return boolean
      */
-    public boolean hasMatchingColumn(Column checkColumn){
+    boolean hasMatchingColumn(Column checkColumn){
 
         for(Column col: columns){
 
@@ -194,7 +193,7 @@ class Table {
      * @param other Table that you want to compare columns
      * @return a List columns this table has in common with other table
      */
-    public List<Column> matchingColumns(Table other){
+    List<Column> matchingColumns(Table other){
 
         List<Column> matchingColumns = new ArrayList<>();
 
@@ -213,7 +212,7 @@ class Table {
      * returns the columns in this table as an arraylist instead of a array
      * @return List<Column></Columns>
      */
-    public List<Column> getColumnsAsList(){
+    List<Column> getColumnsAsList(){
 
         return this.columns;
     }
@@ -226,7 +225,7 @@ class Table {
      * @return Column
      * @throws IllegalArgumentException throws if Column name does not exist
      */
-    public Column getColumnByName(String nameToGet) throws IllegalArgumentException{
+    Column getColumnByName(String nameToGet) throws IllegalArgumentException{
 
         List<Column> columns = this.getColumnsAsList();
 
@@ -430,10 +429,10 @@ class Table {
 
     public static void main(String[] args){
 
-        Column<String> first = new Column<>("first", "string", new String[]{"1", "2", "4", "8", "9"});
-        Column<String> second = new Column<>("second", "string", new String[]{"11", "12", "14", "18", "19"});
-        Column<String> third = new Column<>("third", "string", new String[]{"21", "22", "24", "28", "29"});
-        Column<String> fourth = new Column<>("fourth", "string", new String[]{"31", "32", "34", "38", "39"});
+        Column first = new Column("first", "string", new String[]{"1", "2", "4", "8", "9"});
+        Column second = new Column("second", "string", new String[]{"11", "12", "14", "18", "19"});
+        Column third = new Column("third", "string", new String[]{"21", "22", "24", "28", "29"});
+        Column fourth = new Column("fourth", "string", new String[]{"31", "32", "34", "38", "39"});
 
         Column[] colArray = new Column[]{first, second, third, fourth};
 

@@ -3,16 +3,12 @@ package db;
 import java.util.*;
 
 
-
 class RowCollection {
 
 
     private List<Row> rows = new ArrayList<>();
 
     private int rowCount;
-
-
-
 
 
     RowCollection(List<Column> columns){
