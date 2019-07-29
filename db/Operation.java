@@ -10,7 +10,6 @@ import java.util.*;
  */
 class Operation {
 
-
     /**
      * this method performs a join of two tables
      * @param leftTable left Table to be performed on
@@ -30,7 +29,6 @@ class Operation {
         create RowCollection objects with these columns and calculate Indices object
         that creates lists of what row indices need to be kept for both tables
          */
-
 
         if(leftMatchingColumns.size() > 0){
             /*

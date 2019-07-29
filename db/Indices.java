@@ -23,7 +23,6 @@ public class Indices {
         leftIndices = left;
 
         rightIndices = right;
-
     }
 
     /**
@@ -34,7 +33,6 @@ public class Indices {
         return leftIndices;
     }
 
-
     /**
      * getter for right indices list
      * @return list of integer indices of rows needed to be kept
@@ -42,8 +40,6 @@ public class Indices {
     List<Integer> getRightIndices() {
         return rightIndices;
     }
-
-
 
     @Override
     public boolean equals(Object other){
@@ -66,7 +62,5 @@ public class Indices {
         }
 
         return false;
-
     }
-
 }

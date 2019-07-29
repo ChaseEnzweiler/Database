@@ -31,7 +31,6 @@ class RowCollection {
             }
 
             rows.add(rowToAdd);
-
         }
     }
 
@@ -44,7 +43,6 @@ class RowCollection {
     public boolean contains(Row row){
 
         return this.rows.contains(row);
-
     }
 
 
@@ -73,11 +71,8 @@ class RowCollection {
 
                 }
             }
-
         }
-
         return new Indices(leftIndices, rightIndices);
-
     }
 
     /**
@@ -98,10 +93,6 @@ class RowCollection {
                 right.add(j);
             }
         }
-
         return new Indices(left, right);
-
     }
-
-
 }
