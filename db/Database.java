@@ -1,38 +1,25 @@
 package db;
 
-import sun.applet.Main;
-
 import java.util.*;
 import java.io.*;
-import java.nio.*;
+
 
 
 public class Database {
 
     /*
-    in this database I need to 1. create a hashmap that serves as the actual database storing key: tableName
-    to value: table and also need to override hashcode. 2. create a method to read a tbl file stored in file that
-    I still need to specify. 3. create a method that saves a table to the hashmap and removes it from hashmap
-    (don't forget exceptions). 4. create methods to write(store) to tbl file and specify name in format similar to
-    print statement.
-    Drop, Store, Load, Create Table (adding new table to database)
-
     TODO: refactor to fix generics <Object> issue with columns, add '' to outside of strings to match tbl files
     TODO: List<Column<Object>> refactor over many classes.
-
-
      */
 
 
-    Map<String, Table> database;
+    private Map<String, Table> database;
 
 
 
     public Database() {
 
-        // don't need to override hashcode because did not override equals of String class. we good!
         database = new HashMap<>();
-
     }
 
 
@@ -41,7 +28,7 @@ public class Database {
      * @param name String
      * @return Table
      */
-    public Table getTable(String name){
+    Table getTable(String name){
 
         return this.database.get(name);
 
@@ -62,7 +49,7 @@ public class Database {
      * @param name String name of table
      * @return True if table exists
      */
-    public boolean containsTable(String name){
+    boolean containsTable(String name){
 
         return database.containsKey(name);
     }
@@ -73,7 +60,7 @@ public class Database {
      * if the specified table does not exist prints error
      * @param name String name of table to drop
      */
-    public void dropTable(String name){
+    void dropTable(String name){
 
         if (database.containsKey(name)){
 
@@ -92,7 +79,7 @@ public class Database {
      * table into database that already exists in database it will overwrite.
      * @param tableName String name of the table you want to load
      */
-    public void load(String tableName){
+    void load(String tableName){
 
         File file = new File("/Users/Cenzwe/Desktop/proj2/examples/" + tableName + ".tbl");
 
@@ -193,7 +180,7 @@ public class Database {
      * if table already exists in tbl folder this method should overwrite the file.
      * @param name String
      */
-    public void storeTable(String name){
+    void storeTable(String name){
 
         Table toStore;
 
@@ -235,17 +222,12 @@ public class Database {
         } catch (Exception e){
 
             System.out.println("Error: Could not write table rows to file");
-            return;
+
         }
 
     }
 
 
-
-
-
-
-    // eval(query, this)
     public String transact(String query) {
 
          CommandLineParser.eval(query, this);

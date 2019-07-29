@@ -2,13 +2,13 @@ package db;
 
 import java.util.*;
 
-public class Row {
+class Row {
 
 
     private List<Object> values;
 
 
-    public Row(){
+    Row(){
 
         values = new ArrayList<>();
 
@@ -52,12 +52,4 @@ public class Row {
 
         return this.values.equals(otherRow.values);
     }
-
-
-
-
-
-
-
-
 }

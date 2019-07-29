@@ -13,7 +13,7 @@ public class Indices {
 
     private List<Integer> rightIndices;
 
-    public Indices(List<Integer> left, List<Integer> right){
+    Indices(List<Integer> left, List<Integer> right){
 
         leftIndices = left;
 
@@ -25,7 +25,7 @@ public class Indices {
      * getter for left indices list
      * @return list of integer indices of rows needed to be kept
      */
-    public List<Integer> getLeftIndices() {
+    List<Integer> getLeftIndices() {
         return leftIndices;
     }
 
@@ -34,7 +34,7 @@ public class Indices {
      * getter for right indices list
      * @return list of integer indices of rows needed to be kept
      */
-    public List<Integer> getRightIndices() {
+    List<Integer> getRightIndices() {
         return rightIndices;
     }
 
@@ -63,9 +63,5 @@ public class Indices {
         return false;
 
     }
-
-
-
-
 
 }

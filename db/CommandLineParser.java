@@ -5,12 +5,9 @@ import java.util.List;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
-import java.util.StringJoiner;
 
-/* TODO: adding strings has too many apostrophe
-*
-* */
-public class CommandLineParser {
+
+class CommandLineParser {
 
     // Various common constructs, simplifies parsing.
     private static final String REST  = "\\s*(.*)\\s*",
@@ -40,7 +37,7 @@ public class CommandLineParser {
 
 
 
-    public static void eval(String query, Database db) {
+    static void eval(String query, Database db) {
         Matcher m;
         if ((m = CREATE_CMD.matcher(query)).matches()) {
             createTable(m.group(1), db);
@@ -224,10 +221,9 @@ public class CommandLineParser {
         } catch(Exception e){
 
             System.err.println("Error: wrong type literal " + values[counter] + " given.");
-            return;
+
         }
 
-        //System.out.printf("You are trying to insert the row \"%s\" into the table %s\n", m.group(2), m.group(1));
     }
 
     private static void printTable(String name, Database db) {
@@ -360,7 +356,7 @@ public class CommandLineParser {
 
         }
         return afterJoin;
-        //afterJoin.printTable();
+
     }
 }
 

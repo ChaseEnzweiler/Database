@@ -1,24 +1,26 @@
 package db;
 
-
 import java.util.*;
 
-public class Column<T> {
+class Column<T> {
 
 
-    String name;
+    private String name;
 
-    String type;
+    private String type;
 
     private List<T> values;
 
-
+    /**
+     * Constructor for the column class. takes in a name, type, and array of values.
+     * @param name String name of column
+     * @param type String type of column
+     * @param values T[] of values the column contains
+     */
     public Column(String name, String type, T[] values){
 
         this.name = name;
         this.type = type;
-
-        // Beware of line below if anything breaks
 
         this.values = new ArrayList<>(Arrays.asList(values));
 
@@ -31,12 +33,10 @@ public class Column<T> {
      * @param type String type of the column
      * @param values ArrayList<T> the values of the column
      */
-    public Column(String name, String type, List<T> values){ //changed ArrayList<T> to List<T>
+    public Column(String name, String type, List<T> values){
 
         this.name = name;
         this.type = type;
-
-        // Beware of line below if anything breaks
 
         this.values = values;
 
@@ -75,8 +75,8 @@ public class Column<T> {
         }
 
         if(!this.type.equals(otherColumn.type)){
-            /* checks for differing types this may not be needed
-            b/c will be handled when comparing values
+            /*
+            checks for differing types
              */
             return false;
         }
@@ -91,7 +91,7 @@ public class Column<T> {
      * @return int size of column
      */
 
-    public int getSize(){
+    int getSize(){
 
         return values.size();
 
@@ -101,7 +101,7 @@ public class Column<T> {
      * getter method for the type of the column
      * @return String type
      */
-    public String getType(){
+    String getType(){
 
         return type;
     }
@@ -112,7 +112,7 @@ public class Column<T> {
      * @return String value store in the column
      */
 
-    public T getValue(int index){
+    T getValue(int index){
 
         return values.get(index);
 
@@ -122,7 +122,7 @@ public class Column<T> {
      * returns a list of all the values making up the column
      * @return List</String> of values of column
      */
-    public List<T> getValues(){
+    List<T> getValues(){
 
         return values;
     }
@@ -132,7 +132,7 @@ public class Column<T> {
      * returns the name of the column
      * @return String name
      */
-    public String getName(){
+    String getName(){
 
         return name;
 
@@ -146,7 +146,7 @@ public class Column<T> {
      * @param rowsToKeep List of integers of which rows of the values to keep. Needs to be ordered List
      * @return new Column with an updated values list.
      */
-    public Column<T> filterByRow(List<Integer> rowsToKeep){
+    Column<T> filterByRow(List<Integer> rowsToKeep){
 
 
         ArrayList<T> filteredValues = new ArrayList<>();
@@ -175,20 +175,11 @@ public class Column<T> {
      * @param name String name of what you want duplicate column to be named
      * @return new Column
      */
-    public Column<T> changeName(String name){
+    Column<T> changeName(String name){
 
         return new Column<>(name, this.getType(), this.getValues());
 
     }
-
-
-
-    /*
-    need static arithmetic operations that also check types and throwing exceptions. For no value and not a number
-    there will be no changes to further operations on nan, but for division by zero it will throw an arithmetic
-    exception which we will catch and set to a specified number where we will then print NAN in the print
-    function of a table
-     */
 
 
     /**
@@ -200,15 +191,8 @@ public class Column<T> {
      * @return new Column
      * @throws IllegalArgumentException
      */
-    public static Column addition(Column col1, Column col2, String name) throws IllegalArgumentException{
+    static Column addition(Column col1, Column col2, String name) throws IllegalArgumentException{
 
-        /*
-        check to make sure the types of the columns are correct or else throw exception
-        string types cannot be added to column types of float or int
-        if one column has string types the other columns cannot!
-        Can probably make a separate function to check for those exceptions in beginning
-        need to add functionality if column contains "NaN" for addition and subtraction.
-         */
         if(col1.getType().equals("string") || col2.getType().equals("string")) {
 
             if (!col2.getType().equals("string")) {
@@ -285,7 +269,7 @@ public class Column<T> {
      * @return new Column with results of subtraction
      * @throws IllegalArgumentException throws if given string Column
      */
-    public static Column subtraction(Column col1, Column col2, String name) throws IllegalArgumentException{
+    static Column subtraction(Column col1, Column col2, String name) throws IllegalArgumentException{
 
         /*
         check if either columns have string type and throw an exception
@@ -354,7 +338,7 @@ public class Column<T> {
      * @param col2 Column
      * @return String type("int", "float", "string")
      * */
-    public static String calculateType(Column col1, Column col2){
+    static String calculateType(Column col1, Column col2){
 
         String newType;
 
@@ -386,7 +370,7 @@ public class Column<T> {
      * @return Column with resulting values of division
      * @throws IllegalArgumentException if trying to use String Columns
      */
-    public static Column division(Column col1, Column col2, String name) throws IllegalArgumentException{
+    static Column division(Column col1, Column col2, String name) throws IllegalArgumentException{
 
         if(col1.getType().equals("string") || col2.getType().equals("string")){
 
@@ -404,7 +388,6 @@ public class Column<T> {
 
         /*
         divide col1 by col2 value by value, check if division by zero which results in NaN.
-        maybe do case switch for the changes.
          */
 
         for(int i = 0; i < col1.getSize(); i++){
@@ -453,7 +436,7 @@ public class Column<T> {
      * @return Column new column that contains results
      * @throws IllegalArgumentException if given Column parameter with type String
      */
-    public static Column multiplication(Column col1, Column col2, String name) throws IllegalArgumentException{
+    static Column multiplication(Column col1, Column col2, String name) throws IllegalArgumentException{
 
         /* cannot perform multiplication on string type Columns */
         if(col1.getType().equals("string") || col2.getType().equals("string")){
@@ -525,12 +508,7 @@ public class Column<T> {
      * @return Set with integer indices
      * @throws NumberFormatException thrown if literal not correct type
      */
-    public Set<Integer> rowsEqualTo(String literal) throws NumberFormatException{
-
-        /*
-        need to fix so that it doesn't throw exceptions for "NaN"
-        catch it and reassign new literal to a really large number, like integer or float max.
-         */
+    Set<Integer> rowsEqualTo(String literal) throws NumberFormatException{
 
         Object newLiteral;
         Set<Integer> rowsToKeep = new HashSet<>();
@@ -554,21 +532,14 @@ public class Column<T> {
 
         /*
         compare values of the column to find which are equal
-        set a check for "nan", needs to check types and max values
-        and probably have to set individually. can set an object
-        with each max value or string.
          */
         for(int i = 0; i < this.getSize(); i++){
-
-
 
             if(this.getValue(i).equals(newLiteral)){
 
                 rowsToKeep.add(i);
 
             } else if(this.getValue(i).equals("NaN") && !this.type.equals("string")){
-                // checks if float or integer literal is equal to max number assigned to
-                // "NaN" values
 
                 if(newLiteral.equals(Float.MAX_VALUE)){
 
@@ -589,7 +560,7 @@ public class Column<T> {
      * @return Set</Integer> of indices of rows to keep
      * @throws NumberFormatException thrown in literal not correct type
      */
-    public Set<Integer> rowsNotEqualTo(String literal) throws NumberFormatException{
+    Set<Integer> rowsNotEqualTo(String literal) throws NumberFormatException{
 
 
 
@@ -626,8 +597,6 @@ public class Column<T> {
                 rowsToKeep.add(i);
 
             } else if(this.getValue(i).equals("NaN") && !this.type.equals("string")){
-                // checks if float or integer literal is equal to max number assigned to
-                // "NaN" values
 
                 if(!newLiteral.equals(Float.MAX_VALUE)){
 
@@ -648,9 +617,7 @@ public class Column<T> {
      * @return Integer Set of indices
      * @throws NumberFormatException thrown if literal is different type than column
      */
-    public Set<Integer> rowsLessThan(String literal) throws NumberFormatException{
-
-
+    Set<Integer> rowsLessThan(String literal) throws NumberFormatException{
 
         Object newLiteral;
         Set<Integer> rowsToKeep = new HashSet<>();
@@ -733,7 +700,7 @@ public class Column<T> {
      * @return Integer Set of indices
      * @throws NumberFormatException thrown if literal is different type than column
      */
-    public Set<Integer> rowsLessThanOrEqual(String literal) throws NumberFormatException{
+    Set<Integer> rowsLessThanOrEqual(String literal) throws NumberFormatException{
 
 
 
@@ -762,8 +729,6 @@ public class Column<T> {
         are less than parameter newLiteral
          */
         for(int i = 0; i < this.getSize(); i++){
-
-            // use compare to with strings checking for NaN
 
             if(this.getType().equals("string")){
 
@@ -819,7 +784,7 @@ public class Column<T> {
      * @return Integer Set of indices
      * @throws NumberFormatException thrown if literal is different type than column
      */
-    public Set<Integer> rowsGreaterThanOrEqual(String literal) throws NumberFormatException{
+    Set<Integer> rowsGreaterThanOrEqual(String literal) throws NumberFormatException{
 
 
 
@@ -849,7 +814,6 @@ public class Column<T> {
          */
         for(int i = 0; i < this.getSize(); i++){
 
-            // use compare to with strings checking for NaN
 
             if(this.getType().equals("string")){
 
@@ -905,9 +869,7 @@ public class Column<T> {
      * @return Integer Set of indices
      * @throws NumberFormatException thrown if literal is different type than column
      */
-    public Set<Integer> rowsGreaterThan(String literal) throws NumberFormatException{
-
-
+    Set<Integer> rowsGreaterThan(String literal) throws NumberFormatException{
 
         Object newLiteral;
         Set<Integer> rowsToKeep = new HashSet<>();
@@ -981,20 +943,6 @@ public class Column<T> {
 
         return rowsToKeep;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

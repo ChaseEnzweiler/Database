@@ -4,17 +4,8 @@ import java.util.*;
 
 
 
-public class RowCollection {
+class RowCollection {
 
-    /*
-    stores rows derived from columns as a list<object> and stores them in order in a list
-
-    create a row class and then implement this class.
-
-    needs to create and order rows, have a contain function for other row collection objects,
-    have a similarity function that returns indices of similar rows.
-
-     */
 
     private List<Row> rows = new ArrayList<>();
 
@@ -24,7 +15,7 @@ public class RowCollection {
 
 
 
-    public RowCollection(List<Column> columns){
+    RowCollection(List<Column> columns){
 
             rowCount = columns.get(0).getSize();
 
@@ -39,8 +30,6 @@ public class RowCollection {
             }
 
             rows.add(rowToAdd);
-
-
 
         }
     }
@@ -57,11 +46,6 @@ public class RowCollection {
 
     }
 
-    /*
-    method that returns list of integers of rows to keep
-    either make it an method here or make a static method
-    in the operations class
-     */
 
     /**
      * returns a list of integer indices of rows in this RowCollection that match
@@ -69,14 +53,8 @@ public class RowCollection {
      * @param other RowCollection
      * @return list of integer indices
      */
-    public Indices matchingRowIndex(RowCollection other){
+    Indices matchingRowIndex(RowCollection other){
 
-        /*
-        Edit need to change to get ordered indices from the right table may need
-        copy's of certain rows that match multiple right table rows.
-
-        returns left indices to keep and right indices to keep
-         */
 
         List<Integer> leftIndices = new ArrayList<>();
 
@@ -97,13 +75,12 @@ public class RowCollection {
 
         }
 
-
         return new Indices(leftIndices, rightIndices);
 
     }
 
 
-    public Indices cartesianRowIndex(RowCollection other){
+    Indices cartesianRowIndex(RowCollection other){
 
         List<Integer> left = new ArrayList<>();
         List<Integer> right = new ArrayList<>();

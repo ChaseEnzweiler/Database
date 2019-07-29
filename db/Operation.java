@@ -1,17 +1,14 @@
 package db;
 
-import com.sun.xml.internal.bind.v2.TODO;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.*;
 
 /**
  * class holds static methods for table operations such as join.
  */
-public class Operation {
+class Operation {
 
 
     /**
@@ -21,7 +18,7 @@ public class Operation {
      * @param name String name of the new table to be created
      * @return Table new table result of join
      */
-    public static Table Join(Table leftTable, Table rightTable, String name){
+    static Table Join(Table leftTable, Table rightTable, String name){
 
         /*
         calculate the columns that both tables have in common regarding name and type
@@ -77,7 +74,7 @@ public class Operation {
      * @param rowIndices contains which rows of each table should be kept
      * @return new table
      */
-    public static Table filterAndConcatenate(Table left, Table right, Indices rowIndices, String name){
+    static Table filterAndConcatenate(Table left, Table right, Indices rowIndices, String name){
 
         List<Column> filteredColumns = new ArrayList<>();
 
@@ -132,7 +129,7 @@ public class Operation {
      * @return Table resulting select
      * @throws IllegalArgumentException if column name does not exist
      */
-    public static Table select(List<String> columnSelect, List<String> columnNames, Table table, String name)
+    static Table select(List<String> columnSelect, List<String> columnNames, Table table, String name)
             throws IllegalArgumentException{
 
         /* if an '*' is passed in return all the columns in a new table */
@@ -194,7 +191,7 @@ public class Operation {
      * @throws IllegalArgumentException if column does not exist in table or expression does not
      * have operator
      */
-    public static Column applyArithmetic(String expression, String name, Table table)
+    static Column applyArithmetic(String expression, String name, Table table)
             throws IllegalArgumentException{
 
         /*
@@ -244,24 +241,6 @@ public class Operation {
     }
 
 
-
-    /*
-    use regex to delete whitespace like before and split conditional by "and". then store each
-    conditional statement in String parts[]. loop through parts executing each conditional and may
-    need to convert literal into float or string. Get rows to keep for each conditional. If the row
-    appears as many times as there are conditionals in parts, it will make it to the final cut
-
-    return table will have same name and columns as parameter
-
-    need at least one piece of whitespace to separate 'and', so split up before removing whitespace
-
-    get column by name then use a method that compares literal to values in column to see what rows to keep
-    then either return list or array, and then union lists or array.
-
-    TODO: ensure that '' around strings doesn't interfere with comparison or other operations.
-
-     */
-
     /**
      * this method provides conditional filtering passed through by the where clause. Takes in a table
      * and a conditional string statement and returns a new table that has been filtered according to the
@@ -270,7 +249,7 @@ public class Operation {
      * @param condition String of where clause
      * @return new Table with rows not meeting where clause filtered out.
      */
-    public static Table condition(Table select, String condition) throws IllegalArgumentException{
+    static Table condition(Table select, String condition) throws IllegalArgumentException{
 
         /* split up conditions by 'and' */
         String[] parts = condition.split(" and ");
@@ -292,11 +271,8 @@ public class Operation {
 
             /* find what comparison is used ==, !=, <=, >=, >, <*/
 
-            //String cleanPart = part.replaceAll("\\s+", "");
 
             String cleanPart = part.trim();
-            /* TODO: check this with whitespace. replaced above with trim but also need to trim all
-            * TODO: cont. all split operator parts so string parse correctly*/
 
             Set<Integer> currentSet; // edit originally had this Set<Integer> with warning
 
@@ -364,7 +340,6 @@ public class Operation {
 
                 throw new IllegalArgumentException("no comparison operator");
             }
-
             /*
             check count of how many loops and either assign current set to indexIntersection,
             or calculate the intersection of two sets
@@ -392,8 +367,6 @@ public class Operation {
 
         List<Integer> rowsToKeep = new ArrayList<>(indexIntersection);
 
-        //sort the arrayList so we can pass into Column.filterByRow
-
         Collections.sort(rowsToKeep);
 
         /*
@@ -401,7 +374,6 @@ public class Operation {
         Needs to be an ordered list.
          */
 
-        // final columns to go in table, doing this just to avoid immutability problems
         List<Column> columnsToReturn = new ArrayList<>();
 
         for(Column clmn : columns){
@@ -410,10 +382,7 @@ public class Operation {
 
         }
 
-
         return new Table(select.getTableName(), columnsToReturn);
-
-
     }
 
 

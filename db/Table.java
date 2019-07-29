@@ -4,14 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Table {
-
-    /*
-    need to change to make table store columns in a list rather than store them in arrays
-    slows down some methods when having to convert arrays back into lists.
-    this.values = new ArrayList<>(Arrays.asList(values));
-     */
-
+class Table {
 
     List<Column> columns;
 
@@ -24,11 +17,6 @@ public class Table {
     int numRows;
 
     int numColumns;
-
-    /* table constructor without data, may need to add row and column number later
-    * rows are annoying so may need a columnCollector class.
-    * TODO: need to make 1 additional create table constructor
-    * */
 
 
     public Table(String name, String[] columnNames, String[] columnTypes, Column[] columns) {
@@ -98,29 +86,6 @@ public class Table {
 
         this.columns = columns;
     }
-
-
-
-
-
-    /* constructor that takes in a 2D array of table information and creates a table using columns.
-    *  Data should be arranged such that the 2D array is like a table with rows and columns.
-    *
-
-    public Table(String name, String[] columnNames, String[] columnTypes, String[][] data){
-    }
-
-
-    all information should be parsed from a printed table representation
-
-    this can be parsed and built from a column collection class, a class that builds and organizes columns
-    by adding values to columns individually while parsing from a table.
-
-    x int,y int
-    2,5
-    8,3
-    13,7
-    */
 
 
     @Override
@@ -287,7 +252,7 @@ public class Table {
      * @param literals Object list of values
      * @return String arbitrary, can maybe switch to a void function
      */
-    public String insertInto(List<Object> literals){
+    String insertInto(List<Object> literals){
 
         try {
             if (literals.size() != this.columns.size()) {
@@ -335,7 +300,7 @@ public class Table {
     /**
      * print method that prints the column name, type and values
      */
-    public void printTable(){
+    void printTable(){
 
         /*
         print first line of the table
@@ -387,7 +352,7 @@ public class Table {
      * then the rest each row of values, formatted like print table. (verified) w/ prints
      * @return List of Strings of each line of table
      */
-    public List<String> tableToStringSegments(){
+    List<String> tableToStringSegments(){
 
         String firstLine = "";
 
@@ -422,16 +387,6 @@ public class Table {
 
         stringSegments.add(sb.toString());
 
-        /*
-        now need to turn each row of values into a string line by line and add each line into the list<String>
-        TODO: currently is a loop inside a loop  need to make this faster
-        TODO: possibly make row objects upon initialization and already have the row to string ready
-
-
-        get a counter for the values, loop until counter is through, need to worry about end comma
-        do a for each on each column and get each value that way
-         */
-
         int valueCount = 0;
 
         while(valueCount < numRows){
@@ -445,10 +400,6 @@ public class Table {
             for(Column col : columns){
 
                 if(colCounter == numColumns - 1){
-
-                    /*
-                    TODO: this is not working, the comma is not being put in for integer/floats
-                     */
 
                     String toAppend = "" + col.getValue(valueCount) + "";
 
