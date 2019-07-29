@@ -18,8 +18,6 @@ public class Database {
     Drop, Store, Load, Create Table (adding new table to database)
 
     TODO: refactor to fix generics <Object> issue with columns, add '' to outside of strings to match tbl files
-    TODO: check on exception throwing, may need to be caught sooner for helpful messages
-    TODO: if table with same name then it should be replaced
     TODO: List<Column<Object>> refactor over many classes.
 
 

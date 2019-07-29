@@ -304,7 +304,7 @@ public class Operation {
 
                 String[] colAndLiteral = cleanPart.split("==", 2);
 
-                Column col = select.getColumnByName(colAndLiteral[0].trim()); //TODO: starting here
+                Column col = select.getColumnByName(colAndLiteral[0].trim());
 
                 currentSet = col.rowsEqualTo(colAndLiteral[1].trim()); //cus col in table is raw type
 

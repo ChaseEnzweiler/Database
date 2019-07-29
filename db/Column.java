@@ -1,7 +1,5 @@
 package db;
 
-import com.sun.tools.javac.comp.Todo;
-import com.sun.xml.internal.bind.v2.TODO;
 
 import java.util.*;
 
@@ -11,10 +9,6 @@ public class Column<T> {
     String name;
 
     String type;
-
-    /* set column as an array of strings, as functionality begins to work
-    expand to include other object types
-     */
 
     private List<T> values;
 
