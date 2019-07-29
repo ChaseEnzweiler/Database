@@ -36,7 +36,12 @@ class CommandLineParser {
                     "\\s*(?:,\\s*.+?\\s*)*)");
 
 
-
+    /**
+     * this method takes in a string, parses it, and passes the parsed String into the correct method
+     * that should be called
+     * @param query String user query
+     * @param db Database
+     */
     static void eval(String query, Database db) {
         Matcher m;
         if ((m = CREATE_CMD.matcher(query)).matches()) {
@@ -71,6 +76,12 @@ class CommandLineParser {
 
     }
 
+    /**
+     * Create a new empty Table and add it to the Database.
+     * @param name String name of the new table
+     * @param cols String columns to be in the new Table
+     * @param db Database for the table to be added to
+     */
     private static void createNewTable(String name, String[] cols, Database db) {
 
         List<String> columnNames = new ArrayList<>();
@@ -107,6 +118,15 @@ class CommandLineParser {
 
     }
 
+    /**
+     * creates a new table from the results of a select statement and where clause and adds the table to
+     * the Databse
+     * @param name String name of the new Table
+     * @param exprs String select statement
+     * @param tables String Tables to be operated on
+     * @param conds String conditional statement
+     * @param db Database to have table added to
+     */
     private static void createSelectedTable(String name, String exprs, String tables, String conds, Database db) {
 
         Table table = selectHelper(exprs, tables, conds, db, name);
@@ -152,6 +172,11 @@ class CommandLineParser {
 
     }
 
+    /**
+     * inserts a new row at the end of the specified Table in the expression String
+     * @param expr String specifies values to be inserted and Table
+     * @param db Database
+     */
     private static void insertRow(String expr, Database db) {
         Matcher m = INSERT_CLS.matcher(expr);
         if (!m.matches()) {
@@ -226,6 +251,7 @@ class CommandLineParser {
 
     }
 
+
     private static void printTable(String name, Database db) {
 
         if(!db.containsTable(name)){
@@ -238,6 +264,11 @@ class CommandLineParser {
 
     }
 
+    /**
+     * parses expression given and calls the Select method to print corresponding Table
+     * @param expr String select clause
+     * @param db Database
+     */
     private static void select(String expr, Database db) {
         Matcher m = SELECT_CLS.matcher(expr);
         if (!m.matches()) {
@@ -249,6 +280,15 @@ class CommandLineParser {
 
     }
 
+    /**
+     * Prints resulting table from the operating on the given tables and clauses
+     * according to inputted clauses
+     * @param exprs Select clause columns
+     * @param tables Tables to be operated on
+     * @param conds where clause conditions
+     * @param db Database
+     * @param tableName String name of table to be printed
+     */
     private static void select(String exprs, String tables, String conds, Database db, String tableName){
 
         Table tableToPrint = selectHelper(exprs, tables, conds, db, tableName);
@@ -261,7 +301,16 @@ class CommandLineParser {
 
     }
 
-    /* can prob edit to make work with create selected table */
+    /**
+     * method returns a new Table created from operated on the Columns and Tables
+     * specified in the clauses
+     * @param exprs String of columns to be selected from tables
+     * @param tables String of tables to be used
+     * @param conds String of conditions with regards to where clause
+     * @param db Database
+     * @param tableName String name of new table to be created
+     * @return Table after all clauses are evaluated
+     */
     private static Table selectHelper(String exprs, String tables, String conds, Database db, String tableName) {
 
         Table afterJoin;

@@ -4,7 +4,9 @@ import java.util.*;
 
 class Row {
 
-
+    /**
+     * Object values that are stored in a row
+     */
     private List<Object> values;
 
 

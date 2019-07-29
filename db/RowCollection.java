@@ -5,9 +5,14 @@ import java.util.*;
 
 class RowCollection {
 
-
+    /**
+     * all the rows that are in the RowCollection object
+     */
     private List<Row> rows = new ArrayList<>();
 
+    /**
+     * the Integer number of rows that exist in the RowCollection object
+     */
     private int rowCount;
 
 
@@ -75,7 +80,11 @@ class RowCollection {
 
     }
 
-
+    /**
+     * adds indices used for a cartesian join and returns an Indices object
+     * @param other RowCollection
+     * @return Indicies containing indices needed  for a cartesian join
+     */
     Indices cartesianRowIndex(RowCollection other){
 
         List<Integer> left = new ArrayList<>();

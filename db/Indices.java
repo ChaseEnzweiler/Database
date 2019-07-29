@@ -2,15 +2,20 @@ package db;
 
 import java.util.List;
 
+/**
+ * This class is used to store the indices of the rows to keep in each(right and left) table when doing
+ * a natural inner join.
+ */
 public class Indices {
 
     /**
-     * This class is used to store the indices of the rows to keep in each(right and left) table when doing
-     * a natural inner join.
+     * holds all the indices of rows that should be kept of the Left table in a join.
      */
-
     private List<Integer> leftIndices;
 
+    /**
+     * holds all the indices of rows that should be kept of the Right table in a join.
+     */
     private List<Integer> rightIndices;
 
     Indices(List<Integer> left, List<Integer> right){

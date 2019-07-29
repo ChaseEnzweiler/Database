@@ -4,11 +4,19 @@ import java.util.*;
 
 class Column{
 
-
+    /**
+     * Name of the Column object.
+     */
     private String name;
 
+    /**
+     * type of the Column object. Either 'string', 'int', or 'float'
+     */
     private String type;
 
+    /**
+     * values that exist in the Column Object
+     */
     private List<Object> values;
 
     /**

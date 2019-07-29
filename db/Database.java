@@ -3,11 +3,17 @@ package db;
 import java.util.*;
 import java.io.*;
 
-
+/**
+ * Class Database stores and retrieves all tables the user is planning on working with.
+ */
 public class Database {
 
     private Map<String, Table> database;
 
+
+    /**
+     * empty constructor for the Database class initializes a Hashmap used to store tables.
+     */
     public Database() {
 
         database = new HashMap<>();
@@ -19,7 +25,7 @@ public class Database {
      * @param name String
      * @return Table
      */
-    Table getTable(String name){
+    Table getTable(String name) {
 
         return this.database.get(name);
 
@@ -29,7 +35,7 @@ public class Database {
      * adds parameter table into the database
      * @param table Table you want added to the database
      */
-    public void add(Table table){
+    public void add(Table table) {
 
         database.put(table.getTableName(), table);
 
@@ -40,7 +46,7 @@ public class Database {
      * @param name String name of table
      * @return True if table exists
      */
-    boolean containsTable(String name){
+    boolean containsTable(String name) {
 
         return database.containsKey(name);
     }
@@ -51,9 +57,9 @@ public class Database {
      * if the specified table does not exist prints error
      * @param name String name of table to drop
      */
-    void dropTable(String name){
+    void dropTable(String name) {
 
-        if (database.containsKey(name)){
+        if (database.containsKey(name)) {
 
             database.remove(name);
 
@@ -70,14 +76,13 @@ public class Database {
      * table into database that already exists in database it will overwrite.
      * @param tableName String name of the table you want to load
      */
-    void load(String tableName){
+    void load(String tableName) {
 
         File file = new File("/Users/Cenzwe/Desktop/proj2/examples/" + tableName + ".tbl");
 
-
         BufferedReader reader;
 
-        try{
+        try {
 
             reader = new BufferedReader(new FileReader(file));
 
@@ -150,19 +155,15 @@ public class Database {
                 }
             }
 
-        } catch(Exception e){
+        } catch (Exception e) {
 
             System.out.println("Error: Could not read line from file " + tableName + ".tbl");
             return;
         }
-        /*
-        create the table and put it into the database.
-         */
 
         Table tableToLoad = new Table(tableName, columnsToStore);
 
         database.put(tableName, tableToLoad);
-
     }
 
 
@@ -179,7 +180,7 @@ public class Database {
 
         BufferedWriter writer;
 
-        if(!database.containsKey(name)){
+        if(!database.containsKey(name)) {
 
             System.out.println("Error: Table named " + name + " does not exist in database");
             return;
@@ -189,7 +190,7 @@ public class Database {
 
             writer = new BufferedWriter(new FileWriter(file, false));
 
-        } catch(Exception e){
+        } catch (Exception e) {
 
             System.out.println("Error: Could not write contents of file");
             return;
@@ -210,7 +211,7 @@ public class Database {
 
             writer.close();
 
-        } catch (Exception e){
+        } catch (Exception e) {
 
             System.out.println("Error: Could not write table rows to file");
 
@@ -218,11 +219,15 @@ public class Database {
 
     }
 
-
+    /**
+     * takes in users command line prompt and calls the CommandLineParser class to parse the given input.
+     * @param query String
+     * @return String ""
+     */
     public String transact(String query) {
 
-         CommandLineParser.eval(query, this);
-         return "";
+        CommandLineParser.eval(query, this);
+        return "";
 
 
     }
