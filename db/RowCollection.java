@@ -2,7 +2,10 @@ package db;
 
 import java.util.*;
 
-
+/**
+ * This class stores Rows calculated from values stored in Column objects.
+ * The RowCollection object is used to check what rows of tables match each other when performing a join.
+ */
 class RowCollection {
 
     /**
@@ -18,14 +21,13 @@ class RowCollection {
 
     RowCollection(List<Column> columns){
 
-            rowCount = columns.get(0).getSize();
+        rowCount = columns.get(0).getSize();
 
         for(int i = 0; i < rowCount; i++){
 
             Row rowToAdd = new Row();
 
             for(Column col : columns){
-
                 rowToAdd.add(col.getValue(i));
 
             }
@@ -54,21 +56,17 @@ class RowCollection {
      */
     Indices matchingRowIndex(RowCollection other){
 
-
         List<Integer> leftIndices = new ArrayList<>();
 
         List<Integer> rightIndices = new ArrayList<>();
-
 
         for(int i = 0; i < rows.size(); i++){
 
             for(int j = 0; j < other.rows.size(); j++){
 
                 if(this.rows.get(i).equals(other.rows.get(j))){
-
                     leftIndices.add(i);
                     rightIndices.add(j);
-
                 }
             }
         }
@@ -88,11 +86,11 @@ class RowCollection {
         for(int i = 0; i < rowCount; i++){
 
             for(int j = 0; j < other.rowCount; j++){
-
                 left.add(i);
                 right.add(j);
             }
         }
+
         return new Indices(left, right);
     }
 }

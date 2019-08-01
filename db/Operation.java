@@ -29,12 +29,10 @@ class Operation {
         create RowCollection objects with these columns and calculate Indices object
         that creates lists of what row indices need to be kept for both tables
          */
-
         if(leftMatchingColumns.size() > 0){
             /*
             if there are matching columns we perform a natural inner join
              */
-
             RowCollection leftRowCollection = new RowCollection(leftMatchingColumns);
             RowCollection rightRowCollection = new RowCollection(rightMatchingColumns);
 
@@ -58,9 +56,7 @@ class Operation {
             Indices indicesToReturn = leftRowCollection.cartesianRowIndex(rightRowCollection);
 
             return filterAndConcatenate(leftTable, rightTable, indicesToReturn, name);
-
         }
-
     }
 
     /**
@@ -76,24 +72,19 @@ class Operation {
 
         List<Column> filteredColumns = new ArrayList<>();
 
-        /* the matching columns need to go at the beginning of the newly created table*/
-
         List<Column> matchingColumns = left.matchingColumns(right);
 
         for(Column matches : matchingColumns){
 
             filteredColumns.add(matches.filterByRow(rowIndices.getLeftIndices()));
-
         }
 
         /*
         now add in columns that aren't matching columns but come from the left table
          */
-
         for(Column leftCol: left.getColumns()){
 
             if(!right.hasMatchingColumn(leftCol)){
-
                 filteredColumns.add(leftCol.filterByRow(rowIndices.getLeftIndices()));
             }
         }
@@ -101,19 +92,15 @@ class Operation {
         /*
         now add in the columns in the right table that don't match any in the left
          */
-
         for(Column rightCol: right.getColumns()){
 
             if(!left.hasMatchingColumn(rightCol)){
-
                 filteredColumns.add(rightCol.filterByRow(rowIndices.getRightIndices()));
 
             }
         }
 
         return  new Table(name, filteredColumns);
-
-
     }
 
 
@@ -132,8 +119,6 @@ class Operation {
 
         /* if an '*' is passed in return all the columns in a new table */
         if(columnSelect.size() == 1 && columnSelect.get(0).equals("*")){
-
-
             return new Table(name, table.getColumns());
         }
 
@@ -144,37 +129,22 @@ class Operation {
 
         for(String nameMatch : columnSelect){
 
-            /*
-            get the column and put into new list, if name does not exist in table(throws exception) we catch
-            that exception and see if an arithmetic operator is involved, if not throw exception. trim used to
-            remove white spaces that may cause names to be interpreted as different.
-             */
-
             nameMatch = nameMatch.trim();
 
             try{
-
                 Column toAdd = table.getColumnByName(nameMatch);
-
                 toAdd = toAdd.changeName(columnNames.get(columnNameCounter));
-
                 tableToReturnColumns.add(toAdd);
 
             } catch (IllegalArgumentException e){
 
-                /* parse string to see if arithmetic, split by an expression, do not include spaces */
-
-
                 tableToReturnColumns.add(applyArithmetic(nameMatch,
                         columnNames.get(columnNameCounter).replaceAll("\\s+", ""), table));
-
             }
 
             columnNameCounter += 1;
-
         }
 
-        /* create table and return it */
         return new Table(name, tableToReturnColumns);
     }
 
@@ -192,10 +162,6 @@ class Operation {
     static Column applyArithmetic(String expression, String name, Table table)
             throws IllegalArgumentException{
 
-        /*
-        remove the white space so cn split by arithmetic operator
-         */
-
         String cleanedExpression = expression.replaceAll("\\s+", "");
 
         /*
@@ -204,36 +170,25 @@ class Operation {
          */
 
         if(cleanedExpression.contains("+")){
-
             String[] parts = cleanedExpression.split("[+]", 2);
-
             return Column.addition(table.getColumnByName(parts[0]), table.getColumnByName(parts[1]), name);
 
-
         } else if(cleanedExpression.contains("-")){
-
             String[] parts = cleanedExpression.split("-", 2);
-
             return Column.subtraction(table.getColumnByName(parts[0]), table.getColumnByName(parts[1]), name);
 
 
         } else if(cleanedExpression.contains("/")){
-
             String[] parts = cleanedExpression.split("/", 2);
-
             return Column.division(table.getColumnByName(parts[0]), table.getColumnByName(parts[1]), name);
 
-
         }else if(cleanedExpression.contains("*")){
-
             String[] parts = cleanedExpression.split("[*]", 2);
-
             return Column.multiplication(table.getColumnByName(parts[0]), table.getColumnByName(parts[1]), name);
 
-
         } else{
-
             throw new IllegalArgumentException("Column name does not exist.");
+
         }
 
     }
@@ -267,75 +222,41 @@ class Operation {
 
         for(String part : parts){
 
-            /* find what comparison is used ==, !=, <=, >=, >, <*/
-
-
             String cleanPart = part.trim();
 
-            Set<Integer> currentSet; // edit originally had this Set<Integer> with warning
+            Set<Integer> currentSet;
 
             if(cleanPart.contains("==")){
-
                 String[] colAndLiteral = cleanPart.split("==", 2);
-
                 Column col = select.getColumnByName(colAndLiteral[0].trim());
-
-                currentSet = col.rowsEqualTo(colAndLiteral[1].trim()); //cus col in table is raw type
-
-
+                currentSet = col.rowsEqualTo(colAndLiteral[1].trim());
 
             } else if(cleanPart.contains("!=")){
-
                 String[] colAndLiteral = cleanPart.split("!=", 2);
-
                 Column col = select.getColumnByName(colAndLiteral[0].trim());
-
                 currentSet = col.rowsNotEqualTo(colAndLiteral[1].trim());
 
-
-
             }else if(cleanPart.contains("<=")){
-
                 String[] colAndLiteral = cleanPart.split("<=", 2);
-
                 Column col = select.getColumnByName(colAndLiteral[0].trim());
-
                 currentSet = col.rowsLessThanOrEqual(colAndLiteral[1].trim());
 
-
-
             }else if(cleanPart.contains(">=")){
-
                 String[] colAndLiteral = cleanPart.split(">=", 2);
-
                 Column col = select.getColumnByName(colAndLiteral[0].trim());
-
                 currentSet = col.rowsGreaterThanOrEqual(colAndLiteral[1].trim());
 
-
-
             }else if(cleanPart.contains(">")){
-
                 String[] colAndLiteral = cleanPart.split(">", 2);
-
                 Column col = select.getColumnByName(colAndLiteral[0].trim());
-
                 currentSet = col.rowsGreaterThan(colAndLiteral[1].trim());
 
-
-
             }else if(cleanPart.contains("<")){
-
                 String[] colAndLiteral = cleanPart.split("<", 2);
-
                 Column col = select.getColumnByName(colAndLiteral[0].trim());
-
                 currentSet = col.rowsLessThan(colAndLiteral[1].trim());
 
-
             } else{
-
-
                 throw new IllegalArgumentException("no comparison operator");
             }
             /*
@@ -344,23 +265,19 @@ class Operation {
              */
 
             if(count == 0){
-
                 indexIntersection = currentSet;
 
             } else{
-
                  indexIntersection.retainAll(currentSet);
 
             }
 
             count += 1;
-
         }
         /*
         now that we have a set of all the indices we need, we filter out the rows in the columns
         we don't want then can return a new table with the specified columns.
          */
-
         List<Column> columns = select.getColumns();
 
         List<Integer> rowsToKeep = new ArrayList<>(indexIntersection);
@@ -375,14 +292,10 @@ class Operation {
         List<Column> columnsToReturn = new ArrayList<>();
 
         for(Column clmn : columns){
-
             columnsToReturn.add(clmn.filterByRow(rowsToKeep));
 
         }
 
         return new Table(select.getTableName(), columnsToReturn);
     }
-
-
-
 }

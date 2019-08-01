@@ -1,10 +1,11 @@
 package db;
 
+//don't do this in future
 import java.util.*;
 import java.io.*;
 
 /**
- * Class Database stores and retrieves all tables the user is planning on working with.
+ * This class stores all the tables that the user can interact with
  */
 public class Database {
 
@@ -14,7 +15,6 @@ public class Database {
      * empty constructor for the Database class initializes a Hashmap used to store tables.
      */
     public Database() {
-
         database = new HashMap<>();
     }
 
@@ -24,7 +24,6 @@ public class Database {
      * @return Table
      */
     Table getTable(String name) {
-
         return this.database.get(name);
     }
 
@@ -33,7 +32,6 @@ public class Database {
      * @param table Table you want added to the database
      */
     public void add(Table table) {
-
         database.put(table.getTableName(), table);
     }
 
@@ -43,7 +41,6 @@ public class Database {
      * @return True if table exists
      */
     boolean containsTable(String name) {
-
         return database.containsKey(name);
     }
 
@@ -56,11 +53,9 @@ public class Database {
     void dropTable(String name) {
 
         if (database.containsKey(name)) {
-
             database.remove(name);
 
         } else {
-
             System.out.println("Error: Table '" + name + "' does not exist in database");
         }
     }
@@ -79,11 +74,9 @@ public class Database {
         BufferedReader reader;
 
         try {
-
             reader = new BufferedReader(new FileReader(file));
 
         } catch (Exception e){
-
             System.out.println("Error: File " + tableName + ".tbl not found");
             return;
         }
@@ -95,7 +88,6 @@ public class Database {
         /*
         parse the first line of the tbl file that contains names and types
          */
-
         try {
 
             line = reader.readLine();
@@ -103,11 +95,8 @@ public class Database {
             String[] nameAndType = line.split(",");
 
             for (String info : nameAndType) {
-
                 String[] nameTypeSplit = info.split(" ");
-
                 Column col = new Column(nameTypeSplit[0], nameTypeSplit[1], new ArrayList<>());
-
                 columnsToStore.add(col);
             }
 
@@ -115,7 +104,6 @@ public class Database {
         now parse by commas for each line and add to a list of columns making sure that columns are objects
         and parsing to int, string, or float. adding values to columns
          */
-
             while ((line = reader.readLine()) != null) {
 
                 String[] values = line.split(",");
@@ -127,21 +115,16 @@ public class Database {
                 /*
                 check type of each column and add values to each column
                  */
-
                     if (value.equals("NaN")) {
-
                         columnsToStore.get(count).add("NaN");
 
                     } else if (columnsToStore.get(count).getType().equals("int")) {
-
                         columnsToStore.get(count).add(Integer.parseInt(value));
 
                     } else if (columnsToStore.get(count).getType().equals("float")) {
-
                         columnsToStore.get(count).add(Float.parseFloat(value));
 
                     } else {
-
                         columnsToStore.get(count).add(value);
                     }
 
@@ -150,7 +133,6 @@ public class Database {
             }
 
         } catch (Exception e) {
-
             System.out.println("Error: Could not read line from file " + tableName + ".tbl");
             return;
         }
@@ -161,7 +143,7 @@ public class Database {
     }
 
 
-    /** // verified
+    /**
      * method takes a table in the database and writes it to a tbl file stored in examples folder,
      * if table already exists in tbl folder this method should overwrite the file.
      * @param name String
@@ -175,17 +157,14 @@ public class Database {
         BufferedWriter writer;
 
         if(!database.containsKey(name)) {
-
             System.out.println("Error: Table named " + name + " does not exist in database");
             return;
         }
 
         try {
-
             writer = new BufferedWriter(new FileWriter(file, false));
 
         } catch (Exception e) {
-
             System.out.println("Error: Could not write contents of file");
             return;
         }
@@ -197,16 +176,13 @@ public class Database {
         try {
 
             for (String line : linesToWrite) {
-
                 writer.write(line);
                 writer.newLine();
-
             }
 
             writer.close();
 
         } catch (Exception e) {
-
             System.out.println("Error: Could not write table rows to file");
         }
     }

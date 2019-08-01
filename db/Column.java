@@ -1,8 +1,13 @@
 package db;
 
+//don't import all in the future.
 import java.util.*;
 
-class Column{
+/**
+ * This Class is used for storing all values in a single column of a Table.
+ * All values must have same type unless the value is "NaN"
+ */
+class Column {
 
     /**
      * Name of the Column object.
@@ -25,7 +30,7 @@ class Column{
      * @param type String type of column
      * @param values T[] of values the column contains
      */
-    public Column(String name, String type, Object[] values){
+    public Column(String name, String type, Object[] values) {
 
         this.name = name;
         this.type = type;
@@ -39,7 +44,7 @@ class Column{
      * @param type String type of the column
      * @param values ArrayList<T> the values of the column
      */
-    public Column(String name, String type, List<Object> values){
+    public Column(String name, String type, List<Object> values) {
 
         this.name = name;
         this.type = type;
@@ -53,7 +58,7 @@ class Column{
      * @return boolean
      */
     @Override
-    public boolean equals(Object other){
+    public boolean equals(Object other) {
 
         if(this == other){
             return true;
@@ -65,20 +70,11 @@ class Column{
 
         Column otherColumn = (Column) other;
 
-        /*
-        ensure column types are equal, column names are equal, and all columns are equal
-        may have to override equals method in columns also.
-         */
-
         if(!this.name.equals(otherColumn.name)){
-            /* differing names */
             return false;
         }
 
         if(!this.type.equals(otherColumn.type)){
-            /*
-            checks for differing types
-             */
             return false;
         }
 
@@ -135,17 +131,15 @@ class Column{
      * @param rowsToKeep List of integers of which rows of the values to keep. Needs to be ordered List
      * @return new Column with an updated values list.
      */
-    Column filterByRow(List<Integer> rowsToKeep){
+    Column filterByRow(List<Integer> rowsToKeep) {
 
         ArrayList<Object> filteredValues = new ArrayList<>();
 
         for(int index : rowsToKeep){
-
             filteredValues.add(this.values.get(index));
         }
 
         return new Column(this.name, this.type, filteredValues);
-
     }
 
     /**
@@ -179,11 +173,9 @@ class Column{
         if(col1.getType().equals("string") || col2.getType().equals("string")) {
 
             if (!col2.getType().equals("string")) {
-
                 throw new IllegalArgumentException();
 
             } else if(!col1.getType().equals("string")) {
-
                 throw new IllegalArgumentException();
             }
         }
@@ -201,44 +193,35 @@ class Column{
         for(int i = 0; i < col1.getSize(); i++){
 
             if(col2.getValue(i).equals("NaN") || col1.getValue(i).equals("NaN")) {
-
                 newValues.add("NaN");
 
             } else if(newType.equals("string")){
-
                 newValues.add((String) col1.getValue(i) + (String) col2.getValue(i));
 
             } else if(newType.equals("int")){
-
                 newValues.add((int) col1.getValue(i) + (int) col2.getValue(i));
 
             } else{
 
                 if(col1.getType().equals("int")){
-
                     int x = (int) col1.getValue(i);
                     float y = (float) col2.getValue(i);
                     newValues.add(x + y);
 
-
                 } else if(col2.getType().equals("int")){
-
                     float x = (float) col1.getValue(i);
                     int y = (int) col2.getValue(i);
                     newValues.add(x + y);
 
                 } else{
-
                     float x = (float) col1.getValue(i);
                     float y = (float) col2.getValue(i);
                     newValues.add(x + y);
-
                 }
             }
         }
 
         return new Column(name, newType, newValues);
-
     }
 
 
@@ -254,60 +237,40 @@ class Column{
      */
     static Column subtraction(Column col1, Column col2, String name) throws IllegalArgumentException{
 
-        /*
-        check if either columns have string type and throw an exception
-         */
-
         if(col1.getType().equals("string") || col2.getType().equals("string")){
             throw new IllegalArgumentException();
         }
 
-        /*
-        find the type of the column to return
-         */
         String newType = calculateType(col1, col2);
 
         List<Object> newValues = new ArrayList<>();
 
-        /*
-        perform subtraction on the two columns, check casts, and update new values with results.
-        only supports subtraction of equal length columns
-         */
-
         for(int i = 0; i < col1.getSize(); i++){
 
             if(col2.getValue(i).equals("NaN") || col1.getValue(i).equals("NaN")) {
-
                 newValues.add("NaN");
 
             }else if(newType.equals("int")){
-
                 newValues.add((int) col1.getValue(i) - (int) col2.getValue(i));
 
-
             } else if(col1.getType().equals("int")){
-
                 int x = (int) col1.getValue(i);
                 float y = (float) col2.getValue(i);
 
                 newValues.add(x - y);
 
             } else if(col2.getType().equals("int")){
-
                 float x = (float) col1.getValue(i);
                 int y = (int) col2.getValue(i);
 
                 newValues.add(x - y);
 
             } else{
-
                 float x = (float) col1.getValue(i);
                 float y = (float) col2.getValue(i);
 
                 newValues.add(x - y);
-
             }
-
         }
 
         return new Column(name, newType, newValues);
@@ -324,17 +287,13 @@ class Column{
         String newType;
 
         if(col1.getType().equals("float") || col2.getType().equals("float")){
-
             newType = "float";
 
         } else if(col1.getType().equals("string")){
-
             newType = "string";
 
         } else{
-
             newType = "int";
-
         }
 
         return newType;
@@ -356,11 +315,6 @@ class Column{
             throw new IllegalArgumentException();
         }
 
-        /*
-        get type of the resulting column after division and instantiate list to add
-        results of division to
-         */
-
         String newType = calculateType(col1, col2);
 
         List<Object> newValues = new ArrayList<>();
@@ -372,29 +326,24 @@ class Column{
         for(int i = 0; i < col1.getSize(); i++){
 
             if(col2.getValue(i).equals("NaN") || col1.getValue(i).equals("NaN") || col2.getValue(i).equals(0)) {
-
                 newValues.add("NaN");
 
             }else if(newType.equals("int")){
-
                 newValues.add((int) col1.getValue(i) / (int) col2.getValue(i));
 
             } else if(col1.getType().equals("int")){
-
                 int x = (int) col1.getValue(i);
                 float y = (float) col2.getValue(i);
 
                 newValues.add(x / y);
 
             } else if(col2.getType().equals("int")){
-
                 float x = (float) col1.getValue(i);
                 int y = (int) col2.getValue(i);
 
                 newValues.add(x / y);
 
             } else{
-
                 float x = (float) col1.getValue(i);
                 float y = (float) col2.getValue(i);
 
@@ -416,11 +365,9 @@ class Column{
      */
     static Column multiplication(Column col1, Column col2, String name) throws IllegalArgumentException{
 
-        /* cannot perform multiplication on string type Columns */
         if(col1.getType().equals("string") || col2.getType().equals("string")){
 
             throw new IllegalArgumentException();
-
         }
 
         /*
@@ -430,44 +377,33 @@ class Column{
 
         List<Object> newValues = new ArrayList<>();
 
-        /*
-        loop through and multiply values of each column together
-        need to be fixed and zero division fix taken out
-         */
 
         for(int i = 0; i < col1.getSize(); i++){
 
             if(col2.getValue(i).equals("NaN") || col1.getValue(i).equals("NaN")) {
-
                 newValues.add("NaN");
 
             }else if(newType.equals("int")){
-
                 newValues.add((int) col1.getValue(i) * (int) col2.getValue(i));
 
             } else if(col1.getType().equals("int")){
-
                 int x = (int) col1.getValue(i);
                 float y = (float) col2.getValue(i);
 
                     newValues.add(x * y);
 
             } else if(col2.getType().equals("int")){
-
                 float x = (float) col1.getValue(i);
                 int y = (int) col2.getValue(i);
 
                 newValues.add(x * y);
 
             } else{
-
                 float x = (float) col1.getValue(i);
                 float y = (float) col2.getValue(i);
 
                 newValues.add(x * y);
-                
             }
-
         }
 
         return new Column(name, newType, newValues);
@@ -559,7 +495,6 @@ class Column{
         for(int i = 0; i < this.getSize(); i++){
 
             if(!this.getValue(i).equals(newLiteral)){
-
                 rowsToKeep.add(i);
 
             } else if(this.getValue(i).equals("NaN") && !this.type.equals("string")){
@@ -610,21 +545,16 @@ class Column{
          */
         for(int i = 0; i < this.getSize(); i++){
 
-            // use compare to with strings checking for NaN
-
             if(this.getType().equals("string")){
 
                 if(this.getValue(i).equals("NaN")){
-
                     continue;
 
                 } else if(this.getValue(i).toString().compareTo(newLiteral.toString()) < 0){
-
                     rowsToKeep.add(i);
                 }
 
             } else if(this.getValue(i).equals("NaN")){
-
                 continue;
 
             } else{
@@ -635,15 +565,13 @@ class Column{
 
                 try{
 
-                    if((Float) columnValue < ((Float) newLiteral)){
-
+                    if((Float) columnValue < ((float) newLiteral)){
                         rowsToKeep.add(i);
                     }
 
                 } catch (Exception e){
 
-                    if((Integer) columnValue < ((Integer) newLiteral)){
-
+                    if((int) columnValue < ((int) newLiteral)){
                         rowsToKeep.add(i);
                     }
                 }
@@ -690,36 +618,31 @@ class Column{
             if(this.getType().equals("string")){
 
                 if(this.getValue(i).equals("NaN")){
-
                     continue;
 
                 } else if(this.getValue(i).toString().compareTo(newLiteral.toString()) <= 0){
-
                     rowsToKeep.add(i);
                 }
 
 
             } else if(this.getValue(i).equals("NaN")){
-
                 continue;
 
             } else{
                 /*
                 compare values that are Floats or Integers
                  */
-
                 Object columnValue =  this.getValue(i);
 
                 try{
 
-                    if((Float) columnValue <= ((Float) newLiteral)){
-
+                    if((Float) columnValue <= ((float) newLiteral)){
                         rowsToKeep.add(i);
                     }
 
                 } catch (Exception e){
 
-                    if((Integer) columnValue <= ((Integer) newLiteral)){
+                    if((int) columnValue <= ((int) newLiteral)){
 
                         rowsToKeep.add(i);
                     }
@@ -770,39 +693,29 @@ class Column{
             if(this.getType().equals("string")){
 
                 if(this.getValue(i).equals("NaN")){
-
                     continue;
 
                 } else if(this.getValue(i).toString().compareTo(newLiteral.toString()) >= 0){
-
                     rowsToKeep.add(i);
                 }
 
             } else if(this.getValue(i).equals("NaN")){
-
                 continue;
 
             } else{
-                /*
-                compare values that are Floats or Integers
-                 */
 
                 Object columnValue =  this.getValue(i);
 
                 try{
 
-                    if((Float) columnValue >= ((Float) newLiteral)){
-
+                    if((Float) columnValue >= ((float) newLiteral)){
                         rowsToKeep.add(i);
-
                     }
 
                 } catch (Exception e){
 
-                    if((Integer) columnValue >= ((Integer) newLiteral)){
-
+                    if((int) columnValue >= ((int) newLiteral)){
                         rowsToKeep.add(i);
-
                     }
                 }
             }
@@ -851,17 +764,13 @@ class Column{
             if(this.getType().equals("string")){
 
                 if(this.getValue(i).equals("NaN")){
-
                     continue;
 
                 } else if(this.getValue(i).toString().compareTo(newLiteral.toString()) > 0){
-
                     rowsToKeep.add(i);
                 }
 
-
             } else if(this.getValue(i).equals("NaN")){
-
                 continue;
 
             } else{
@@ -873,7 +782,7 @@ class Column{
 
                 try{
 
-                    if((Float) columnValue > ((Float) newLiteral)){
+                    if((Float) columnValue > ((float) newLiteral)){
 
                         rowsToKeep.add(i);
 
@@ -881,10 +790,9 @@ class Column{
 
                 } catch (Exception e){
 
-                    if((Integer) columnValue > ((Integer) newLiteral)){
+                    if((int) columnValue > ((int) newLiteral)){
 
                         rowsToKeep.add(i);
-
                     }
                 }
             }

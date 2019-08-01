@@ -2,6 +2,10 @@ package db;
 
 import java.util.*;
 
+/**
+ * this class stores all values of a row across a table. Each value my be a different type.
+ * Used in RowCollection when performing a join operation on two tables.
+ */
 class Row {
 
     /**
@@ -11,7 +15,6 @@ class Row {
 
 
     Row(){
-
         values = new ArrayList<>();
     }
 
@@ -20,7 +23,6 @@ class Row {
      * @param item object
      */
     public void add(Object item){
-
         values.add(item);
     }
 
@@ -30,7 +32,6 @@ class Row {
      * @return object at location index
      */
     public Object getValue(int index){
-
         return values.get(index);
     }
 

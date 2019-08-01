@@ -64,6 +64,14 @@ class CommandLineParser {
 
     }
 
+    /**
+     * This method creates a Table as a new Table or as a Table
+     * created from a select clause. Depending on the input this method
+     * calls the createNewTable method or the createSelectedTable method
+     * and passes parameters into those methods.
+     * @param expr String expression taken from user input
+     * @param db Database database to store the table
+     */
     private static void createTable(String expr, Database db) {
         Matcher m;
         if ((m = CREATE_NEW.matcher(expr)).matches()) {
@@ -94,7 +102,6 @@ class CommandLineParser {
             String colName = colAndType[0].trim();
 
             if(columnNames.contains(colName)){
-
                 System.err.println("Error: cannot create table with duplicate columns " + colName);
                 return;
             }
@@ -104,7 +111,6 @@ class CommandLineParser {
             String type = colAndType[1].trim();
 
             if(!(type.equals("string") || type.equals("int") || type.equals("float"))){
-
                 System.err.println("Error: incorrect type given " + type);
                 return;
             }
@@ -149,23 +155,38 @@ class CommandLineParser {
         db.add(table);
     }
 
+    /**
+     * Reads table from .tbl file and stores table into the database.
+     * @param name String name of table you want to store.
+     * @param db Database database to store table to
+     */
     private static void loadTable(String name, Database db) {
 
         name = name.trim();
         db.load(name);
     }
 
+    /**
+     * Writes specified table to a .tbl file in the examples folder.
+     * (~/Desktop/proj2/examples)
+     * @param name String name of Table
+     * @param db Database database the table is stored in
+     */
     private static void storeTable(String name, Database db) {
 
         name = name.trim();
         db.storeTable(name);
     }
 
+    /**
+     * Removes table from the database
+     * @param name String table name
+     * @param db Database database table is removed from
+     */
     private static void dropTable(String name, Database db) {
 
         name = name.trim();
         db.dropTable(name);
-
     }
 
     /**
@@ -179,10 +200,6 @@ class CommandLineParser {
             System.err.printf("Malformed insert: %s\n", expr);
 
         }
-        /*
-        first check if the lengths match up, then convert strings into proper types for each column,
-        need to pass into method as a list<Object>
-         */
 
         String tableName = m.group(1);
 
@@ -205,7 +222,6 @@ class CommandLineParser {
         check to make sure correct amount of literals are provided
          */
         if(columns.size() != values.length){
-
             System.err.println("Error: did not provide correct amount of literals for this table.");
             return;
         }
@@ -222,15 +238,12 @@ class CommandLineParser {
             for (Column col : columns) {
 
                 if (col.getType().equals("int")) {
-
                     literals.add(Integer.parseInt(values[counter]));
 
                 } else if (col.getType().equals("float")) {
-
                     literals.add(Float.parseFloat(values[counter]));
 
                 } else {
-
                     literals.add("'" + values[counter] + "'");
                 }
 
@@ -240,12 +253,15 @@ class CommandLineParser {
             table.insertInto(literals);
 
         } catch(Exception e){
-
             System.err.println("Error: wrong type literal " + values[counter] + " given.");
         }
     }
 
-
+    /**
+     * Prints the specified table if it exists in the database
+     * @param name String table name
+     * @param db Database database table should exists in
+     */
     private static void printTable(String name, Database db) {
 
         if(!db.containsTable(name)){
@@ -255,7 +271,6 @@ class CommandLineParser {
         }
 
         db.getTable(name).printTable();
-
     }
 
     /**
@@ -314,7 +329,6 @@ class CommandLineParser {
         for(String table : tablesToJoin){
 
             if(!db.containsTable(table)){
-
                 System.err.println("Error: Table " + table + " does not exist in the database.");
                 return null;
             }
@@ -324,16 +338,12 @@ class CommandLineParser {
         join tables
          */
         if(tablesToJoin.length > 1){
-            // do join
-
             afterJoin = db.getTable(tablesToJoin[0]);
 
             int counter = 1;
 
             while(counter < tablesToJoin.length){
-
                 afterJoin = Operation.Join(afterJoin, db.getTable(tablesToJoin[counter]), tableName);
-
                 counter += 1;
             }
 
@@ -341,7 +351,6 @@ class CommandLineParser {
 
             afterJoin = db.getTable(tablesToJoin[0]);
         }
-
         /*
         now evaluate column expressions on the joined table, check if the column should be named as something
         else using the "as" keyword. then select those columns from afterJoin Table. need columns and column names
@@ -357,24 +366,21 @@ class CommandLineParser {
         for(String col : columns){
 
             if(col.contains(" as ")){
-
                 String[] nameAs = col.split(" as ");
 
                 columnSelect.add(nameAs[0].trim());
                 columnNames.add(nameAs[1].trim());
 
             } else{
-
                 columnSelect.add(col.trim());
                 columnNames.add(col.trim());
             }
         }
 
         try {
-
             afterJoin = Operation.select(columnSelect, columnNames, afterJoin, tableName);
-        } catch (Exception e){
 
+        } catch (Exception e){
             System.err.println("Error: Illegal Column Expression.");
             return null;
         }
@@ -388,14 +394,12 @@ class CommandLineParser {
                 afterJoin = Operation.condition(afterJoin, conds);
 
             } catch(IllegalArgumentException i){
-
                 System.err.println("Error: There is no operator in the conditional statement");
                 return null;
             }
-
         }
-        return afterJoin;
 
+        return afterJoin;
     }
 }
 
