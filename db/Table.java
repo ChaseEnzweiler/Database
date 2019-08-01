@@ -223,7 +223,7 @@ class Table {
         }
         throw new IllegalArgumentException();
     }
-    
+
     /**
      * inserts a new last row into the table, will print error if literals are not correct
      * amount or type for the table

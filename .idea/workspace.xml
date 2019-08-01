@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5c94c8c8-4e3e-4719-9841-812b80a0c946" name="Default" comment="just finished testing matching columns table method">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/Table.java" afterPath="$PROJECT_DIR$/db/Table.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/teams.tbl" afterPath="$PROJECT_DIR$/examples/teams.tbl" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,14 +19,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Table.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Table.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db/Table.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="3285">
-              <caret line="225" column="4" lean-forward="false" selection-start-line="225" selection-start-column="4" selection-end-line="225" selection-end-column="4" />
+              <caret line="225" column="0" lean-forward="false" selection-start-line="225" selection-start-column="0" selection-end-line="225" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="teams.tbl" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/examples/teams.tbl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="72" lean-forward="true" selection-start-line="4" selection-start-column="72" selection-end-line="4" selection-end-column="72" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -71,12 +81,13 @@
         <option value="$PROJECT_DIR$/db/Row.java" />
         <option value="$PROJECT_DIR$/db/RowCollection.java" />
         <option value="$PROJECT_DIR$/db/Table.java" />
+        <option value="$PROJECT_DIR$/examples/teams.tbl" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-25" />
-    <option name="y" value="22" />
+    <option name="x" value="-11" />
+    <option name="y" value="75" />
     <option name="width" value="1259" />
     <option name="height" value="722" />
   </component>
@@ -404,7 +415,7 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-25" y="22" width="1259" height="722" extended-state="0" />
+    <frame x="-11" y="75" width="1259" height="722" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -691,13 +702,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db/Value.java" />
-    <entry file="file://$PROJECT_DIR$/examples/teams.tbl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/examples/Table1.tbl" />
     <entry file="file://$PROJECT_DIR$/Parse.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -861,10 +865,18 @@
     <entry file="file://$PROJECT_DIR$/db/Table.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3285">
-          <caret line="225" column="4" lean-forward="false" selection-start-line="225" selection-start-column="4" selection-end-line="225" selection-end-column="4" />
+          <caret line="225" column="0" lean-forward="false" selection-start-line="225" selection-start-column="0" selection-end-line="225" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/teams.tbl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="72" lean-forward="true" selection-start-line="4" selection-start-column="72" selection-end-line="4" selection-end-column="72" />
+          <folding />
         </state>
       </provider>
     </entry>
