@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5c94c8c8-4e3e-4719-9841-812b80a0c946" name="Default" comment="just finished testing matching columns table method">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/proj2/db/Column.class" afterPath="$PROJECT_DIR$/out/production/proj2/db/Column.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/proj2/db/CommandLineParser.class" afterPath="$PROJECT_DIR$/out/production/proj2/db/CommandLineParser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/proj2/db/Database.class" afterPath="$PROJECT_DIR$/out/production/proj2/db/Database.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/proj2/db/Indices.class" afterPath="$PROJECT_DIR$/out/production/proj2/db/Indices.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/proj2/db/Operation.class" afterPath="$PROJECT_DIR$/out/production/proj2/db/Operation.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/proj2/db/Row.class" afterPath="$PROJECT_DIR$/out/production/proj2/db/Row.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/proj2/db/RowCollection.class" afterPath="$PROJECT_DIR$/out/production/proj2/db/RowCollection.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/proj2/db/Table.class" afterPath="$PROJECT_DIR$/out/production/proj2/db/Table.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/Column.java" afterPath="$PROJECT_DIR$/db/Column.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/CommandLineParser.java" afterPath="$PROJECT_DIR$/db/CommandLineParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/Database.java" afterPath="$PROJECT_DIR$/db/Database.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/Operation.java" afterPath="$PROJECT_DIR$/db/Operation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/Row.java" afterPath="$PROJECT_DIR$/db/Row.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/RowCollection.java" afterPath="$PROJECT_DIR$/db/RowCollection.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/proj2/.idea/workspace.xml" afterPath="$PROJECT_DIR$/out/production/proj2/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/Table.java" afterPath="$PROJECT_DIR$/db/Table.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,24 +19,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Operation.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db/Operation.java">
+      <file leaf-file-name="Table.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/db/Table.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4264">
-              <caret line="299" column="5" lean-forward="false" selection-start-line="299" selection-start-column="5" selection-end-line="299" selection-end-column="5" />
+            <state relative-caret-position="3285">
+              <caret line="225" column="4" lean-forward="false" selection-start-line="225" selection-start-column="4" selection-end-line="225" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RowCollection.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/db/RowCollection.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="105" lean-forward="false" selection-start-line="6" selection-start-column="105" selection-end-line="6" selection-end-column="105" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -89,19 +64,19 @@
         <option value="$PROJECT_DIR$/db/TestTable.java" />
         <option value="$PROJECT_DIR$/db/TestOperation.java" />
         <option value="$PROJECT_DIR$/db/Indices.java" />
-        <option value="$PROJECT_DIR$/db/Table.java" />
         <option value="$PROJECT_DIR$/db/Column.java" />
         <option value="$PROJECT_DIR$/db/CommandLineParser.java" />
         <option value="$PROJECT_DIR$/db/Database.java" />
         <option value="$PROJECT_DIR$/db/Operation.java" />
         <option value="$PROJECT_DIR$/db/Row.java" />
         <option value="$PROJECT_DIR$/db/RowCollection.java" />
+        <option value="$PROJECT_DIR$/db/Table.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="13" />
-    <option name="y" value="25" />
+    <option name="x" value="-25" />
+    <option name="y" value="22" />
     <option name="width" value="1259" />
     <option name="height" value="722" />
   </component>
@@ -429,7 +404,7 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="13" y="25" width="1259" height="722" extended-state="0" />
+    <frame x="-25" y="22" width="1259" height="722" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -806,22 +781,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/Table.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3808">
-          <caret line="404" column="30" lean-forward="false" selection-start-line="404" selection-start-column="30" selection-end-line="404" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2944#2945#0" expanded="true" />
-            <element signature="e#2976#2977#0" expanded="true" />
-            <element signature="e#3126#3127#0" expanded="true" />
-            <element signature="e#3156#3157#0" expanded="true" />
-            <element signature="e#3287#3288#0" expanded="true" />
-            <element signature="e#3321#3322#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/Column.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4">
@@ -881,9 +840,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/db/RowCollection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="46" lean-forward="true" selection-start-line="30" selection-start-column="46" selection-end-line="30" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/db/Operation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4264">
+        <state relative-caret-position="4485">
           <caret line="299" column="5" lean-forward="false" selection-start-line="299" selection-start-column="5" selection-end-line="299" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -891,11 +858,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/RowCollection.java">
+    <entry file="file://$PROJECT_DIR$/db/Table.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="105" lean-forward="false" selection-start-line="6" selection-start-column="105" selection-end-line="6" selection-end-column="105" />
-          <folding />
+        <state relative-caret-position="3285">
+          <caret line="225" column="4" lean-forward="false" selection-start-line="225" selection-start-column="4" selection-end-line="225" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

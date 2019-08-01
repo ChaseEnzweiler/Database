@@ -4,8 +4,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Class is used to create tables that the database will consist of. Tables store
+ * data for the user in the form of Column objects and the user can query the data from these tables.
+ */
 class Table {
 
+    /**
+     * Column objects that the values of this table are stored in
+     */
     List<Column> columns;
 
     String[] columnNames;
@@ -14,6 +21,9 @@ class Table {
 
     String tableName;
 
+    /**
+     * number of rows the table consists of.
+     */
     int numRows;
 
     int numColumns;
@@ -28,9 +38,6 @@ class Table {
 
         this.numColumns = columns.length;
 
-        /*
-        assign variable to first column with cast to access getSize method to assign number of rows.
-         */
 
         this.numRows = columns[0].getSize();
 
@@ -44,7 +51,6 @@ class Table {
         List<String> columnTypes = new ArrayList<>();
 
         for(Column col: columns){
-
             columnNames.add(col.getName());
             columnTypes.add(col.getType());
         }
@@ -59,11 +65,13 @@ class Table {
         this.numRows = this.columns.get(0).getSize();
     }
 
-    /*
-    constructor that only takes in column names and types. input parameters are a String[] name, String[] type
-    used in create table parse
-     */
 
+    /**
+     * this constructor creates a table with no values in its columns.
+     * @param tableName String name of the table
+     * @param columnNames List of names of each column
+      * @param columnTypes List of types of each column
+     */
     Table(String tableName, List<String> columnNames, List<String> columnTypes){
 
         this.tableName = tableName;
@@ -75,9 +83,7 @@ class Table {
         List<Column> columns = new ArrayList<>();
 
         for(int i = 0; i < columnNames.size(); i++){
-
             Column toAdd = new Column(columnNames.get(i), columnTypes.get(i), new Object[]{});
-
             columns.add(toAdd);
         }
 
@@ -99,14 +105,8 @@ class Table {
 
         Table otherTable = (Table) other;
 
-        /*
-        ensure column types are equal, column names are equal, and all columns are equal
-        may have to override equals method in columns also.
-         */
-
         if(!Arrays.equals(this.columnNames, ((Table) other).columnNames)){
             /* checks the names of the columns for equality */
-
             return false;
         }
 
@@ -204,7 +204,6 @@ class Table {
         return this.columns;
     }
 
-
     /**
      * returns proper column from table by name, if column with nameToGet does not exists
      * throws a illegal argument exception
@@ -216,21 +215,15 @@ class Table {
 
         List<Column> columns = this.getColumnsAsList();
 
-        /*
-        look through columns for matching name, if not found throw Illegal Argument Exception
-         */
-
         for(Column col : columns){
 
             if(col.getName().equals(nameToGet)){
-
                 return col;
             }
         }
         throw new IllegalArgumentException();
     }
-
-
+    
     /**
      * inserts a new last row into the table, will print error if literals are not correct
      * amount or type for the table
@@ -241,12 +234,10 @@ class Table {
 
         try {
             if (literals.size() != this.columns.size()) {
-
                 throw new IllegalArgumentException();
             }
 
             for (int i = 0; i < literals.size(); i++) {
-
 
                 if((this.columns.get(i).getType().equals("string") && literals.get(i) instanceof String)
                         || (this.columns.get(i).getType().equals("int") && literals.get(i) instanceof Integer)
@@ -261,14 +252,12 @@ class Table {
             }
 
         } catch (Exception e){
-
             System.out.println("invalid literal input");
             return "invalid";
 
         }
 
         for(int i = 0; i < literals.size(); i++){
-
             this.columns.get(i).add(literals.get(i));
         }
 
@@ -278,8 +267,6 @@ class Table {
         return "";
     }
 
-
-
     /**
      * print method that prints the column name, type and values
      */
@@ -288,7 +275,6 @@ class Table {
         /*
         print first line of the table
          */
-
         int index = 0;
 
         while(index < columnNames.length){
@@ -315,19 +301,15 @@ class Table {
             for(int colIndex = 0; colIndex < numColumns; colIndex++){
 
                 /* print respective value in each column */
-
                 if(colIndex == numColumns - 1){
-
                     System.out.print(columns.get(colIndex).getValue(rowIndex) + "\n");
 
                 }else{
-
                     System.out.print(columns.get(colIndex).getValue(rowIndex) + ",");
                 }
             }
         }
     }
-
 
     /**
      * Method that returns a list of each line of the table as strings. first element will be the name and types,
@@ -347,19 +329,14 @@ class Table {
         /*
         loop to add first line of names and types
          */
-
         while(count < columnNames.length){
 
             if(count == columnNames.length - 1){
-
                 String toAppend = columnNames[count] + " " + columnTypes[count];
-
                 sb.append(toAppend);
 
             }else{
-
                 String toAppend = columnNames[count] + " " + columnTypes[count] + ",";
-
                 sb.append(toAppend);
             }
 
@@ -381,15 +358,11 @@ class Table {
             for(Column col : columns){
 
                 if(colCounter == numColumns - 1){
-
                     String toAppend = "" + col.getValue(valueCount) + "";
-
                     valueBuffer.append(toAppend);
 
                 }else{
-
                     String toAppend = "" + col.getValue(valueCount) + ",";
-
                     valueBuffer.append(toAppend);
                 }
 
