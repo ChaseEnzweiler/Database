@@ -69,7 +69,7 @@ public class Database {
      */
     void load(String tableName) {
 
-        File file = new File("/Users/Cenzwe/Desktop/proj2/examples/" + tableName + ".tbl");
+        File file = new File("/Users/Cenzwe/Desktop/Projects/Database/examples/" + tableName + ".tbl");
 
         BufferedReader reader;
 
