@@ -152,7 +152,7 @@ public class Database {
 
         Table toStore;
 
-        File file = new File("/Users/Cenzwe/Desktop/proj2/examples/" + name + ".tbl");
+        File file = new File("/Users/Cenzwe/Desktop/Projects/Database/examples/" + name + ".tbl");
 
         BufferedWriter writer;
 
