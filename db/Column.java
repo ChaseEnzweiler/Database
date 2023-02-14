@@ -110,7 +110,7 @@ class Column {
 
     /**
      * returns a list of all the values making up the column
-     * @return List</String> of values of column
+     * @return List<String> of values of column
      */
     List<Object> getValues(){
         return values;

@@ -14,9 +14,7 @@ class Row {
     private List<Object> values;
 
 
-    Row(){
-        values = new ArrayList<>();
-    }
+    Row(){ values = new ArrayList<>(); }
 
     /**
      * method adds an object to the back of the row
